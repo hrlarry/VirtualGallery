@@ -3,6 +3,12 @@ h1, h2, h3, h4, h5 {
      font-family: Arial Rounded MT Bold;
 }
 
+body {
+     font-family: "Arial", sans-serif;
+     font-size: 12px;
+     color: #000000;
+}
+
 /* Background generated using colorzilla.com/gradient-editor */
 #background-gradient {
      background: rgb(212,228,239); /* Old browsers */
@@ -53,12 +59,15 @@ h1, h2, h3, h4, h5 {
      text-align:center;
      text-shadow:1px 1px 0px #cc9f52;
 }
+
 .button:hover {
      background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
      background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
      background-color:#fb9e25;
-}.button:active {
+}
+
+.button:active {
      position:relative;
      top:1px;
 }
