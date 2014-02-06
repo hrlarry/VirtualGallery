@@ -11,7 +11,7 @@ for in-person social interaction based on users' shared interests and geographic
 
 
 ===============
-Developers: Larry Liu - hrlarry@stanford.edu
-            Stephanie Palocz - spalocz@stanford.edu
-            Sophie Ye - sophieye@stanford.edu
+Developers:  Larry Liu - hrlarry@stanford.edu
+             Stephanie Palocz - spalocz@stanford.edu
+             Sophie Ye - sophieye@stanford.edu
 ===============
