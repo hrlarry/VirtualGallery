@@ -7,8 +7,8 @@
 <html>
 <head>
 	<title>Login</title>	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -20,16 +20,15 @@
 
 
     <!-- adding CSS links -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="public/css/defaultCSS.css" rel="stylesheet">
 
 </head>
 
-<body>
+<body id="background-gradient">
 
 	<div class="container">
 	<form id="loginForm" role="form" method="get" action="/profilepage">
-		<h3>Log in to your profile:</h3>
+		<h2>Log in to your profile:</h2>
 	    <div class="form-group">
 	      <label for="username">Username:</label>
 	      <input type="text" class="form-control" id="username" placeholder="Username" name="username">
@@ -38,7 +37,7 @@
 	      <label for="password">Password:</label>
 	      <input type="text" class="form-control" id="password" placeholder="Password" name="password">
 	    </div>
-	    <input type="login" id="loginBtn" class="btn btn-default" value="Login"></input>
+	    <input type="login" id="loginBtn" class="button" value="Login"></input>
 	</form>
 	</div>
 
@@ -46,8 +45,8 @@
 		<hr>
 		<!-- other navigation buttons -->
 		<!-- these need to be be linked to a new profile creation page and the homepage, respectively -->
-		<button id="makeNewProfileBtn" class="btn btn-default">Create A New Profile</button>
-		<button id="backBtn" class="btn btn-default">Back to Homepage</button>
+		<button id="makeNewProfileBtn" class="button">Create A New Profile</button>
+		<button id="backBtn" class="button">Back to Homepage</button>
 	</div>
 
 	<!-- add scripts -->
