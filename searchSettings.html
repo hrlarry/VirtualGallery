@@ -27,10 +27,30 @@
 <body id="background-gradient">
 
 	<div class="container">
-	<form id="loginForm" role="form" method="get" action="/profilepage">
-		<h2>Set up your interest priorities</h2>
+	<form id="interestPriorities" role="form" method="get" action="/search.html">
+		<h2>Set up your interest priorities. These settings will be saved to your account.</h2>
 	    <div class="form-group">
 	      	<label for="distance">1: </label>
+	      	<select id="myList" onchange="favBrowser()">
+  				<option></option> <!--Should default to current settings-->
+  				<option>Music</option>
+  				<option>Technology</option>  
+  				<option>Visual Art</option>
+  				<option>(placeholders)</option>
+			</select>
+	    </div>
+	    <div class="form-group">
+	      	<label for="distance">2: </label>
+	      	<select id="myList" onchange="favBrowser()">
+  				<option></option> <!--Should default to current settings-->
+  				<option>Music</option>
+  				<option>Technology</option>  
+  				<option>Visual Art</option>
+  				<option>(placeholders)</option>
+			</select>
+	    </div>
+	    <div class="form-group">
+	      	<label for="distance">3: </label>
 	      	<select id="myList" onchange="favBrowser()">
   				<option></option> <!--Should default to current settings-->
   				<option>Music</option>
