@@ -7,7 +7,7 @@ that information to forge connections between like-minded people.
 
 Drawing inspiration from the experience of entering someone's room for the first time,
 VirtualBulletin seeks to present such interests in a digestible fashion and make recommendations
-for in-person social interaction based on users' shared interests.
+for in-person social interaction based on users' shared interests and geographic proximity.
 
 
 ===============
