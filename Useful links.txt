@@ -1,0 +1,8 @@
+
+Useful links (Remove file from repo when project is complete)
+=============================================================
+
+Fonts supported by CSS: http://cssfontstack.com/
+
+Boostrap CSS samples: http://getbootstrap.com/css/
+Boostrap JS samples: http://getbootstrap.com/javascript/
