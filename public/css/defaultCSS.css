@@ -4,9 +4,23 @@ h1, h2, h3, h4, h5 {
 }
 
 body {
-     font-family: "Arial", sans-serif;
-     font-size: 12px;
+     font-family: "Source Sans Pro", "Arial", sans-serif;
+     font-size: 14px;
      color: #000000;
+     background-color: rgba(212,228,239,1);
+}
+
+a {
+     color: #CC6600;
+     cursor: ;
+     text-decoration: none;
+}
+
+.login {
+     background-color:rgba(255,255,255,.8);
+     padding: 1px 10px 10px 10px;
+     width: 400px;
+     border-radius: 15px;
 }
 
 /* Background generated using colorzilla.com/gradient-editor */
@@ -19,6 +33,7 @@ body {
      background: -ms-linear-gradient(top,  rgba(212,228,239,1) 0%,rgba(134,174,204,1) 100%); /* IE10+ */
      background: linear-gradient(to bottom,  rgba(212,228,239,1) 0%,rgba(134,174,204,1) 100%); /* W3C */
      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc',GradientType=0 ); /* IE6-9 */
+     background-repeat: no-repeat;
 }
 
 
@@ -49,10 +64,10 @@ body {
      color:#ffffff;
      font-family:Arial Rounded MT Bold;
      font-size:15px;
-     font-weight:bold;
+     font-weight: bold;
      font-style:normal;
-     height:45px;
-     line-height:45px;
+     height:30px;
+     line-height:28px;
      /*width:200px;*/
      width:auto;
      text-decoration:none;
