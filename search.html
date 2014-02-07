@@ -1,57 +1,47 @@
 <!doctype html>
 
 <!-- this is going to be the handlebars file for the login page -->
-
-
-<!-- code from index.handlebars of lab 5 -->
 <html>
 <head>
-	<title>Search for Friends</title>	
- 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->   
-
-
-    <!-- adding CSS links -->
-    <link href="public/css/defaultCSS.css" rel="stylesheet">
-
+	<title>VirtualBulletin | Search</title>	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="public/css/defaultCSS.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>      
 </head>
 
 <body id="background-gradient">
 
 	<div class="container">
-	<form id="searchForm" role="form" method="get" action="/results">
+		<center>
 		<h2>Enter your search settings</h2>
-	    <div class="form-group">
-	    	<p>Your current location is: [Placeholder for GPS-detected location]</p>
-	      	<label for="distance">Find people within: </label>
-	      	<select id="distanceList" class="form-control">
-  				<option></option>
-  				<option>.1 miles</option>
-  				<option>.25 miles</option>  
-  				<option>.5 miles</option>
-  				<option>1 mile</option>
-  				<option>2 miles</option>
-  				<option>5 miles</option>
-			</select>
-	    </div>
-	</form>
-	    <a href="Search Results.html"><button id="searchBtn" class="button">Search!</button></a>
-	 	<a href="searchSettings.html"><button id="searchSettingsBtn" class="button">Edit search settings</button></a>
-	</div>
+		<div class="box">
+			<form id="searchForm" role="form" method="get" action="/results">
 
-	<div class="container">
-		<hr>
-		<!-- other navigation buttons -->
-		<!-- these need to be be linked to a new profile creation page and the homepage, respectively -->
-		<a href="index.html"><button id="backBtn" class="button">Back to Homepage</button></a>
+			    <div class="form-group">
+			    	<p>Your current location is: [Placeholder for GPS-detected location]</p>
+			      	<label for="distance">Find people within: </label>
+			      	<select id="distanceList" class="form-control">
+		  				<option></option>
+		  				<option>.1 miles</option>
+		  				<option>.25 miles</option>  
+		  				<option>.5 miles</option>
+		  				<option>1 mile</option>
+		  				<option>2 miles</option>
+		  				<option>5 miles</option>
+					</select>
+			    </div>
+			</form>
+			<br>
+		    <a href="Search Results.html"><button id="searchBtn" class="button">Search!</button></a>
+		 	<a href="searchSettings.html"><button id="searchSettingsBtn" class="button">Edit search settings</button></a>
+
+			<hr>
+			<!-- other navigation buttons -->
+			<!-- these need to be be linked to a new profile creation page and the homepage, respectively -->
+			<a href="home.html"><button id="backBtn" class="button">Back to Homepage</button></a>
+		</div>
+		</center>
 	</div>
 
 	<!-- add scripts -->
