@@ -6,7 +6,7 @@
 <!-- code from index.handlebars of lab 5 -->
 <html>
 <head>
-	<title>Search for Friends</title>	
+	<title>Search Results</title>	
  	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 	
@@ -27,25 +27,13 @@
 <body id="background-gradient">
 
 	<div class="container">
-	<form id="searchForm" role="form" method="get" action="/results">
-		<h2>Enter your search settings</h2>
-	    <div class="form-group">
-	    	<p>Your current location is: [Placeholder for GPS-detected location]</p>
-	      	<label for="distance">Find people within: </label>
-	      	<select id="distanceList" class="form-control">
-  				<option></option>
-  				<option>.1 miles</option>
-  				<option>.25 miles</option>  
-  				<option>.5 miles</option>
-  				<option>1 mile</option>
-  				<option>2 miles</option>
-  				<option>5 miles</option>
-			</select>
+		<h2>People most similar to you</h2>
+	    <div>
+	    	<h4>Name 1</h4>
+	    	<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/800px-Smiley.svg.png" height=200 width=200> </br>
+	    	Shared interests: [placeholders] </br>
+	    	Contact information: [placeholders] </br>
 	    </div>
-	</form>
-	    <a href="Search Results.html"><button id="searchBtn" class="button">Search!</button></a>
-	 	<a href="searchSettings.html"><button id="searchSettingsBtn" class="button">Edit search settings</button></a>
-	</div>
 
 	<div class="container">
 		<hr>
