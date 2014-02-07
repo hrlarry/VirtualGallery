@@ -22,6 +22,22 @@
     <!-- adding CSS links -->
     <link href="public/css/defaultCSS.css" rel="stylesheet">
 
+<!--
+	<script>
+	function checkEntry()
+	{
+		var text = document.getElementById("distanceList").value;
+		console.log(text);
+		if(text.length < 1){
+			document.getElementById("distanceList").addClass("has-error");
+			console.log("set error");
+		}
+		else{
+			document.getElementById("distanceList").removeClass("has-error");
+		}
+	}
+	</script>
+-->
 </head>
 
 <body id="background-gradient">
@@ -32,7 +48,7 @@
 	    <div class="form-group">
 	    	<p>Your current location is: [Placeholder for GPS-detected location]</p>
 	      	<label for="distance">Find people within: </label>
-	      	<select id="distanceList" class="form-control">
+	      	<select id="distanceList" class="form-control" onchange="checkEntry()">
   				<option></option>
   				<option>.1 miles</option>
   				<option>.25 miles</option>  
@@ -55,8 +71,8 @@
 	</div>
 
 	<!-- add scripts -->
-	<script src="js/jquery-1.11.0.js"></script>
-	<script src="js/bootstrap.js"></script>
+	<script src="public/js/jquery-1.11.0.js"></script>
+	<script src="public/js/bootstrap.js"></script>
 
 
 </body>
