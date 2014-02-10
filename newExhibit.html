@@ -3,6 +3,11 @@
 	<title>VirtualBulletin | Home</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="public/css/bootstrap.css" rel="stylesheet">
+	<link href="public/css/jasny-bootstrap.css" rel="stylesheet">
+	<link href="public/css/jasny-bootstrap-responsive.css" rel="stylesheet">
+	<link href="public/css/bootstrap-theme.css" rel="stylesheet">
+
 	<link href="public/css/defaultCSS.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>      
 </head>
@@ -11,25 +16,34 @@
 	<div class="container">
 		<center>
 		<h1>VirtualBulletin</h1>	
-
 		<div class="login">
 			<h2>New Exhibit</h2>
 
-			<div class="fileinput fileinput-new" data-provides="fileinput">
-			  	<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
-			 		<div>
-			  	  		<span class="btn btn-default btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="..."></span>
-			    		<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-			  		</div>
-				</div>
+
+			<!--Image upload script adapted from Jasny's template
+				http://jasny.github.io/bootstrap/javascript/#fileinput
+				http://stackoverflow.com/questions/18132896/how-to-use-jasnys-file-upload-with-bootstrap-3
+			-->
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+				
+  				<div class="fileupload-preview thumbnail" data-trigger="fileupload" style="width: 200px; height: 150px;"></div>
+    				<div class="input-group-btn">
+    					<span class="btn btn-default btn-file"><span class="fileupload-new">Select Exhibit Image</span>
+    					<span class="fileupload-exists">Change</span>
+    					<input type="file" name="..."></span>
+    					<a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+    				</div>
+    			
+			</div>
+
 			<a href="manageGallery.html"><button class="button">Open Exhibit</button></a>
 		</div>
 
 		</center>
 	</div>
 
-	<script src="js/jquery-1.11.0.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/hci-friends.js"></script>
+	<script src="public/js/jquery-1.11.0.js"></script>
+	<script src="public/js/bootstrap.js"></script>
+	<script src="public/js/jasny-bootstrap.js"></script>
 </body>
 </html>
