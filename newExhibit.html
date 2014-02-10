@@ -16,27 +16,28 @@
 	<div class="container">
 		<center>
 		<h1>VirtualBulletin</h1>	
-		<div class="login">
+		<div class="box">
 			<h2>New Exhibit</h2>
-
-
 			<!--Image upload script adapted from Jasny's template
 				http://jasny.github.io/bootstrap/javascript/#fileinput
 				http://stackoverflow.com/questions/18132896/how-to-use-jasnys-file-upload-with-bootstrap-3
 			-->
 			<div class="fileupload fileupload-new" data-provides="fileupload">
-				
-  				<div class="fileupload-preview thumbnail" data-trigger="fileupload" style="width: 200px; height: 150px;"></div>
+  				<div class="fileupload-preview thumbnail" data-trigger="fileupload" style="width: 200px; height: 150px;">
+  				</div>
     				<div class="input-group-btn">
-    					<span class="btn btn-default btn-file"><span class="fileupload-new">Select Exhibit Image</span>
+    					<span class="button btn-file"><span class="fileupload-new">Select Exhibit Image</span>
     					<span class="fileupload-exists">Change</span>
     					<input type="file" name="..."></span>
-    					<a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+    					<span href="#" class="button fileupload-exists" data-dismiss="fileupload">Remove</span>
     				</div>
-    			
 			</div>
 
+			<textarea class="form-control" rows="3" placeholder="Enter exhibit description here"></textarea>
+
+			</br>
 			<a href="manageGallery.html"><button class="button">Open Exhibit</button></a>
+			<a href="manageGallery.html"><button class="button">Cancel</button></a>
 		</div>
 
 		</center>
