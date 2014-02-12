@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>VirtualBulletin | Home</title>	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="public/css/bootstrap.css" rel="stylesheet">
+	<link href="public/css/jasny-bootstrap.css" rel="stylesheet">
+	<link href="public/css/jasny-bootstrap-responsive.css" rel="stylesheet">
+	<link href="public/css/bootstrap-theme.css" rel="stylesheet">
+
+	<link href="public/css/defaultCSS.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>      
+</head>
+
+<body>
+	<div class="container">
+		<center>
+		<h1>VirtualBulletin</h1>
+		<div class="box">
+			<h2>{{name}}'s Exhibits</h2>
+			<!--Image upload script adapted from Jasny's template
+				http://jasny.github.io/bootstrap/javascript/#fileinput
+				http://stackoverflow.com/questions/18132896/how-to-use-jasnys-file-upload-with-bootstrap-3
+			-->
+			</br>
+			<button>
+			<div class="media">
+  				<a class="pull-left" href="#">
+    				<img class="media-object" src="..." alt="...">
+ 				 </a>
+  				<div class="media-body">
+    				<h4 class="media-heading">Media heading</h4>
+    			</div>
+			</div>
+			</button>
+
+			</br>
+			<a href="manageGallery.html"><button id="submitExhibit" class="button">Open Exhibit</button></a>
+			<a href="manageGallery.html"><button class="button">Cancel</button></a>
+		</div>
+
+		</center>
+	</div>
+
+	<script src="public/js/jquery-1.11.0.js"></script>
+	<script src="public/js/bootstrap.js"></script>
+	<script src="public/js/jasny-bootstrap.js"></script>
+	<script src="routes/newExhibit.js"></script>
+</body>
+</html>

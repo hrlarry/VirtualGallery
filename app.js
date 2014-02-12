@@ -42,7 +42,8 @@ if ('development' == app.get('env')) {
 // app.get('/add', add.addFriend);
 // Example route
 // app.get('/users', user.list);
-app.get('/newExhibit', newExhibit.displayPage)
+app.get('/', landingPage.load);
+app.get('/newExhibit', newExhibit.displayPage);
 
 
 

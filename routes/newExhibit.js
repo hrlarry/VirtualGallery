@@ -38,10 +38,11 @@ function initializePage() {
         });
     });
 
-    $('')
+    $('#submitExhibit').click(submitExhibit)
 }
 
-function submitExhibit(){
+function submitExhibit(e){
+	e.preventDefault();
 	console.log("Submit Exhibit");
 
 	var chosenTagsList = document.getElementsByName("chosenTags")[0];
