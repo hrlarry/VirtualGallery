@@ -23,9 +23,17 @@ function setActive(e){
     //Deactivates previous selection
     var previouslyActive = $(this).parent().children(".active");
     previouslyActive.removeClass("active");
+    /*
+    if(previouslyActive != $(this)){
+       $(".in").removeClass("in");
+    }
+    console.log(previouslyActive);
+    console.log($(this));
+*/
 
     //Activates new selection
     $(this).addClass("active");
+    //$(this).append("<button>Test</button>")
 
 }
 /*
