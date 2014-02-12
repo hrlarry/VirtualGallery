@@ -1,0 +1,145 @@
+{
+	"users": [
+		{
+			"username": "spalocz",
+			"password": "stephaniePassword",
+			"email": "spalocz@stanford.edu",
+			"phone": "5555555555",
+			"exhibits": [
+				{
+					"imageURL": "http://upload.wikimedia.org/wikipedia/commons/6/63/French_horn_front.png",
+					"description": "I like to play the French horn",
+					"keywords": [
+						"Music",
+						"Music: Classical"
+					]
+				},
+				{
+					"imageURL": "http://aquaforceswimmingclub.com.au/images/butterfly_racing.jpg",
+					"description": "I am a competitive swimmer",
+					"keywords": [
+						"Sports",
+						"Sports: Swimming"
+					]
+				}
+			],
+			"priorities": {
+				"first": "Music",
+				"second": "Sports",
+				"third": "Education"
+			}
+		},
+		{
+			"username": "sarahT",
+			"password": "kitPassword",
+			"email": "kitswim@elementals.com",
+			"phone": "5555555555",
+			"exhibits": [
+				{
+					"imageURL": "http://aquaforceswimmingclub.com.au/images/butterfly_racing.jpg",
+					"description": "I am also a competitive swimmer",
+					"keywords": [
+						"Sports",
+						"Sports: Swimming"
+					]
+				}
+			],
+			"priorities": {
+				"first": "Sports",
+				"second": "People",
+				"third": "Education"
+			}
+		},
+		{
+			"username": "jen",
+			"password": "jenPassword",
+			"email": "jenredmont@tvr",
+			"phone": "5555555555",
+			"exhibits": [
+				{
+					"imageURL": "http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg",
+					"description": "I play soccer, which is not swimming but still a sport",
+					"keywords": [
+						"Sports",
+						"Sports: Football"
+					]
+				},
+				{
+					"imageURL": "http://acapellachorus.com/wp-content/uploads/2010/08/A-Capella-Chorus-Promo1.jpg",
+					"description": "I like to sing, which is not French horn but is still music",
+					"keywords": [
+						"Music",
+						"Music: R&B"
+					]
+				}
+			],
+			"priorities": {
+				"first": "Sports",
+				"second": "People",
+				"third": "Music"
+			}
+		},	
+		{
+			"username": "kate",
+			"password": "katePassword",
+			"email": "katematchesjen@tvr",
+			"phone": "5555555555",
+			"exhibits": [
+				{
+					"imageURL": "http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg",
+					"description": "I play soccer, which is not swimming but still a sport",
+					"keywords": [
+						"Sports",
+						"Sports: Football"
+					]
+				},
+				{
+					"imageURL": "http://acapellachorus.com/wp-content/uploads/2010/08/A-Capella-Chorus-Promo1.jpg",
+					"description": "I like to sing, which is not French horn but is still music",
+					"keywords": [
+						"Music",
+						"Music: R&B"
+					]
+				}
+			],
+			"priorities": {
+				"first": "Sports",
+				"second": "People",
+				"third": "Music"
+			}
+		},
+		{
+			"username": "gary",
+			"password": "garyPassword",
+			"email": "gary@tvr",
+			"phone": "5555555555",
+			"exhibits": [
+				{
+					"imageURL": "http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg",
+					"description": "I sometimes play soccer, which is not swimming but still a sport",
+					"keywords": [
+						"Sports",
+						"Sports: Football"
+					]
+				},
+				{
+					"imageURL": "http://mustech.pbworks.com/f/1329421488/music.jpg",
+					"description": "I like all the music",
+					"keywords": [
+						"Music",
+						"Music: R&B",
+						"Music: Classical",
+						"Music: Hip-hop",
+						"Music: Rap",
+						"Music: A capella"
+					]
+				}
+			],
+			"priorities": {
+				"first": "People",
+				"second": "Music",
+				"third": "Education"
+			}
+		},
+	]
+}
