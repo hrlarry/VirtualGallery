@@ -13,9 +13,19 @@ function initializePage() {
         horizontalAlign: "center",
         verticalAlign: "center"
     });
+
+    $(".list-group-item").click(setActive);
 }
 
-function submitExhibit(e){
+function setActive(e){
+    e.preventDefault();
+    
+    //Deactivates previous selection
+    var previouslyActive = $(this).parent().children(".active");
+    previouslyActive.removeClass("active");
+
+    //Activates new selection
+    $(this).addClass("active");
 
 }
 /*
