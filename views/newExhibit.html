@@ -43,28 +43,27 @@
 			<form>
   				<fieldset>
  
-    				<select name="allTags" id="select-from" multiple size="5" style="width: 100px">
+    				<select name="selectfrom" id="select-from" multiple size="5">
       					<OPTGROUP label="Music">
       						<option value="1">Classical</option>
       						<option value="2">Hip-hop</option>
       						<option value="3">Rap</option>
       						<option value="4">R&amp;B</option>
-      						<option value="5">A capella</option>
       					</OPTGROUP>
       					<OPTGROUP label="Sports">
-      						<option value="6">Baseball</option>
-      						<option value="7">Basketball</option>
-      						<option value="8">Football</option>
-      						<option value="9">Hockey</option>
-      						<option value="10">Tennis</option>
+      						<option value="5">Baseball</option>
+      						<option value="6">Basketball</option>
+      						<option value="7">Football</option>
+      						<option value="8">Hockey</option>
       					</OPTGROUP>
     				</select>
  
 				    <a href="JavaScript:void(0);" id="btn-add">Add &raquo;</a>
     				<a href="JavaScript:void(0);" id="btn-remove">&laquo; Remove</a>
 	 
-    				<select name="chosenTags" id="select-to" multiple size="5" style="width: 100px">
-      					<!--Starts out empty-->
+    				<select name="selectto" id="select-to" multiple size="5">
+      					<option value="5">A capella</option>
+      					<option value="6">Tennis</option>
     				</select>
  
 			 	</fieldset>
@@ -83,6 +82,5 @@
 	<script src="public/js/jquery-1.11.0.js"></script>
 	<script src="public/js/bootstrap.js"></script>
 	<script src="public/js/jasny-bootstrap.js"></script>
-	<script src="routes/newExhibit.js"></script>
 </body>
 </html>
