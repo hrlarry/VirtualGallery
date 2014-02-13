@@ -12,7 +12,8 @@ var handlebars = require('express3-handlebars')
 // Example route
 // var user = require('./routes/user');
 // var add = require('./routes/add');
-var newExhibit = require('./routes/newExhibit');
+//var newExhibit = require('./routes/newExhibit');
+var searchResults = require('./routes/searchResults');
 
 
 var app = express();
@@ -42,8 +43,9 @@ if ('development' == app.get('env')) {
 // app.get('/add', add.addFriend);
 // Example route
 // app.get('/users', user.list);
-app.get('/', landingPage.load);
-app.get('/newExhibit', newExhibit.displayPage);
+//app.get('/', landingPage.load);
+//app.get('/newExhibit', newExhibit.displayPage);
+app.get('/searchResults', searchResults.displayPage);
 
 
 

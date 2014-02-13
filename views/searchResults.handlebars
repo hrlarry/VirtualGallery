@@ -1,0 +1,41 @@
+<!doctype html>
+
+<!-- this is going to be the handlebars file for the login page -->
+
+
+<!-- code from index.handlebars of lab 5 -->
+<html>
+<head>
+	<title>Search Results</title>	
+ 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="public/css/defaultCSS.css" rel="stylesheet">
+
+</head>
+
+<body id="background-gradient">
+
+	<div class="container">
+		<h2>People most similar to you</h2>
+		{{#each users}}
+	    <div>
+	    	<h4>{{username}}</h4>
+	    	Shared interests: [placeholders] </br>
+	    	Contact information: {{email}}, {{phone}} </br>
+	    </div>
+	    {{/each}}
+
+	<div class="container">
+		<hr>
+		<!-- other navigation buttons -->
+		<!-- these need to be be linked to a new profile creation page and the homepage, respectively -->
+		<a href="home.html"><button id="backBtn" class="button">Back to Homepage</button></a>
+	</div>
+
+	<!-- add scripts -->
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/bootstrap.js"></script>
+
+
+</body>
+</html>
