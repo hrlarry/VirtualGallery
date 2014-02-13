@@ -1,5 +1,10 @@
 //var data = require("../categories.json");
 
+exports.displayPage = function(req, res){
+    initializePage();
+    res.render('newExhibit');
+}
+
 $(document).ready(function() {
 	initializePage();
 })

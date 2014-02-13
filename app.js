@@ -16,6 +16,10 @@ var handlebars = require('express3-handlebars')
 var searchResults = require('./routes/searchResults');
 var landingPage = require('./routes/landingPage');
 var login = require('./routes/login');
+var home = require('./routes/home');
+var createProfile = require('./routes/createProfile');
+var editProfile = require('./routes/editProfile');
+var search = require('./routes/search');
 
 
 var app = express();
@@ -49,6 +53,10 @@ app.get('/', landingPage.load);
 //app.get('/newExhibit', newExhibit.displayPage);
 app.get('/searchResults', searchResults.displayPage);
 app.get('/login', login.displayPage);
+app.get('/home', home.displayPage);
+app.get('/createProfile', createProfile.displayPage);
+app.get('/editProfile', editProfile.displayPage);
+app.get('/search', search.displayPage);
 
 
 
