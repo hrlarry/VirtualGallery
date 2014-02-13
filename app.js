@@ -20,6 +20,7 @@ var home = require('./routes/home');
 var createProfile = require('./routes/createProfile');
 var editProfile = require('./routes/editProfile');
 var search = require('./routes/search');
+var searchSettings = require('./routes/searchSettings');
 
 
 var app = express();
@@ -57,6 +58,7 @@ app.get('/home', home.displayPage);
 app.get('/createProfile', createProfile.displayPage);
 app.get('/editProfile', editProfile.displayPage);
 app.get('/search', search.displayPage);
+app.get('/searchSettings', searchSettings.displayPage);
 
 
 
