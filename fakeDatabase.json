@@ -7,6 +7,7 @@
 			"phone": "5555555555",
 			"exhibits": [
 				{
+					"id": 1,
 					"imageURL": "http://upload.wikimedia.org/wikipedia/commons/6/63/French_horn_front.png",
 					"description": "I like to play the French horn",
 					"keywords": [
@@ -15,11 +16,30 @@
 					]
 				},
 				{
+					"id": 2,
 					"imageURL": "http://aquaforceswimmingclub.com.au/images/butterfly_racing.jpg",
 					"description": "I am a competitive swimmer",
 					"keywords": [
 						"Sports",
 						"Sports: Swimming"
+					]
+				},
+				{
+					"id": 3,
+					"imageURL": "http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg",
+					"description": "I play soccer, which is not swimming but still a sport",
+					"keywords": [
+						"Sports",
+						"Sports: Football"
+					]
+				},
+				{
+					"id": 4,
+					"imageURL": "http://acapellachorus.com/wp-content/uploads/2010/08/A-Capella-Chorus-Promo1.jpg",
+					"description": "I like to sing, which is not French horn but is still music",
+					"keywords": [
+						"Music",
+						"Music: R&B"
 					]
 				}
 			],
@@ -36,6 +56,7 @@
 			"phone": "5555555555",
 			"exhibits": [
 				{
+					"id": 1,
 					"imageURL": "http://aquaforceswimmingclub.com.au/images/butterfly_racing.jpg",
 					"description": "I am also a competitive swimmer",
 					"keywords": [
@@ -57,6 +78,7 @@
 			"phone": "5555555555",
 			"exhibits": [
 				{
+					"id": 1,
 					"imageURL": "http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg",
 					"description": "I play soccer, which is not swimming but still a sport",
 					"keywords": [
@@ -65,6 +87,7 @@
 					]
 				},
 				{
+					"id": 2,
 					"imageURL": "http://acapellachorus.com/wp-content/uploads/2010/08/A-Capella-Chorus-Promo1.jpg",
 					"description": "I like to sing, which is not French horn but is still music",
 					"keywords": [
@@ -86,6 +109,7 @@
 			"phone": "5555555555",
 			"exhibits": [
 				{
+					"id": 1,
 					"imageURL": "http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg",
 					"description": "I play soccer, which is not swimming but still a sport",
 					"keywords": [
@@ -94,6 +118,7 @@
 					]
 				},
 				{
+					"id": 2,
 					"imageURL": "http://acapellachorus.com/wp-content/uploads/2010/08/A-Capella-Chorus-Promo1.jpg",
 					"description": "I like to sing, which is not French horn but is still music",
 					"keywords": [
@@ -115,6 +140,7 @@
 			"phone": "5555555555",
 			"exhibits": [
 				{
+					"id": 1,
 					"imageURL": "http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg",
 					"description": "I sometimes play soccer, which is not swimming but still a sport",
 					"keywords": [
@@ -123,6 +149,7 @@
 					]
 				},
 				{
+					"id": 2010,
 					"imageURL": "http://mustech.pbworks.com/f/1329421488/music.jpg",
 					"description": "I like all the music",
 					"keywords": [

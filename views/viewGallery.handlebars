@@ -3,13 +3,13 @@
 	<title>VirtualBulletin | Home</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="public/css/bootstrap.css" rel="stylesheet">
-	<link href="public/css/jasny-bootstrap.css" rel="stylesheet">
-	<link href="public/css/jasny-bootstrap-responsive.css" rel="stylesheet">
-	<link href="public/css/bootstrap-theme.css" rel="stylesheet">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/jasny-bootstrap.css" rel="stylesheet">
+	<link href="css/jasny-bootstrap-responsive.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
 
-	<link href="public/css/defaultCSS.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>      
+	<link href="css/defaultCSS.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -17,34 +17,81 @@
 		<center>
 		<h1>VirtualBulletin</h1>
 		<div class="box">
-			<h2>{{name}}'s Exhibits</h2>
+			<h2>Your Exhibits</h2>
 			<!--Image upload script adapted from Jasny's template
 				http://jasny.github.io/bootstrap/javascript/#fileinput
 				http://stackoverflow.com/questions/18132896/how-to-use-jasnys-file-upload-with-bootstrap-3
 			-->
 			</br>
-			<button>
-			<div class="media">
-  				<a class="pull-left" href="#">
-    				<img class="media-object" src="..." alt="...">
- 				 </a>
-  				<div class="media-body">
-    				<h4 class="media-heading">Media heading</h4>
-    			</div>
-			</div>
-			</button>
+			<div class="list-group" id="allExhibits">
+				{{#each exhibits}}
+ 				<a href="#collapse{{id}}" class="list-group-item" data-toggle="collapse" data-parent="#allExhibits">
+    				<div class="media">
+  						<span class="pull-left thumbnail gallerythumbnail" href="#">
+    						<div class="imgLiquidFill imgLiquid" style="width:50px; height:50px;">
+    							<img class="media-object" src="{{imageURL}}" alt="alttext">
+							</div>
+ 				 		</span>
+  						<div class="media-body" align="left">
+    						<p class="list-group-item-text">{{description}}</p>
+    					</div>
+					</div>
+					<div id="collapse{{id}}" class="panel-collapse collapse">
+      					<button>Edit</button>
+      					<button>Delete</button>
+    				</div>
+ 				</a>
+ 				{{/each}}
+ 				<!--
+ 				<a href="#collapseTwo" class="list-group-item" data-toggle="collapse" data-parent="#allExhibits">
+    				<div class="media">
+  						<span class="pull-left thumbnail gallerythumbnail" href="#">
+  							<div class="imgLiquidFill imgLiquid" style="width:50px; height:50px;">
+    							<img class="media-object" src="http://upload.wikimedia.org/wikipedia/commons/6/63/French_horn_front.png" />
+							</div>
+ 				 		</span>
+  						<div class="media-body" align="left">
+    						<h4 class="list-group-item-heading">Second project</h4>
+    						<p class="list-group-item-text">Second project description</p>
+    					</div>
+					</div>
+ 					<div id="collapseTwo" class="panel-collapse collapse">
+	      				<button>Edit</button>
+      					<button>Delete</button>
+    				</div>					
+ 				</a>
 
-			</br>
-			<a href="manageGallery.html"><button id="submitExhibit" class="button">Open Exhibit</button></a>
-			<a href="manageGallery.html"><button class="button">Cancel</button></a>
+ 				<a href="#collapseThree" class="list-group-item" data-toggle="collapse" data-parent="#allExhibits">
+    				<div class="media">
+  						<span class="pull-left thumbnail gallerythumbnail" href="#">
+    						<div class="imgLiquidFill imgLiquid" style="width:50px; height:50px;">
+    							<img class="media-object" src="http://payload40.cargocollective.com/1/0/15559/3117367/TallMan_Cargo.jpg" />
+							</div>
+ 				 		</span>
+  						<div class="media-body" align="left">
+    						<h4 class="list-group-item-heading">Third project</h4>
+    						<p class="list-group-item-text">Third project description</p>
+    					</div>
+					</div>
+ 					<div id="collapseThree" class="panel-collapse collapse">
+	      				<button>Edit</button>
+      					<button>Delete</button>
+    				</div>
+    			</a>
+ 				-->
+			</div>
+			<a href="newExhibit"><button id="backBtn" class="button">New Exhibit</button></a>
+			<a href="home"><button id="backBtn" class="button">Back</button></a>
 		</div>
 
 		</center>
 	</div>
 
-	<script src="public/js/jquery-1.11.0.js"></script>
-	<script src="public/js/bootstrap.js"></script>
-	<script src="public/js/jasny-bootstrap.js"></script>
-	<script src="routes/newExhibit.js"></script>
-</body>
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jasny-bootstrap.js"></script>
+	<script src="js/imgLiquid-min.js"></script>
+	<script src="js/viewGalleryControls.js"></script>
+
+	</body>
 </html>

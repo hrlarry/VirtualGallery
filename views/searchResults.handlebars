@@ -9,33 +9,34 @@
 	<title>Search Results</title>	
  	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/defaultCSS.css" rel="stylesheet">
+    <link href="../css/defaultCSS.css" rel="stylesheet">
 
 </head>
 
 <body id="background-gradient">
 
 	<div class="container">
-		<h2>People most similar to you</h2>
-		{{#each users}}
-	    <div>
-	    	<h4>{{username}}</h4>
-	    	Shared interests: [placeholders] </br>
-	    	Contact information: {{email}}, {{phone}} </br>
-	    </div>
-	    {{/each}}
+		<div class ="box">
+			<h2>People most similar to you</h2>
+	    	<div>
+	    		<h4>Name 1</h4>
+	    		<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/800px-Smiley.svg.png" height=200 width=200> </br>
+	    		Shared interests: [placeholders] </br>
+		    	Contact information: [placeholders] </br>
+		    </div>
 
-	<div class="container">
-		<hr>
-		<!-- other navigation buttons -->
-		<!-- these need to be be linked to a new profile creation page and the homepage, respectively -->
-		<a href="search"><button id="searchAgainBtn" class="button">Back to Search</button></a>
-		<a href="home"><button id="backBtn" class="button">Back to Homepage</button></a>
+		<div class="container">
+			<hr>
+			<!-- other navigation buttons -->
+			<!-- these need to be be linked to a new profile creation page and the homepage, respectively -->
+			<a href="search"><button id="backBtn" class="button">Back</button></a>
+		</div>
+
 	</div>
 
 	<!-- add scripts -->
-	<script src="js/jquery-1.11.0.js"></script>
-	<script src="js/bootstrap.js"></script>
+	<script src="../js/jquery-1.11.0.js"></script>
+	<script src="../js/bootstrap.js"></script>
 
 
 </body>

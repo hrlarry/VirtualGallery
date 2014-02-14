@@ -5,6 +5,8 @@
 	<title>VirtualBulletin | Welcome</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
 	<link href="css/defaultCSS.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>      
 </head>
@@ -24,7 +26,38 @@
 		<br><br>
 		<div class="box">
 			<p>Already have an account? Perfect. Welcome back.</p>
-			<a href="login"><button class="button">Login</button></a>
+			<button class="button" data-toggle="modal" data-target="#myModal">
+		  		Login
+			</button>
+	
+			<!--Modal for login-->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  		<div class="modal-dialog">
+		    		<div class="modal-content">
+		      			<div class="modal-header">
+		        			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        			<h3>Login here.</h3>
+		      			</div>
+		      			<div class="modal-body">
+		      				<form id="loginForm" role="form" method="get" action="/profilepage">
+							    <div class="form-group">
+							      <label for="username">Username:</label>
+							      <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+							    </div>
+
+							    <div class="form-group">
+							      <label for="password">Password:</label>
+							      <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+							    </div>
+							</form>
+		            	</div>
+		      			<div class="modal-footer">
+		        			<button type="button" class="button" data-dismiss="modal">Close</button>
+		        			<a href="home"><button type="button" class="button">Login</button></a>
+		      			</div>
+		    		</div>
+				</div>
+			</div>
 		</div>
 
 		</center>

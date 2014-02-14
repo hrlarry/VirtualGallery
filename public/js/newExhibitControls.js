@@ -5,15 +5,15 @@ exports.displayPage = function(req, res){
     res.render('newExhibit');
 }
 */
-/*
+
 $(document).ready(function() {
 	initializePage();
-})*/
+})
 
 /*
  * Function that is called when the document is ready.
  */
-/*function initializePage() {
+function initializePage() {
 
 	$('#btn-add').click(function(){
         $('#select-from option:selected').each( function() {
@@ -44,21 +44,22 @@ $(document).ready(function() {
         });
     });
 
-    $('#submitExhibit').click(submitExhibit)
+    //$('#submitExhibit').click(submitExhibit);
 }
 
 function submitExhibit(e){
 	e.preventDefault();
 	console.log("Submit Exhibit");
 
+    /*
 	var chosenTagsList = document.getElementsByName("chosenTags")[0];
-	console.log(chosenTagsList.options);
-}*/
-
+	console.log(chosenTagsList.options);*/
+}
+/*
 exports.displayPage = function(req, res) {    
 	// Your code goes here
 	//var name = req.query.name;
-	/*var description = req.query.description;
+	var description = req.query.description;
 	var newFriend = {
 		"name": name,
 		"description": description,
@@ -67,7 +68,7 @@ exports.displayPage = function(req, res) { 
 	
 	data["friends"].push(newFriend);
 
-	console.log(newFriend);*/
+	console.log(newFriend);
 
-	res.render('newExhibit');
- }
+	res.render('add', newFriend);
+ }*/

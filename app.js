@@ -21,6 +21,9 @@ var createProfile = require('./routes/createProfile');
 var editProfile = require('./routes/editProfile');
 var search = require('./routes/search');
 var searchSettings = require('./routes/searchSettings');
+var viewGallery = require('./routes/viewGallery');
+var profile = require('./routes/profile');
+var newExhibit = require('./routes/newExhibit');
 
 
 var app = express();
@@ -59,6 +62,9 @@ app.get('/createProfile', createProfile.displayPage);
 app.get('/editProfile', editProfile.displayPage);
 app.get('/search', search.displayPage);
 app.get('/searchSettings', searchSettings.displayPage);
+app.get('/viewGallery', viewGallery.displayPage);
+app.get('/profile', profile.displayPage);
+app.get('/newExhibit', newExhibit.displayPage);
 
 
 
