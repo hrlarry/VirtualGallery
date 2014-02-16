@@ -24,6 +24,8 @@ var searchSettings = require('./routes/searchSettings');
 var viewGallery = require('./routes/viewGallery');
 var profile = require('./routes/profile');
 var newExhibit = require('./routes/newExhibit');
+var visitGallery = require('./routes/visitGallery');
+var displayExhibit = require('./routes/displayExhibit');
 
 
 var app = express();
@@ -66,6 +68,8 @@ app.get('/viewGallery', viewGallery.displayPage);
 app.get('/viewGallery/:username', viewGallery.displayPage); //to pass username parameter
 app.get('/profile', profile.displayPage);
 app.get('/newExhibit', newExhibit.displayPage);
+app.get('/visitGallery', visitGallery.displayPage);
+app.get('/displayExhibit/:id', displayExhibit.exhibitInfo);
 
 
 
