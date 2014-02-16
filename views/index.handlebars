@@ -26,12 +26,12 @@
 		<br><br>
 		<div class="box">
 			<p>Already have an account? Perfect. Welcome back.</p>
-			<button class="button" data-toggle="modal" data-target="#myModal">
+			<button class="button" data-toggle="modal" data-target="#loginModal">
 		  		Login
 			</button>
 	
 			<!--Modal for login-->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  		<div class="modal-dialog">
 		    		<div class="modal-content">
 		      			<div class="modal-header">
@@ -60,7 +60,31 @@
 			</div>
 		</div>
 
-		</center>
+		<br>
+				<!-- about/instructions -->
+			<button class="button" data-toggle="modal" data-target="#aboutModal">
+		  		About
+			</button>
+			
+			<!--Modal for about/instructions-->
+			<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  		<div class="modal-dialog">
+		    		<div class="modal-content">
+		      			<div class="modal-header">
+		        			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        			<h3>About VirtualGallery</h3>
+		      			</div>
+		      			<div class="modal-body">
+		      				<!-- not sure what text we want here -->
+		      				VirtualGallery gives you a platform to display your interests and uses interest matching to connect you with like-minded people in your area.  Your interests are displayed in your own personal exhibit gallery.   To get going, simply sign up for an account and start creating exhibits that reflect your interests!
+		            	</div>
+		      			<div class="modal-footer">
+		        			<button type="button" class="button" data-dismiss="modal">Close</button>
+		      			</div>
+		    		</div>
+				</div>
+			</div>
+
 	</div>
 
 	<script src="js/jquery-1.11.0.js"></script>

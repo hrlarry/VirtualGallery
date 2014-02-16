@@ -63,7 +63,7 @@ app.get('/editProfile', editProfile.displayPage);
 app.get('/search', search.displayPage);
 app.get('/searchSettings', searchSettings.displayPage);
 app.get('/viewGallery', viewGallery.displayPage);
-app.get('/viewGallery/:username', viewGallery.displayPage);
+app.get('/viewGallery/:username', viewGallery.displayPage); //to pass username parameter
 app.get('/profile', profile.displayPage);
 app.get('/newExhibit', newExhibit.displayPage);
 
