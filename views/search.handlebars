@@ -1,6 +1,5 @@
 <!doctype html>
 
-<!-- this is going to be the handlebars file for the login page -->
 <html>
 <head>
 	<title>VirtualBulletin | Search</title>	
@@ -18,7 +17,6 @@
 		<h2>Enter your search settings</h2>
 	    <div class="box">
 			<form id="searchForm" role="form" method="get" action="/results">
-
 			    <div class="form-group">
 			    	<p>Your current location is: [Placeholder for GPS-detected location]</p>
 			      	<label for="distance">Find people within: </label>
@@ -35,43 +33,65 @@
 			</form>
 			<br>
 		    <a href="searchResults"><button id="searchBtn" class="button">Search!</button></a>
-		 	<a href="searchSettings"><button id="searchSettingsBtn" class="button">Edit search settings</button></a>
-		
+		 	<!--<a href="searchSettings"><button id="searchSettingsBtn" class="button">Edit search settings</button></a>-->
+		 	<button class="button" data-toggle="modal" data-target="#settingsModal">Edit search settings</button>
 
+		 	<div class="modal fade" id="settingsModal">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			        <h2 class="modal-title">Edit Search Settings</h2>
+			      </div>
+			      <div class="modal-body">
+			        <form id="interestPriorities" role="form" method="get" action="/search.html">
+						<p>Sort your interests by priority. We'll be sure to remember these the next time you search!</p>
+		    			<div class="form-group">
+		      				<label for="distance">1: </label>
+		      				<select id="myList" onchange="favBrowser()">
+	  							<option></option> <!--Should default to current settings-->
+	  							<option>Music</option>
+	  							<option>Technology</option>  
+	  							<option>Visual Art</option>
+	  							<option>(placeholders)</option>
+							</select>
+		    			</div>
+		    			<div class="form-group">
+		      				<label for="distance">2: </label>
+		      				<select id="myList" onchange="favBrowser()">
+	  							<option></option> <!--Should default to current settings-->
+	  							<option>Music</option>
+	  							<option>Technology</option>  
+	  							<option>Visual Art</option>
+	  							<option>(placeholders)</option>
+							</select>
+		    			</div>
+		    			<div class="form-group">
+		      				<label for="distance">3: </label>
+		      				<select id="myList" onchange="favBrowser()">
+	  							<option></option> <!--Should default to current settings-->
+	  							<option>Music</option>
+	  							<option>Technology</option>  
+	  							<option>Visual Art</option>
+	  							<option>(placeholders)</option>
+							</select>
+		    			</div>
+					</form>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <a href="search"><button type="button" class="btn btn-primary">Save changes</button></a>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+		
 		 	<hr>
-			<!-- other navigation buttons -->
-			<!-- these need to be be linked to a new profile creation page and the homepage, respectively -->
 			<a href="home"><button id="backBtn" class="button">Back</button></a>
 		</div>
 	</div>
 
-
-<!--Modal here, add comment lines.
-	<button class="button" data-toggle="modal" data-target="#myModal">
-  		Launch demo modal
-	</button>
-	
-	
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  		<div class="modal-dialog">
-    		<div class="modal-content">
-      			<div class="modal-header">
-        			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        			<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      			</div>
-      			<div class="modal-body">
-            	</div>
-      			<div class="modal-footer">
-        			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        			<button type="button" class="btn btn-primary">Save changes</button>
-      			</div>
-    		</div>
-		</div>
-	</div>
--->
-
 	</center>
-	<!-- add scripts -->
 
 	<script src="../js/jquery-1.11.0.js"></script>
 	<script src="../js/bootstrap.js"></script>
