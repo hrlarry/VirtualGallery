@@ -18,12 +18,14 @@
 			<h2>People most similar to you</h2>
 			{{#each users}}
 	    	<div>
-	    		<h4>{{username}}</h4>
-	    		<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/800px-Smiley.svg.png" height=200 width=200> </br>
-	    		Shared interests: [placeholders] </br>
-		    	Contact information: <br>
-		    	Email: {{email}} <br>
-		    	Phone Number: {{phone}} <br></br>
+	    		<a href="viewGallery/{{username}}">
+	    			<h4>{{username}}</h4>
+	    			<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/800px-Smiley.svg.png" height=200 width=200> </br>
+	    			Shared interests: [placeholders] </br>
+		    		Contact information: <br>
+		    		Email: {{email}} <br>
+		    		Phone Number: {{phone}} <br></br>
+		    	</a>
 		    </div>
 		    {{/each}}
 
