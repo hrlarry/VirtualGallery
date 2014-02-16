@@ -27,6 +27,10 @@ a {
      border-radius: 15px;
 }
 
+.modal {
+    overflow-y: auto;    /*removes scrollbar from appearing when unnecessary*/
+}
+
 /* Background generated using colorzilla.com/gradient-editor */
 #background-gradient {
      background: rgb(212,228,239); /* Old browsers */

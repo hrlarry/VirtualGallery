@@ -1,8 +1,5 @@
 <!doctype html>
 
-<!-- this is going to be the handlebars file for the login page -->
-
-
 <!-- code from index.handlebars of lab 5 -->
 <html>
 <head>
@@ -13,25 +10,33 @@
 
 </head>
 
-<body id="background-gradient">
-
+<body>
 	<div class="container">
+		<center>
+		<h1>VirtualBulletin</h1>
+		</center>
+
 		<div class ="box">
 			<h2>People most similar to you</h2>
+			{{#each users}}
 	    	<div>
-	    		<h4>Name 1</h4>
-	    		<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/800px-Smiley.svg.png" height=200 width=200> </br>
-	    		Shared interests: [placeholders] </br>
-		    	Contact information: [placeholders] </br>
+	    		<a href="viewGallery/{{username}}">
+	    			<h3>{{username}}</h3>
+	    			<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/800px-Smiley.svg.png" height=200 width=200> </br>
+	    			Shared interests: [placeholders] </br>
+		    		Contact information: <br>
+		    		Email: {{email}} <br>
+		    		Phone Number: {{phone}} <br></br>
+		    	</a>
 		    </div>
+		    {{/each}}
 
-		<div class="container">
 			<hr>
-			<!-- other navigation buttons -->
-			<!-- these need to be be linked to a new profile creation page and the homepage, respectively -->
-			<a href="search"><button id="backBtn" class="button">Back</button></a>
-		</div>
 
+			<center>
+			<a href="search"><button id="backBtn" class="button">Back</button></a>
+			</center>
+		</div>
 	</div>
 
 	<!-- add scripts -->
