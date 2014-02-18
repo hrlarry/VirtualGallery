@@ -17,8 +17,38 @@ function initializePage() {
 
     $('#nextBtn').click(showNextExhibit);
     $('#prevBtn').click(showPrevExhibit);
+    drawExhibit();
+    $(window).resize(drawExhibit);
 
 	//$('#colorBtn').click(randomizeColors);
+}
+
+function drawExhibit(){
+	var backgroundSplashImage = document.getElementById("backgroundSplash");
+	var position = $("#backgroundSplash").offset();
+	
+	$("#exhibitImage").css({
+		//top: position.top + 55,
+		//left: position.left + backgroundSplashImage.clientWidth/4,
+		maxWidth: backgroundSplashImage.clientWidth/2,
+		maxHeight: backgroundSplashImage.clientHeight*3/5,
+		//height: backgroundSplashImage.clientHeight/2,
+	});
+
+	var exhibitImage = document.getElementById("exhibitImage");
+
+	$("#exhibitCanvas").css({
+		top: position.top + 50,
+		left: position.left + backgroundSplashImage.clientWidth/2 - exhibitImage.clientWidth/2 - 10,
+		width: exhibitImage.clientWidth + 20,
+		height: exhibitImage.clientHeight + 20,
+		maxHeight: backgroundSplashImage.clientHeight*3/5 + 10,
+		maxWidth: backgroundSplashImage.clientWidth/2 + 20
+	});
+	console.log(exhibitImage.clientHeight + 10);
+	console.log(backgroundSplashImage.clientHeight*3/5);
+	console.log(exhibitImage.clientHeight + 10);
+
 }
 
 /*
@@ -56,14 +86,9 @@ function callbackFnNext(result) {
 	$("#exhibit"+prevID).attr('id', "exhibit"+result.id);
 	console.log("User clicked on project " + result.id);
 
-	$("#exhibit" + result.id).html(
-	    	'<h3>Exhibit '+result.id+'</h3>'+
-	    	'<div class="thumbnail imgLiquidFill imgLiquid" style="width:auto; height:auto;">'+
-    			'<img src="http://farm1.staticflickr.com/216/478083244_3296e99094_o.jpg" alt="alttext"></img>'+
-			'</div>'+
-				
-			'<div class="details">'+result['description']+'</div>'
-		);
+	$("#exhibit" + result.id).html('<img src="'+result['imageURL']+'" id="exhibitImage" class="exhibitImage"></img>');
+
+	window.setTimeout(drawExhibit,5);
 	console.log("URL: "+$("#exhibit"+result.id));
 }
 
@@ -73,15 +98,7 @@ function callbackFnPrev(result) {
 	$("#exhibit"+prevID).attr('id', "exhibit"+result.id);
 	console.log("User clicked on project " + result.id);
 
-	$("#exhibit" + result.id).html(
-			'<div class="exhibit" id="exhibit' + result.id + '">'+
-	    		'<h3>Exhibit '+result.id+'</h3>'+
-	    		'<div class="thumbnail imgLiquidFill imgLiquid" style="width:auto; height:auto;">'+
-    				'<img src="http://farm1.staticflickr.com/216/478083244_3296e99094_o.jpg" alt="alttext"></img>'+
-				'</div>'+
-				
-				'<div class="details">'+result['description']+'</div>'+
-			'</div>'
-		);
+	$("#exhibit" + result.id).html('<img src="'+result['imageURL']+'" id="exhibitImage" class="exhibitImage"></img>');
+	window.setTimeout(drawExhibit,5);
 	console.log("URL: "+$("#exhibit"+result.id));
 }

@@ -26,22 +26,30 @@
 
 		<center>
 		<div class ="box">
-	    	<div class="exhibit" id="exhibit1">
-	    		<h3>Exhibit {{id}}</h3>
+	    	<div id="backgroundSplash" style="width:auto; height:700px;">
 	    		<div class="thumbnail imgLiquidFill imgLiquid" style="width:auto; height:700px;">
-    				<img src="http://farm1.staticflickr.com/216/478083244_3296e99094_o.jpg" alt="alttext"></img>
-				</div>
-				<img src="{{imageURL}}"></img>
+    				<img id="backgroundSplash" src="http://farm1.staticflickr.com/216/478083244_3296e99094_o.jpg" alt="alttext"></img>
+    			</div>
 				
-				<div class="details">{{description}}</div>
-			</div>
+				<div class="exhibitCanvas" id="exhibitCanvas">
+					<div class="exhibit" id="exhibit1">
+						<img src="{{imageURL}}" id="exhibitImage" class="exhibitImage"></img>
+					</div>
+				</div>
+				<!--<div class="exhibit" id="exhibit1">
+						<img src="{{imageURL}}" id="exhibitImage" class="exhibitImage"></img>
+						
+				</div>	-->
+
+	    		<div class="details1">{{description}}</div>
+			
 				<button id="prevBtn" class="button">Prev</button>
 				<button id="nextBtn" class="button">Next</button>
 
-			<hr>
+				<hr>
 
-			<a href="home"><button id="nextBtn" class="button">Home</button></a>
-			
+				<a href="home"><button id="nextBtn" class="button">Home</button></a>
+			</div>
 		</div>
 		</center>
 	</div>
