@@ -5,9 +5,9 @@
 	<title>View Their Gallery</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
-	<link href="/css/defaultCSS.css" rel="stylesheet">
+	<link href="../css/bootstrap.css" rel="stylesheet">
+	<link href="../css/bootstrap-theme.css" rel="stylesheet">
+	<link href="../css/defaultCSS.css" rel="stylesheet">
 	<!-- this is a comment in HTML -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -24,28 +24,32 @@
 		<h1>VirtualBulletin</h1>
 		</center>
 
+		<center>
 		<div class ="box">
 	    	<div class="exhibit" id="exhibit1">
-	    		<h3>Exhibit 1</h3>
+	    		<h3>Exhibit {{id}}</h3>
 	    		<div class="thumbnail imgLiquidFill imgLiquid" style="width:auto; height:700px;">
-    				<img src="http://farm1.staticflickr.com/216/478083244_3296e99094_o.jpg" alt="alttext">
+    				<img src="http://farm1.staticflickr.com/216/478083244_3296e99094_o.jpg" alt="alttext"></img>
 				</div>
+				<img src="{{imageURL}}"></img>
 				
-				<div class="details"></div>
+				<div class="details">{{description}}</div>
 			</div>
+				<button id="prevBtn" class="button">Prev</button>
+				<button id="nextBtn" class="button">Next</button>
 
 			<hr>
 
-			<center>
-			<button id="nextBtn" class="button">Next</button>
-			</center>
+			<a href="home"><button id="nextBtn" class="button">Home</button></a>
+			
 		</div>
+		</center>
 	</div>
 
 	<!-- add scripts -->
 	<script src="../js/jquery-1.11.0.js"></script>
 	<script src="../js/bootstrap.js"></script>
-	<script src="js/imgLiquid-min.js"></script>
+	<script src="../js/imgLiquid-min.js"></script>
 	<script src="../js/visitGalleryControls.js"></script>
 </body>
 </html>

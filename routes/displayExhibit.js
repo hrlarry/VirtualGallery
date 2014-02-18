@@ -1,13 +1,14 @@
-var projects = require('../fakeDatabase.json');
+var profiles = require('../fakeDatabase.json');
 
 exports.exhibitInfo = function(req, res) { 
-	var projectID = req.params.id;
-	if (projectID == "random") {
-		projectID = Math.floor(Math.random() * users[0].exhibits.length) + 1;
+	var exhibitID = req.params.id;
+	if (exhibitID == "random") {
+		exhibitID = Math.floor(Math.random() * profiles.users[0].exhibits.length) + 1;
 	} else {
-		projectID = parseInt(projectID);
+		exhibitID = parseInt(exhibitID);
 	}
 
-  	var project = projects[projectID-1]; // of by one, our first project has index 0
-  	res.json(project);
+	//console.log("from displayExhibit: "+users[0]);
+  	var exhibitToShow = profiles.users[0].exhibits[exhibitID-1]; // of by one, our first project has index 0
+  	res.json(exhibitToShow);
 }

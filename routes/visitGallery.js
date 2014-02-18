@@ -1,5 +1,5 @@
-var projects = require('../fakeDatabase.json');
+var profiles = require('../fakeDatabase.json');
 
 exports.displayPage = function(req, res){
-  res.render('visitGallery');
+  res.render('visitGallery', profiles.users[0].exhibits[0]);
 }
