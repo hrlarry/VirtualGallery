@@ -17,10 +17,15 @@ function initializePage() {
 
     $('#nextBtn').click(showNextExhibit);
     $('#prevBtn').click(showPrevExhibit);
+    $('#exhibitDescription').click(descriptionClicked);
     drawExhibit();
     $(window).resize(drawExhibit);
 
 	//$('#colorBtn').click(randomizeColors);
+}
+
+function descriptionClicked(){
+	$('#exhibitDescription').popover('toggle');
 }
 
 function drawExhibit(){
@@ -45,6 +50,14 @@ function drawExhibit(){
 		maxHeight: backgroundSplashImage.clientHeight*3/5 + 10,
 		maxWidth: backgroundSplashImage.clientWidth/2 + 20
 	});
+
+	var canvasRegion = document.getElementById("exhibitCanvas");
+
+	$("#exhibitDescription").css({
+		top: position.top + 50 + canvasRegion.clientHeight - 100,
+		left: position.left + backgroundSplashImage.clientWidth/2 - exhibitImage.clientWidth/2 + canvasRegion.clientWidth + 10
+	});
+
 	console.log(exhibitImage.clientHeight + 10);
 	console.log(backgroundSplashImage.clientHeight*3/5);
 	console.log(exhibitImage.clientHeight + 10);
@@ -84,9 +97,13 @@ function callbackFnNext(result) {
 	//console.log(result);
 	var prevID = result.id - 1;
 	$("#exhibit"+prevID).attr('id', "exhibit"+result.id);
-	console.log("User clicked on project " + result.id);
-
+	//console.log("User clicked on project " + result.id);
 	$("#exhibit" + result.id).html('<img src="'+result['imageURL']+'" id="exhibitImage" class="exhibitImage"></img>');
+	$('#exhibitDescription').popover('hide');
+	
+	$("#exhibitDescription").attr('data-content', result['description']);
+	
+
 
 	window.setTimeout(drawExhibit,5);
 	console.log("URL: "+$("#exhibit"+result.id));
@@ -99,6 +116,12 @@ function callbackFnPrev(result) {
 	console.log("User clicked on project " + result.id);
 
 	$("#exhibit" + result.id).html('<img src="'+result['imageURL']+'" id="exhibitImage" class="exhibitImage"></img>');
+	$('#exhibitDescription').popover('hide');
+	
+	$("#exhibitDescription").attr('data-content', result['description']);
+
+
+
 	window.setTimeout(drawExhibit,5);
 	console.log("URL: "+$("#exhibit"+result.id));
 }
