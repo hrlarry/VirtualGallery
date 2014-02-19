@@ -3,22 +3,24 @@
 
 var Mongoose = require('mongoose');
 
+var ExhibitSchema = new Mongoose.Schema({
+	"id": Number,
+	"imageURL": String,
+	"description": String,
+	"keywords": [String]
+});
+
 
 var UserSchema = new Mongoose.Schema({
   "username": String,
   "password": String,
   "email": String,
   "phone": String,
-  "exhibits": [Schema.Types.ObjectId] //is this the right way to have an array of exhibit objects?
+  "exhibits": [ExhibitSchema], //is this the right way to have an array of exhibit objects?
+  "priorities": [String]
 
 });
 
-var ExhibitSchema = new Mongoose.Schema({
-	"id": Number,
-	"imageURL": String,
-	"description": String,
-	"keywords": [String]
-})
 
 exports.User = Mongoose.model('User', UserSchema);
 exports.Exhibit = Mongoose.model('Exhibit', ExhibitSchema);
