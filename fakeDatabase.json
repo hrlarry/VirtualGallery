@@ -12,7 +12,8 @@
 					"description": "I like to play the French horn",
 					"keywords": [
 						"Music",
-						"Music: Classical"
+						"Music: Classical",
+						"Music: Rock"
 					]
 				},
 				{
@@ -153,12 +154,14 @@
 					"imageURL": "http://mustech.pbworks.com/f/1329421488/music.jpg",
 					"description": "I like all the music",
 					"keywords": [
-						"Music",
-						"Music: R&B",
-						"Music: Classical",
-						"Music: Hip-hop",
-						"Music: Rap",
-						"Music: A capella"
+						{
+							"Category": "Music",
+							"Labels": ["R&B", "Classical", "Hip-Hop", "Rap", "A capella"]
+						},
+						{
+							"Category": "Sports",
+							"Labels": ["Swimming", "Soccer"]
+						}
 					]
 				}
 			],
