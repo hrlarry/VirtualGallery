@@ -73,7 +73,7 @@ app.get('/editProfile', editProfile.displayPage);
 app.get('/search', search.displayPage);
 app.get('/searchSettings', searchSettings.displayPage);
 app.get('/viewGallery', viewGallery.displayPage);
-app.get('/viewGallery/:username', viewGallery.displayPage); //to pass username parameter
+app.get('/visitGallery/:username', visitGallery.displayPage); //to pass username parameter
 app.get('/profile', profile.displayPage);
 app.get('/newExhibit', newExhibit.displayPage);
 app.get('/visitGallery', visitGallery.displayPage);
@@ -82,6 +82,8 @@ app.get('/displayExhibit/:id', displayExhibit.exhibitInfo);
 //Example for posting
 //app.post('/project/:id/delete', project.deleteProject);
 //app.post('/createProfile/:id/delete', project.deleteProject);
+app.post('/viewGallery/:id/delete', viewGallery.deleteExhibit); //MAKE THIS EXPORT
+//app.post('/newExhibit/add', newExhibit.addExhibit); //MAKE THIS TOO
 
 
 

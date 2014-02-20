@@ -14,7 +14,22 @@ function initializePage() {
     });
 
     $(".list-group-item").click(setActive);
+
+    $(".deleteExhibitBtn").click(deleteExhibitFn);
+
 }
+
+    function deleteExhibitFn(e) {
+        e.preventDefault();
+        console.log('delete btn clicked');
+        //get the id of the project to remove 
+        var buttonID = $(this).attr('id');
+        var idNumber = buttonID.substr('deleteExhibit'.length);
+
+        $.post('/viewGallery/' + idNumber + '/delete', function() {
+            window.location.href = '/'; // reload the page
+        });
+    }
 
 function setActive(e){
     e.preventDefault();

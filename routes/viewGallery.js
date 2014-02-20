@@ -70,3 +70,56 @@ exports.displayPage = function(req, res) { 
 	//res.render('viewGallery', profiles.users[0]);
 
  }
+
+
+//delete an exhibit
+exports.deleteExhibit = function(req, res) {
+    //delete the exhibit here
+    var exhibitID = req.params.id;
+
+    models.User
+        .find()
+        .exec(deleteAnExhibit);
+
+    function deleteAnExhibit(err, users) {
+        if(err) {console.log(err); res.send(500); }
+        var userToUpdate = users[0];
+
+        //find the exhibit to delete, and delete it
+        for (var i = 0; i < userToUpdate.exhibits.length; i++){
+            if (userToUpdate.exhibits[i].id == exhibitID){
+                userToUpdate.exhibits[i]
+                    .remove()
+                    .exec(afterRemoving);
+                break;
+
+                function afterRemoving(err){
+                    if(err){console.log(err); res.send(500);}
+                    res.send();
+                }
+            }
+        }
+
+        // collection.update(
+        //     {_id: users[0]._id }, //is this right?
+        //     { $pull: {'exhibits': {id : exhibitID } } }
+        //     );
+        
+        res.send();
+    }
+}
+
+
+
+//   // find the project and remove it
+//   // YOU MUST send an OK response w/ res.send();
+//     models.Project
+//       .find({ "_id": projectID})
+//       .remove()
+//       .exec(afterRemoving)
+
+//     function afterRemoving(err){
+//       if(err) {console.log(err); res.send(500); }
+//       res.send();
+//     }
+// }
