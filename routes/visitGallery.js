@@ -5,11 +5,14 @@ exports.displayPage = function(req, res){
 	//want to display a specific user's gallery
 	var username = req.params.username;
 
-		models.User
+  //res.render('visitGallery', profiles[0].exhibits[0]);
+	models.User
 		.find()
-		.exec(renderProjects);
+		.exec(renderProjects)
 
 	function renderProjects(err, users) {
+		if (err) console.log(err);
+		//console.log(users);
 		for (var i = 0; i < users.length; i++){
 			if (users[i].username == username){
 				//display this one
