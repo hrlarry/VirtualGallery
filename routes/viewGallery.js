@@ -88,9 +88,8 @@ exports.deleteExhibit = function(req, res) {
         //find the exhibit to delete, and delete it
         for (var i = 0; i < userToUpdate.exhibits.length; i++){
             if (userToUpdate.exhibits[i].id == exhibitID){
-                userToUpdate.exhibits[i]
-                    .remove()
-                    .exec(afterRemoving);
+                userToUpdate.exhibits[i].remove();
+                userToUpdate.save(afterRemoving);
                 break;
 
                 function afterRemoving(err){

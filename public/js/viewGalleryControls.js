@@ -27,7 +27,7 @@ function initializePage() {
         var idNumber = buttonID.substr('deleteExhibit'.length);
 
         $.post('/viewGallery/' + idNumber + '/delete', function() {
-            window.location.href = '/'; // reload the page
+            window.location.href = '/viewGallery'; // reload the page
         });
     }
 
