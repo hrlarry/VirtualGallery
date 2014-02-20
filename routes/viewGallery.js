@@ -44,7 +44,7 @@ function setActive(e){
 
 }
 
-exports.displayPage = function(req, res) {    
+exports.displayPage = function(req, res) { 
 	// Your code goes here
 	//var name = req.query.name;
 	/*var description = req.query.description;
@@ -59,14 +59,14 @@ exports.displayPage = function(req, res) { 
 	console.log(newFriend);*/
     
     //initializePage();
-
     models.User
         .find()
-        .exec(renderProjects);
+        .exec(renderProjects)
 
     function renderProjects(err, users) {
+        if (err) console.log(err);
+        console.log(users[0]);
         res.render('viewGallery', users[0]);
     }
 	//res.render('viewGallery', profiles.users[0]);
-
- }
+};
