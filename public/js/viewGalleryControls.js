@@ -1,3 +1,5 @@
+var models = require('../models');
+
 $(document).ready(function() {
 	initializePage();
 })

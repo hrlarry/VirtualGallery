@@ -81,8 +81,9 @@ app.get('/displayExhibit/:id', displayExhibit.exhibitInfo);
 //Example for posting
 //app.post('/project/:id/delete', project.deleteProject);
 //app.post('/createProfile/:id/delete', project.deleteProject);
-app.post('/viewGallery/:id/delete', viewGallery.deleteExhibit); //MAKE THIS EXPORT
+app.post('/viewGallery/:id/delete', viewGallery.deleteExhibit);
 //app.post('/newExhibit/add', newExhibit.addExhibit); //MAKE THIS TOO
+app.post('/createProfile/addProfile', createProfile.addProfile); //MAKE THIS TOO
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

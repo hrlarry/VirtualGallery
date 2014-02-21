@@ -45,15 +45,68 @@ function initializePage() {
     });
 
     //$('#submitExhibit').click(submitExhibit);
+
+    $('#makeProfileBtn').click(makeNewProfile);
 }
 
 function submitExhibit(e){
 	e.preventDefault();
 	console.log("Submit Exhibit");
 
+    //make the new exhibit 
+
+    //calculate the appropriate id for this exhibit
+      models.User
+        .find() //for now, just adding to the first user
+        .exec(afterQuery);
+
+    function afterQuery(err, users){
+
+
+        var id = users[0].exhibits.length + 1; //exhibit ids start from 1
+        var image_url = "http://upload.wikimedia.org/wikipedia/commons/6/63/French_horn_front.png" //placeholder for now
+        var description = $('#new-project-form #exhibitDescription').val();
+        var keywords = []; //DON'T KNOW HOW TO ACCESS THE KEYWORDS
+        var exhibitJson = {
+            'id': id,
+            'imageURL': image_url,
+            'description':  description,
+            'keywords': keywords
+        };
+        $.post('/newExhibit/add', exhibitJson, function() {
+            window.location.href = '/viewGallery'; // go to the viewGallery page
+        });
+    }
+
     /*
 	var chosenTagsList = document.getElementsByName("chosenTags")[0];
 	console.log(chosenTagsList.options);*/
+}
+
+//THIS ACTUALLY GOES WITH CREATEPROFILE, NOT NEWEXHIBIT.
+function makeNewProfile(e){
+    e.preventDefault();
+    //get the stuff to send to createProfile.addProfile
+    console.log("making a new profile");
+
+        var username = $('#makeProfileForm #username').val();
+        var email = $('#makeProfileForm #email').val();
+        var password = "defaultPassword";
+        var phone = $('#makeProfileForm #phone').val();
+        var exhibits = [];
+        var priorities = [];
+
+        var userJson = {
+            'username': username,
+            'password':  password,
+            'email': email,
+            'phone': phone,
+            'exhibits': exhibits,
+            'priorities': priorities
+        };
+        $.post('/createProfile/addProfile', userJson, function() {
+            window.location.href = '/home'; // go to the viewGallery page
+        });
 }
 /*
 exports.displayPage = function(req, res) {    
