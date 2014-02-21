@@ -161,8 +161,10 @@
 					"imageURL": "http://upload.wikimedia.org/wikipedia/en/e/ec/Soccer_ball.svg",
 					"description": "I sometimes play soccer, which is not swimming but still a sport",
 					"keywords": [
-						"Sports",
-						"Sports: Football"
+						{
+							"Category": "Sports",
+							"Labels": ["Football"]
+						}
 					]
 				},
 				{

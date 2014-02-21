@@ -23,8 +23,8 @@ exports.displayPage = function(req, res){
 } 
 
 function calculateMatchScore(user, comparison){
-	var userInterests = consolidateInterests(user['exhibits']);
-	var comparisonInterests = consolidateInterests(comparison['exhibits']);
+	var userInterests = consolidateInterests(user.exhibits);
+	var comparisonInterests = consolidateInterests(comparison.exhibits);
 
 }
 
@@ -36,11 +36,11 @@ function consolidateInterests(exhibits){
 
 	for(var i=0; i < exhibits.length; i++){
 		//Examine 
-		var keywordSets = exhibits[i]['keywords'];
-		console.log(exhibits[i]);
-		for(var j=0; j < keywordSets.length; j++){
+		var keywordsSets = exhibits[i].keywords;
+		console.log("next exhibit: " + exhibits[i]);
+		for(var j=0; j < keywordsSets.length; j++){
 			//console.log("+++++++++++++++++++++++"+keywordSets[j]);
-			consolidated[keywordSets[j]['Category']].push(keywordSets[j]["Labels"]);
+			consolidated[keywordsSets[j].Category].push(keywordsSets[j].Labels);
 		}
 	}
 	console.log("-----------");
