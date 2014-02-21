@@ -76,7 +76,7 @@ app.get('/visitGallery/:username', visitGallery.displayPage); //to pass username
 app.get('/profile', profile.displayPage);
 app.get('/newExhibit', newExhibit.displayPage);
 app.get('/visitGallery', visitGallery.displayPage);
-app.get('/displayExhibit/:id', displayExhibit.exhibitInfo);
+app.get('/displayExhibit/:username/:id', displayExhibit.exhibitInfo);
 
 //Example for posting
 //app.post('/project/:id/delete', project.deleteProject);
