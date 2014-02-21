@@ -1,10 +1,9 @@
-{
-	"categories": [
-		"Animals & Pets"
+[
+		"Animals & Pets",
 		"Autos & Vehicles",
 		"Comedy",
 		"Education",
-		"Fashion & Style"
+		"Fashion & Style",
 		"Film & Animation",
 		"Gaming",
 		"Music",
@@ -13,5 +12,4 @@
 		"Science & Technology",
 		"Sports",
 		"Travel"
-	]
-}
+]
