@@ -9,15 +9,29 @@ exports.displayPage = function(req, res){
 		.exec(renderUsers);
 
 	function renderUsers(err, users){
-
+		var toReturn = [];
+		var scores = [];
+		console.log(users.length);
 		for(var i=0; i < users.length; i++){
 			if(userID != i){ //only execute matching algorithm if 
 				//console.log("==========="+users[i]);
-				calculateMatchScore(users[userID], users[i]);
-				
+				var currScore = calculateMatchScore(users[userID], users[i]);
+				for(var j=0; j < 3; j++){
+					if(scores.length == j || currScore > scores[j]){
+						if(toReturn.length==3 && j==2)
+						{
+							toReturn.splice(j, 1, users[i]);
+							scores.splice(j, 1, currScore);
+						} else {
+							toReturn.splice(j, 0, users[i]);
+							scores.splice(j, 0, currScore);
+						}
+						break;
+					}
+				}
 			}
 		}
-		res.render('searchResults', {'users': users });
+		res.render('searchResults', {'users': toReturn });
 	}
 	//res.render('searchResults', userData);
 } 
@@ -25,7 +39,21 @@ exports.displayPage = function(req, res){
 function calculateMatchScore(user, comparison){
 	var userInterests = consolidateInterests(user.exhibits);
 	var comparisonInterests = consolidateInterests(comparison.exhibits);
+	var matchScore = 0;
 
+	for(var i=0; i < categories.length; i++){
+		var currCategory = categories[i];
+		for(var firstSet=0; firstSet < userInterests[currCategory].length; firstSet++){
+			for(var secondSet=0; secondSet < comparisonInterests[currCategory].length; secondSet++){
+				if(userInterests[currCategory][firstSet] == comparisonInterests[currCategory][secondSet]){
+					matchScore++;
+				}
+			}
+		}
+	}
+
+	console.log(matchScore);
+	return matchScore;
 }
 
 function consolidateInterests(exhibits){
@@ -37,14 +65,15 @@ function consolidateInterests(exhibits){
 	for(var i=0; i < exhibits.length; i++){
 		//Examine 
 		var keywordsSets = exhibits[i].keywords;
-		console.log("next exhibit: " + exhibits[i]);
+		//console.log("next exhibit: " + exhibits[i]);
 		for(var j=0; j < keywordsSets.length; j++){
 			//console.log("+++++++++++++++++++++++"+keywordSets[j]);
-			consolidated[keywordsSets[j].Category].push(keywordsSets[j].Labels);
+			var currLabels = keywordsSets[j].Labels;
+			for(var k=0; k < currLabels.length; k++){
+				consolidated[keywordsSets[j].Category].push(currLabels[k]);
+			}
 		}
 	}
-	console.log("-----------");
-	//console.log(consolidated);
 	return consolidated;
 }
 
