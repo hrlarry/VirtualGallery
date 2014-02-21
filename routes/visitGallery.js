@@ -16,13 +16,17 @@ exports.displayPage = function(req, res){
 		for (var i = 0; i < users.length; i++){
 			if (users[i].username == username){
 				//display this one
-				res.render('visitGallery', users[i].exhibits[0]);
+				var thingToRender = {
+					"username": username,
+					"imageURL": users[i].exhibits[0].imageURL,
+					"description": users[i].exhibits[0].description
+				};
+				res.render('visitGallery', thingToRender);
 				break;
 			}
 		}
 		//THIS SHOULD IDEALLY GO TO AN ERROR PAGE - DIDN'T FIND THE USER IN QUESTION
-		console.log("didn't find user " + username + " - displaying the first one in the database");
-		res.render('visitGallery', users[0].exhibits[0]);
+		console.log("didn't find user " + username);
 	}
   //res.render('visitGallery', profiles.users[0].exhibits[0]);
 }

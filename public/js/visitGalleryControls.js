@@ -76,13 +76,14 @@ function changeExhibit(e) {
 
 	// Get the div ID, e.g., "project3"
 	var currExhibitID = $('.exhibit').attr('id');
+	var currUsername = $('.usernameInfo').attr('id');
 	// idNumber gets ID number of next project
 	if (btn == "nextBtn") {
 		var idNumber = parseInt(currExhibitID.substr('exhibit'.length)) + 1;
-		$.get("/displayExhibit/" + idNumber, changeToNext);
+		$.get("/displayExhibit/" + currUsername + "/" + idNumber, changeToNext);
 	} else {
 		var idNumber = parseInt(currExhibitID.substr('exhibit'.length)) - 1;
-		$.get("/displayExhibit/" + idNumber, changeToPrev);
+		$.get("/displayExhibit/" + currUsername + "/" + idNumber, changeToPrev);
 	}
 }
 
