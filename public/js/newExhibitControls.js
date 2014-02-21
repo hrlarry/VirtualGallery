@@ -1,4 +1,5 @@
 //var data = require("../categories.json");
+//var models = require('../models');
 /*
 exports.displayPage = function(req, res){
     initializePage();
@@ -44,7 +45,7 @@ function initializePage() {
         });
     });
 
-    //$('#submitExhibit').click(submitExhibit);
+    $('#submitExhibit').click(submitExhibit);
 
     $('#makeProfileBtn').click(makeNewProfile);
 }
@@ -54,18 +55,10 @@ function submitExhibit(e){
 	console.log("Submit Exhibit");
 
     //make the new exhibit 
-
-    //calculate the appropriate id for this exhibit
-      models.User
-        .find() //for now, just adding to the first user
-        .exec(afterQuery);
-
-    function afterQuery(err, users){
-
-
-        var id = users[0].exhibits.length + 1; //exhibit ids start from 1
+    
+        var id = 1; //default
         var image_url = "http://upload.wikimedia.org/wikipedia/commons/6/63/French_horn_front.png" //placeholder for now
-        var description = $('#new-project-form #exhibitDescription').val();
+        var description = $('#exhibitDescription').val();
         var keywords = []; //DON'T KNOW HOW TO ACCESS THE KEYWORDS
         var exhibitJson = {
             'id': id,
@@ -76,8 +69,6 @@ function submitExhibit(e){
         $.post('/newExhibit/add', exhibitJson, function() {
             window.location.href = '/viewGallery'; // go to the viewGallery page
         });
-    }
-
     /*
 	var chosenTagsList = document.getElementsByName("chosenTags")[0];
 	console.log(chosenTagsList.options);*/

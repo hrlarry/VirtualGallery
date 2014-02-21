@@ -82,7 +82,7 @@ app.get('/displayExhibit/:id', displayExhibit.exhibitInfo);
 //app.post('/project/:id/delete', project.deleteProject);
 //app.post('/createProfile/:id/delete', project.deleteProject);
 app.post('/viewGallery/:id/delete', viewGallery.deleteExhibit);
-//app.post('/newExhibit/add', newExhibit.addExhibit); //MAKE THIS TOO
+app.post('/newExhibit/add', newExhibit.addExhibit); //MAKE THIS TOO
 app.post('/createProfile/addProfile', createProfile.addProfile); //MAKE THIS TOO
 
 http.createServer(app).listen(app.get('port'), function(){
