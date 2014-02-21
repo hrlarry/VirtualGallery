@@ -64,7 +64,6 @@ if ('development' == app.get('env')) {
 // Example route
 // app.get('/users', user.list);
 app.get('/', landingPage.load);
-//app.get('/newExhibit', newExhibit.displayPage);
 app.get('/searchResults', searchResults.displayPage);
 app.get('/login', login.displayPage);
 app.get('/home', home.displayPage);
@@ -73,7 +72,7 @@ app.get('/editProfile', editProfile.displayPage);
 app.get('/search', search.displayPage);
 app.get('/searchSettings', searchSettings.displayPage);
 app.get('/viewGallery', viewGallery.displayPage);
-app.get('/viewGallery/:username', viewGallery.displayPage); //to pass username parameter
+app.get('/visitGallery/:username', visitGallery.displayPage); //to pass username parameter
 app.get('/profile', profile.displayPage);
 app.get('/newExhibit', newExhibit.displayPage);
 app.get('/visitGallery', visitGallery.displayPage);
@@ -82,8 +81,9 @@ app.get('/displayExhibit/:id', displayExhibit.exhibitInfo);
 //Example for posting
 //app.post('/project/:id/delete', project.deleteProject);
 //app.post('/createProfile/:id/delete', project.deleteProject);
-
-
+app.post('/viewGallery/:id/delete', viewGallery.deleteExhibit);
+app.post('/newExhibit/add', newExhibit.addExhibit); //MAKE THIS TOO
+app.post('/createProfile/addProfile', createProfile.addProfile); //MAKE THIS TOO
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

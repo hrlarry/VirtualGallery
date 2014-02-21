@@ -15,20 +15,18 @@ function initializePage() {
         verticalAlign: "center"
     });
 
-    $('#nextBtn').click(showNextExhibit);
-    $('#prevBtn').click(showPrevExhibit);
+    $('#nextBtn').click(changeExhibit);
+    $('#prevBtn').click(changeExhibit);
     $('#exhibitDescription').click(descriptionClicked);
     drawExhibit();
     $(window).resize(drawExhibit);
-
-	//$('#colorBtn').click(randomizeColors);
 }
 
-function descriptionClicked(){
+function descriptionClicked() {
 	$('#exhibitDescription').popover('toggle');
 }
 
-function drawExhibit(){
+function drawExhibit() {
 	var backgroundSplashImage = document.getElementById("backgroundSplash");
 	var position = $("#backgroundSplash").offset();
 	
@@ -64,64 +62,46 @@ function drawExhibit(){
 
 }
 
+
 /*
  * Make an AJAX call to retrieve project details and add it in
  */
-function showNextExhibit(e) {
+
+function changeExhibit(e) {
 	// Prevent following the link
 	e.preventDefault();
 
-	// Get the div ID, e.g., "project3"
-	var currExhibitID = $('.exhibit').attr('id');
-	// get rid of 'project' from the front of the id 'project3'
-	var idNumber = parseInt(currExhibitID.substr('exhibit'.length))+1;
-
-	//console.log("User clicked on project " + idNumber);
-	$.get("/displayExhibit/"+idNumber,callbackFnNext);
-}
-
-function showPrevExhibit(e) {
-	// Prevent following the link
-	e.preventDefault();
+	// determines if button clicked was 'prevBtn' or 'nextBtn'
+	var btn = $(this).attr('id');
 
 	// Get the div ID, e.g., "project3"
 	var currExhibitID = $('.exhibit').attr('id');
-	// get rid of 'project' from the front of the id 'project3'
-	var idNumber = parseInt(currExhibitID.substr('exhibit'.length))-1;
-
-	//console.log("User clicked on project " + idNumber);
-	$.get("/displayExhibit/"+idNumber,callbackFnPrev);
+	// idNumber gets ID number of next project
+	if (btn == "nextBtn") {
+		var idNumber = parseInt(currExhibitID.substr('exhibit'.length)) + 1;
+		$.get("/displayExhibit/" + idNumber, changeToNext);
+	} else {
+		var idNumber = parseInt(currExhibitID.substr('exhibit'.length)) - 1;
+		$.get("/displayExhibit/" + idNumber, changeToPrev);
+	}
 }
 
-function callbackFnNext(result) {
-	//console.log(result);
-	var prevID = result.id - 1;
-	$("#exhibit"+prevID).attr('id', "exhibit"+result.id);
-	//console.log("User clicked on project " + result.id);
-	$("#exhibit" + result.id).html('<img src="'+result['imageURL']+'" id="exhibitImage" class="exhibitImage"></img>');
-	$('#exhibitDescription').popover('hide');
-	
-	$("#exhibitDescription").attr('data-content', result['description']);
-	
-
-
-	window.setTimeout(drawExhibit,5);
-	console.log("URL: "+$("#exhibit"+result.id));
-}
-
-function callbackFnPrev(result) {
-	//console.log(result);
+function changeToPrev(result) {
 	var prevID = result.id + 1;
-	$("#exhibit"+prevID).attr('id', "exhibit"+result.id);
-	console.log("User clicked on project " + result.id);
+	displayNewExhibit(prevID, result);
+}
 
+function changeToNext(result) {
+	var prevID = result.id - 1;
+	displayNewExhibit(prevID, result);
+}
+
+function displayNewExhibit(oldID, result) {
+	$("#exhibit" + oldID).attr('id', "exhibit" + result.id);
 	$("#exhibit" + result.id).html('<img src="'+result['imageURL']+'" id="exhibitImage" class="exhibitImage"></img>');
 	$('#exhibitDescription').popover('hide');
-	
 	$("#exhibitDescription").attr('data-content', result['description']);
-
-
-
+	
 	window.setTimeout(drawExhibit,5);
-	console.log("URL: "+$("#exhibit"+result.id));
+	//console.log("URL: "+$("#exhibit"+result.id));
 }

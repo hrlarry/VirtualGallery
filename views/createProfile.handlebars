@@ -17,16 +17,16 @@
 		<div class="box">
 			<p align="left">Hey. It's your first time here? <br>
 				No worries. We'll make signing up as easy as possible.</p>
-			<form align="left">
-				Username: <input type="text" name="username"><br>
+			<form id = "makeProfileForm" align="left">
+				Username: <input type="text" id="username" name="username"><br>
 				First name: <input type="text" name="firstname"><br>
 				Last name: <input type="text" name="lastname"><br>
 				Date of Birth: <input type="text" name="year" size="4" maxlength="4"> <input type="text" name="month" size="2" maxlength="2"> <input type="text" name="day" size="2" maxlength="2"> (YYYY-MM-DD)<br>
-				Email address: <input type="text" name="email" size="35"><br>
-				Phone number: <input type="text" name="phone" maxlength="12"> (XXX-XXX-XXXX)<br>
+				Email address: <input type="text" id="email" name="email" size="35"><br>
+				Phone number: <input type="text" id="phone" name="phone" maxlength="12"> (XXX-XXX-XXXX)<br>
 			</form>
 			<br>
-			<a href="home"><button id="homepage" class="button">Sign Up</button></a>
+			<a href="home"><button id="makeProfileBtn" class="button">Sign Up</button></a>
 			<hr>
 
 			<!--buttons to go back to index -->
@@ -34,5 +34,9 @@
 		</div>
 	</center>
 	</div>
+
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/newExhibitControls.js"></script>
+
 </body>
 </html>

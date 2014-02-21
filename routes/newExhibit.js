@@ -1,14 +1,53 @@
 //var data = require("../categories.json");
-/*
-exports.displayPage = function(req, res){
-    initializePage();
+var models = require('../models');
+
+exports.displayPage = function(req, res) {    
+    // Your code goes here
+    //var name = req.query.name;
+    /*var description = req.query.description;
+    var newFriend = {
+        "name": name,
+        "description": description,
+        "imageURL": "http://lorempixel.com/400/400/people"          
+    };
+    
+    data["friends"].push(newFriend);
+
+    console.log(newFriend);*/
+    //initializePage();
+
     res.render('newExhibit');
+ }
+
+exports.addExhibit = function(req, res) {
+  var form_data = req.body;
+  console.log("here comes the exhibit we're going to create: ");
+  console.log(form_data);
+
+  //get the user to update
+  models.User
+      .find() //for now, just adding to the first user
+      .exec(addExhibitForUser);
+
+
+  function addExhibitForUser(err, users){
+    var userToUpdate = users[0];
+
+    var newExhibit = new models.Exhibit(form_data);
+    newExhibit.id = users[0].exhibits.length + 1;
+    newExhibit.save(afterSaving);
+
+
+    userToUpdate.exhibits.push(newExhibit); //is it really this easy?
+
+    userToUpdate.save(afterSaving);
+
+    function afterSaving(err){
+      if (err) {console.log(err); res.send(500);}
+      res.send();
+    }
+  }
 }
-*/
-/*
-$(document).ready(function() {
-	initializePage();
-})*/
 
 /*
  * Function that is called when the document is ready.
@@ -54,20 +93,3 @@ function submitExhibit(e){
 	var chosenTagsList = document.getElementsByName("chosenTags")[0];
 	console.log(chosenTagsList.options);
 }*/
-
-exports.displayPage = function(req, res) {    
-	// Your code goes here
-	//var name = req.query.name;
-	/*var description = req.query.description;
-	var newFriend = {
-		"name": name,
-		"description": description,
-		"imageURL": "http://lorempixel.com/400/400/people"			
-	};
-	
-	data["friends"].push(newFriend);
-
-	console.log(newFriend);*/
-
-	res.render('newExhibit');
- }
