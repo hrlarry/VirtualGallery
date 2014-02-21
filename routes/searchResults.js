@@ -18,10 +18,13 @@ exports.displayPage = function(req, res){
 				var currScore = calculateMatchScore(users[userID], users[i]);
 				for(var j=0; j < 3; j++){
 					if(scores.length == j || currScore > scores[j]){
-						if(toReturn.length==3 && j==2)
+						if(toReturn.length==3 || j==2)
 						{
-							toReturn.splice(j, 1, users[i]);
-							scores.splice(j, 1, currScore);
+							console.log("dropping one elem");
+							toReturn.splice(j, 0, users[i]);
+							scores.splice(j, 0, currScore);
+							toReturn.splice(3,1);
+							scores.splice(3,1);
 						} else {
 							toReturn.splice(j, 0, users[i]);
 							scores.splice(j, 0, currScore);
