@@ -16,15 +16,18 @@
 			<h1>Edit My Profile</h1>
 		</center>
 			<div class="box">
-				<p>This will be the page to edit your profile. This is primarily to change your account settings.</p>
-				<h3>Change your profile pic:</h3><br>
 				<h3>Change your contact information:</h3><br>
-				Email: <br>
-				Phone number: <br>
+				Email: 	currently {{email}}
+				<textarea id="newEmail" class="form-control" rows="3" placeholder="Enter email here"></textarea><br>
+				Phone number: 	currently {{phone}}
+				<textarea id="newPhone" class="form-control" rows="3" placeholder="Enter phone number here"></textarea><br>
+				<h3>Change your password:</h3><br>
+				New Password: <textarea id="newPassword" class="form-control" rows="3" placeholder="Enter new password here"></textarea>
 				<hr>
 				<center>
 				<!--buttons to go back to the homepage or to the login page -->
-				<a href="home"><button class="button">Cancel</button></a> <a href="home"><button id="editProfileSave" class="button">Save and go back to Home</button></a>
+				<a href="home"><button class="button">Cancel</button></a> 
+				<a href="home"><button id="editProfileSaveBtn" class="button">Save and go back to Home</button></a>
 				</center>
 			</div>
 		
@@ -32,5 +35,6 @@
 
 	<script src="js/jquery-1.11.0.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<script src="js/newExhibitControls.js"></script>
 </body>
 </html>

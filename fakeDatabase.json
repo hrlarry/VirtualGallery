@@ -1,7 +1,6 @@
 [
 		{
 			"username": "spalocz",
-			"password": "stephaniePassword",
 			"email": "spalocz@stanford.edu",
 			"phone": "5555555555",
 			"exhibits": [
@@ -58,7 +57,6 @@
 		},
 		{
 			"username": "sarahT",
-			"password": "kitPassword",
 			"email": "kitswim@elementals.com",	
 			"phone": "5555555555",
 			"exhibits": [
@@ -82,7 +80,6 @@
 		},
 		{
 			"username": "jen",
-			"password": "jenPassword",
 			"email": "jenredmont@tvr",
 			"phone": "5555555555",
 			"exhibits": [
@@ -117,7 +114,6 @@
 		},	
 		{
 			"username": "kate",
-			"password": "katePassword",
 			"email": "katematchesjen@tvr",
 			"phone": "5555555555",
 			"exhibits": [
@@ -152,7 +148,6 @@
 		},
 		{
 			"username": "gary",
-			"password": "garyPassword",
 			"email": "gary@tvr",
 			"phone": "5555555555",
 			"exhibits": [
@@ -168,7 +163,7 @@
 					]
 				},
 				{
-					"id": 2010,
+					"id": 2,
 					"imageURL": "http://mustech.pbworks.com/f/1329421488/music.jpg",
 					"description": "I like all the music",
 					"keywords": [

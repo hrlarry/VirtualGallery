@@ -48,6 +48,8 @@ function initializePage() {
     $('#submitExhibit').click(submitExhibit);
 
     $('#makeProfileBtn').click(makeNewProfile);
+
+    $('#editProfileSaveBtn').click(editProfileInfo);
 }
 
 function submitExhibit(e){
@@ -97,6 +99,24 @@ function makeNewProfile(e){
         };
         $.post('/createProfile/addProfile', userJson, function() {
             window.location.href = '/home'; // go to the viewGallery page
+        });
+}
+
+//SIMILARLY, THIS GOES WITH EDITPROFILE, NOT NEWEXHIBIT.  JUST CONSOLIDATING THE NUMBER OF JS FILES
+function editProfileInfo(e){
+    e.preventDefault();
+    //get the stuff to send to createProfile.addProfile
+    console.log("updating profile");
+
+        var email = $('#newEmail').val();
+        var phone = $('#newPhone').val();
+
+        var userJson = {
+            'email': email,
+            'phone': phone
+        };
+        $.post('/editProfile/updateProfileInfo', userJson, function() {
+            window.location.href = '/home'; // go to the homepage
         });
 }
 /*

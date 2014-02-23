@@ -17,7 +17,6 @@ var ExhibitSchema = new Mongoose.Schema({
 
 var UserSchema = new Mongoose.Schema({
   "username": String,
-  "password": String,
   "email": String,
   "phone": String,
   "exhibits": [ExhibitSchema], //is this the right way to have an array of exhibit objects?
