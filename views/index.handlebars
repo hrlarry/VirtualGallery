@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>VirtualBulletin | Welcome</title>	
+	<title>VirtualGallery | Welcome</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="css/bootstrap.css" rel="stylesheet">
@@ -11,80 +11,91 @@
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>      
 </head>
 
-<body>
-	<div class="container">
-		<center>
-		<h1>VirtualBulletin</h1>	
+<body style="background-image: url('../images/gallerybg.jpg'); background-size: auto 100%;">
+	<center>
+	<h1>VirtualGallery</h1>	
 
-		<div class="box">
-			<h2>Sign up now.</h2>
+	<div class="box">
+		<h2>Login now.</h2>
 
-			<p>Connect with people whom you couldn't even imagine. Join forces through the combined awesomeness of shared interests. Come with us. We'll lead to your next favorite person.</p>
+		<p>Connect with people whom you couldn't even imagine. Join forces through the combined awesomeness of shared interests. Come with us. We'll lead to your next favorite person.</p>
 
-			<a href="createProfile"><button class="button">Sign Up</button></a>
+		<form id="loginForm" role="form" method="get" action="/profilepage">
+		    <div class="form-group">
+		      <label for="username">Username:</label>
+		      <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+		    </div>
+		</form>
+
+		<a href="home"><button id="loginButton" type="button" class="btn btn-success btn-block">Login</button></a>
+
+
+	</div>
+	<br>
+	<div class="box">
+		<p>Don't have an account yet? No worries.</p>
+
+		<button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#signupModal">Sign up now.</button>
+
+		<!--Modal for signing up-->
+		<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  		<div class="modal-dialog">
+	    		<div class="modal-content">
+	      			<div class="modal-header">
+	        			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        			<h3>Join now.</h3>
+	      			</div>
+	      			<div class="modal-body">
+	      				<p>We promise to make this simple.</p>
+	      				<form id="loginForm" role="form" method="get" action="/profilepage">
+						    <div class="form-group">
+						      <label for="newUsername">Username:</label>
+						      <input type="text" class="form-control" id="newUsername" placeholder="Username">
+						    </div>
+
+						    <div class="form-group">
+						      <label for="newEmail">Email address:</label>
+						      <input type="text" class="form-control" id="newEmail" placeholder="Email address">
+						    </div>
+
+						    <div class="form-group">
+						      <label for="newPhone">Phone number:</label>
+						      <input type="text" class="form-control" id="newPhone" placeholder="Phone number">
+						    </div>
+						</form>
+	            	</div>
+	      			<div class="modal-footer">
+	        			<a href="home"><button id="signupButton" type="button" class="btn btn-success btn-block">Create Account</button></a>
+	        			<br>
+	        			<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	      			</div>
+	    		</div>
+			</div>
 		</div>
-		<br><br>
-		<div class="box">
-			<p>Already have an account? Perfect. Welcome back.</p>
-			<button class="button" data-toggle="modal" data-target="#loginModal">
-		  		Login
-			</button>
+	</div>
+
+	<br>
+
+	<!-- about/instructions -->
+	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#aboutModal">About</button>
 	
-			<!--Modal for login-->
-			<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  		<div class="modal-dialog">
-		    		<div class="modal-content">
-		      			<div class="modal-header">
-		        			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        			<h3>Login here.</h3>
-		      			</div>
-		      			<div class="modal-body">
-		      				<form id="loginForm" role="form" method="get" action="/profilepage">
-							    <div class="form-group">
-							      <label for="username">Username:</label>
-							      <input type="text" class="form-control" id="username" placeholder="Username" name="username">
-							    </div>
-
-							    <div class="form-group">
-							      <label for="password">Password:</label>
-							      <input type="password" class="form-control" id="password" placeholder="Password" name="password">
-							    </div>
-							</form>
-		            	</div>
-		      			<div class="modal-footer">
-		        			<button type="button" class="button" data-dismiss="modal">Close</button>
-		        			<a href="home"><button id = "loginButton" type="button" class="button">Login</button></a>
-		      			</div>
-		    		</div>
-				</div>
-			</div>
+	<!--Modal for about/instructions-->
+	<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        			<h3>About VirtualGallery</h3>
+      			</div>
+      			<div class="modal-body">
+      				<!-- not sure what text we want here -->
+      				VirtualGallery gives you a platform to display your interests and uses interest matching to connect you with like-minded people in your area.  Your interests are displayed in your own personal exhibit gallery.   To get going, simply sign up for an account and start creating exhibits that reflect your interests!
+            	</div>
+      			<div class="modal-footer">
+        			<button type="button" class="button" data-dismiss="modal">Close</button>
+      			</div>
+    		</div>
 		</div>
-
-		<br>
-				<!-- about/instructions -->
-			<button class="button" data-toggle="modal" data-target="#aboutModal">
-		  		About
-			</button>
-			
-			<!--Modal for about/instructions-->
-			<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  		<div class="modal-dialog">
-		    		<div class="modal-content">
-		      			<div class="modal-header">
-		        			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        			<h3>About VirtualGallery</h3>
-		      			</div>
-		      			<div class="modal-body">
-		      				<!-- not sure what text we want here -->
-		      				VirtualGallery gives you a platform to display your interests and uses interest matching to connect you with like-minded people in your area.  Your interests are displayed in your own personal exhibit gallery.   To get going, simply sign up for an account and start creating exhibits that reflect your interests!
-		            	</div>
-		      			<div class="modal-footer">
-		        			<button type="button" class="button" data-dismiss="modal">Close</button>
-		      			</div>
-		    		</div>
-				</div>
-			</div>
-
 	</div>
 
 	<script src="js/jquery-1.11.0.js"></script>

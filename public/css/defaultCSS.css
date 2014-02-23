@@ -24,7 +24,7 @@ a {
      background-color:rgba(255,255,255,.8);
      padding: 10px 10px 10px 10px;
      width: 100%px;
-     border-radius: 15px;
+     /*border-radius: 15px;*/
 }
 
 .modal {
@@ -46,7 +46,7 @@ a {
 
 
 /* Button generated using CSSButtonGenerator.com */
-.button {
+/*.button {
      -moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
      -webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
      box-shadow:inset 0px 1px 0px 0px #fce2c1;
@@ -76,7 +76,6 @@ a {
      font-style:normal;
      height:30px;
      line-height:28px;
-     /*width:200px;*/
      width:auto;
      text-decoration:none;
      text-align:center;
@@ -93,11 +92,11 @@ a {
 .button:active {
      position:relative;
      top:1px;
-}
+}*/
 
 #backgroundSplash {
      width: auto;
-     height: 400px;      /*needs to be modified to fit viewport size*/
+     height: 300px;      /*needs to be modified to fit viewport size*/
      background-color: #000000;
      background-image: url('../images/gallerybg.jpg');
      background-size: auto 100%;
