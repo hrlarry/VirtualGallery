@@ -20,4 +20,10 @@ exports.addProfile = function(req, res){
       if (err) {console.log(err); res.send(500);}
       res.send();
   }
+
+  //log in the newly created user
+  console.log("logging in " + form_data.enteredUsername);
+  req.session.username = form_data.enteredUsername;
+  res.redirect('home'); //go to homepage.  this way, we can redirect back to the login page if the username wasn't found.
+  //NOTE: that last piece wasn't really working right
 }

@@ -21,12 +21,13 @@ exports.displayPage = function(req, res) { 
 
 exports.addExhibit = function(req, res) {
   var form_data = req.body;
-  console.log("here comes the exhibit we're going to create: ");
+  var username = req.session.username;
+  console.log("here comes the exhibit we're going to create for " + username + ": ");
   console.log(form_data);
 
   //get the user to update
   models.User
-      .find() //for now, just adding to the first user
+      .find({"username": username})
       .exec(addExhibitForUser);
 
 
@@ -38,7 +39,7 @@ exports.addExhibit = function(req, res) {
     newExhibit.save(afterSaving);
 
 
-    userToUpdate.exhibits.push(newExhibit); //is it really this easy?
+    userToUpdate.exhibits.push(newExhibit);
 
     userToUpdate.save(afterSaving);
 

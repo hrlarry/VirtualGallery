@@ -1,8 +1,9 @@
 var models = require('../models');
 
 exports.displayPage = function(req, res){
+	var username = req.session.username;
 	models.User
-		.find() //currently just will use user 0
+		.find({"username": username})
 		.exec(afterQuery);
 
 	function afterQuery(err, users){ //render page using information from current user
@@ -23,7 +24,7 @@ exports.updateProfileInfo = function(req, res){
 	function updateValues(err, users){
 		var userToUpdate = users[0];
 		console.log("before update: " + userToUpdate);
-		if (enteredValues.email != "") userToUpdate.email = enteredValues.email; //is this right?
+		if (enteredValues.email != "") userToUpdate.email = enteredValues.email;
 		if (enteredValues.phone != "") userToUpdate.phone = enteredValues.phone;
 
 		

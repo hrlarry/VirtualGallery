@@ -4,6 +4,7 @@ var models = require('../models');
 
 
 exports.displayPage = function(req, res) { 
+    var username = req.session.username;
 	// Your code goes here
 	//var name = req.query.name;
 	/*var description = req.query.description;
@@ -19,7 +20,7 @@ exports.displayPage = function(req, res) {
     
     //initializePage();
     models.User
-        .find()
+        .find({ "username": username })
         .exec(renderProjects)
 
     function renderProjects(err, users) {

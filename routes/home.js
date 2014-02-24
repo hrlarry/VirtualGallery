@@ -1,3 +1,5 @@
 exports.displayPage = function(req, res){
-	res.render('home');
+	var username = req.session.username;
+	console.log("in home.js, username is " + username);
+	res.render('home', {"username": username});
 }

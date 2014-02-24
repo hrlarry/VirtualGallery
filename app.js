@@ -85,6 +85,8 @@ app.post('/viewGallery/:id/delete', viewGallery.deleteExhibit);
 app.post('/newExhibit/add', newExhibit.addExhibit);
 app.post('/createProfile/addProfile', createProfile.addProfile);
 app.post('/editProfile/updateProfileInfo', editProfile.updateProfileInfo);
+app.post('/login/executeLogin/:username', login.executeLogin);
+app.post('/login/executeLogout', login.executeLogout);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

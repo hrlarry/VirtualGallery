@@ -50,6 +50,10 @@ function initializePage() {
     $('#makeProfileBtn').click(makeNewProfile);
 
     $('#editProfileSaveBtn').click(editProfileInfo);
+
+    $('#loginBtn').click(userLogin);
+
+    $('#logoutBtn').click(userLogout);
 }
 
 function submitExhibit(e){
@@ -118,6 +122,30 @@ function editProfileInfo(e){
         $.post('/editProfile/updateProfileInfo', userJson, function() {
             window.location.href = '/home'; // go to the homepage
         });
+}
+
+//THIS IS FOR THE LOGIN PAGE
+function userLogin(e){
+    e.preventDefault();
+
+    console.log("logging in");
+    var enteredUsername = $('#usernameField').val();
+    $.post('/login/executeLogin/' + enteredUsername, function() {
+        //need to determine if login was successful or not
+        if()
+        console.log(window.location.href);
+        //window.location.href = '/home'; //go to homepage after logging in
+    });
+}
+
+//THIS IS FROM THE HOMEPAGE - LOGGING OUT A USER
+function userLogout(e){
+    e.preventDefault();
+
+    console.log("logging out");
+    $.post('/login/executeLogout', function() {
+        window.location.href = '/'; //go back to index after logging out
+    });
 }
 /*
 exports.displayPage = function(req, res) {    
