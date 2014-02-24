@@ -88,14 +88,12 @@ function makeNewProfile(e){
 
         var username = $('#makeProfileForm #username').val();
         var email = $('#makeProfileForm #email').val();
-        var password = "defaultPassword";
         var phone = $('#makeProfileForm #phone').val();
         var exhibits = [];
         var priorities = [];
 
         var userJson = {
             'username': username,
-            'password':  password,
             'email': email,
             'phone': phone,
             'exhibits': exhibits,
@@ -132,9 +130,8 @@ function userLogin(e){
     var enteredUsername = $('#usernameField').val();
     $.post('/login/executeLogin/' + enteredUsername, function() {
         //need to determine if login was successful or not
-        if()
         console.log(window.location.href);
-        //window.location.href = '/home'; //go to homepage after logging in
+        window.location.href = '/home'; //go to homepage after logging in
     });
 }
 
