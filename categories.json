@@ -1,15 +1,55 @@
 [
-		"Animals & Pets",
-		"Autos & Vehicles",
-		"Comedy",
-		"Education",
-		"Fashion & Style",
-		"Film & Animation",
-		"Gaming",
-		"Music",
-		"News & Politics",
-		"People",
-		"Science & Technology",
-		"Sports",
-		"Travel"
+		{
+			"Category": "Animals & Pets",
+			"Keywords": []
+		},
+		{
+			"Category": "Autos & Vehicles",
+			"Keywords": []
+		},
+		{
+			"Category": "Comedy",
+			"Keywords": []
+		},
+		{
+			"Category": "Education",
+			"Keywords": []
+		},
+		{
+			"Category": "Fashion & Style",
+			"Keywords": []
+		},
+		{
+			"Category": "Film & Animation",
+			"Keywords": []
+		},
+		{
+			"Category": "Gaming",
+			"Keywords": []
+		},
+		{
+			"Category": "Music",
+			"Keywords": []
+		},
+		{
+			"Category": "News & Politics",
+			"Keywords": []
+		},
+		{
+			"Category": "People",
+			"Keywords": []
+		},
+		{
+			"Category": "Science & Technology",
+			"Keywords": []
+		},
+		{
+			"Category": "Sports",
+			"Keywords": ["Baseball", "Basketball", "Football", "Golf", "Hockey", "Soccer", "Swimming"]
+		},
+		{
+			"Category": "Travel",
+			"Keywords": []
+		}
+		
 ]
