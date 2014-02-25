@@ -15,21 +15,31 @@ function initializePage() {
 
     $(".list-group-item").click(setActive);
 
+    $(".editExhibitBtn").click(editExhibitFn);
+
     $(".deleteExhibitBtn").click(deleteExhibitFn);
 
 }
 
-    function deleteExhibitFn(e) {
-        e.preventDefault();
-        console.log('delete btn clicked');
-        //get the id of the project to remove 
-        var buttonID = $(this).attr('id');
-        var idNumber = buttonID.substr('deleteExhibit'.length);
+function editExhibitFn(e) {
+    e.preventDefault();
+    console.log('edit btn clicked');
+    //get the id of the project to remove 
+   var buttonID = $(this).attr('id');
+   var idNumber = buttonID.substr('editExhibit'.length);
+   window.location.href = '/editExhibit/'+idNumber; // reload the page
+}
 
-        $.post('/viewGallery/' + idNumber + '/delete', function() {
-            window.location.href = '/viewGallery'; // reload the page
-        });
-    }
+function deleteExhibitFn(e) {
+    e.preventDefault();
+    console.log('delete btn clicked');
+    //get the id of the project to remove 
+   var buttonID = $(this).attr('id');
+   var idNumber = buttonID.substr('deleteExhibit'.length);
+    $.post('/viewGallery/' + idNumber + '/delete', function() {
+        window.location.href = '/viewGallery'; // reload the page
+    });
+}
 
 function setActive(e){
     e.preventDefault();

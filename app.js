@@ -27,6 +27,7 @@ var profile = require('./routes/profile');
 var newExhibit = require('./routes/newExhibit');
 var visitGallery = require('./routes/visitGallery');
 var displayExhibit = require('./routes/displayExhibit');
+var editExhibit = require('./routes/editExhibit');
 
 // Connect to the Mongo database, whether locally or on Heroku
 // MAKE SURE TO CHANGE THE NAME FROM 'lab7' TO ... IN OTHER PROJECTS
@@ -77,12 +78,14 @@ app.get('/profile', profile.displayPage);
 app.get('/newExhibit', newExhibit.displayPage);
 app.get('/visitGallery', visitGallery.displayPage);
 app.get('/displayExhibit/:username/:id', displayExhibit.exhibitInfo);
+app.get('/editExhibit/:id', editExhibit.displayPage);
 
 //Example for posting
 //app.post('/project/:id/delete', project.deleteProject);
 //app.post('/createProfile/:id/delete', project.deleteProject);
 app.post('/viewGallery/:id/delete', viewGallery.deleteExhibit);
 app.post('/newExhibit/add', newExhibit.addExhibit);
+app.post('/editExhibit/edit', editExhibit.editExhibit);
 app.post('/createProfile/addProfile', createProfile.addProfile);
 app.post('/editProfile/updateProfileInfo', editProfile.updateProfileInfo);
 app.post('/login/executeLogin/:username', login.executeLogin);
