@@ -36,9 +36,10 @@ exports.displayPage = function(req, res) {
 exports.deleteExhibit = function(req, res) {
     //delete the exhibit here
     var exhibitID = req.params.id;
+    var username = req.session.username;
 
     models.User
-        .find()
+        .find({"username": username})
         .exec(deleteAnExhibit);
 
     function deleteAnExhibit(err, users) {

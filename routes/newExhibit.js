@@ -21,8 +21,7 @@ exports.displayPage = function(req, res) { 
 exports.addExhibit = function(req, res) {
   var form_data = req.body;
   var username = req.session.username;
-  console.log("here comes the exhibit we're going to create for " + username + ": ");
-  console.log(form_data);
+
 
   //get the user to update
   models.User
@@ -37,6 +36,9 @@ exports.addExhibit = function(req, res) {
     newExhibit.id = users[0].exhibits.length + 1;
     newExhibit.save(afterSaving);
 
+    //console.log("here comes the exhibit we're going to create for " + username + ": ");
+    //console.log(newExhibit);
+    //console.log(users[0].exhibits.length + " vs. " + users[0]['exhibits'].length);
 
     userToUpdate.exhibits.push(newExhibit);
 
