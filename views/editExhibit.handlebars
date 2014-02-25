@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>VirtualBulletin | New Exhibit</title>	
+	<title>VirtualGallery | Edit Exhibit</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="../css/bootstrap.css" rel="stylesheet">
@@ -15,7 +15,7 @@
 <body>
 	<div class="container">
 		<center>
-		<h1>VirtualBulletin</h1>
+		<h1>VirtualGallery</h1>
 		<div class="box">
 			<h2>New Exhibit</h2>
 			<!--Image upload script adapted from Jasny's template
@@ -25,10 +25,13 @@
 			</br>
 			<h4>Select Exhibit Image</h4>
 			<div class="fileupload fileupload-new" data-provides="fileupload">
-  				<div class="fileupload-preview thumbnail" data-trigger="fileupload" style="width: 200px; height: 150px;">
+				<div class="thumbnail" style="width: 200px; height: 150px;" id="currentImageThumbnail">
+					<img src="{{imageURL}}">
+				</div>
+  				<div class="fileupload-preview thumbnail" data-trigger="fileupload" style="width: 200px; height: 150px;" id="newImageThumbnail">
   				</div>
     				<div class="input-group-btn">
-    					<span class="button btn-file"><span class="fileupload-new">Upload</span>
+    					<span class="button btn-file"><span class="fileupload-new">Upload New</span>
     					<span class="fileupload-exists">Change</span>
     					<input type="file" name="..."></span>
     					<span href="#" class="button fileupload-exists" data-dismiss="fileupload">Remove</span>
@@ -37,7 +40,7 @@
 
 			</br>
 			<h4>Add Exhibit Description</h4>
-			<textarea id="exhibitDescription" class="form-control" rows="3" placeholder="Enter exhibit description here" style="width:auto"></textarea>
+			<textarea id="exhibitDescription" class="form-control" rows="3" style="width:auto">{{description}}</textarea>
 			</br>
 			<h4>Add Exhibit Keywords</h4>
 			<form>
@@ -74,8 +77,8 @@
 
 			</br>
 
-			<a href="viewGallery"><button id="submitExhibit" class="button">Open Exhibit</button></a>
-			<a href="viewGallery"><button class="button">Cancel</button></a>
+			<a href="../viewGallery"><button id="submitExhibit" class="button">Open Exhibit</button></a>
+			<a href="../viewGallery"><button class="button">Cancel</button></a>
 		</div>
 
 		</center>
@@ -83,7 +86,7 @@
 
 	<script src="../js/jquery-1.11.0.js"></script>
 	<script src="../js/bootstrap.js"></script>
-	<script src="../js/jasny-bootstrap.js"></script>
-	<script src="../js/newExhibitControls.js"></script>
+	<script src="../js/jasny-bootstrap-modified.js"></script>
+	<script src="../js/editExhibitControls.js"></script>
 </body>
 </html>
