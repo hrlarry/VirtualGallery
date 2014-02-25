@@ -8,13 +8,15 @@ exports.displayPage = function(req, res){
 exports.executeLogin = function(req, res){
 	//verify the login here
 	var enteredUsername = req.params.username;  //NEED TO CHECK THAT THIS IS ACTUALLY A USERNAME FROM THE DATABASE
+	console.log(req);
+	console.log(res);
 
 	models.User
 		.find()
 		.exec(tryToLogin);
 
 	function tryToLogin(err, users){
-		for(var i = 0; i < users.length; i++){
+		for (var i = 0; i < users.length; i++) {
 			console.log("checking " + users[i].username);
 			if(users[i].username == enteredUsername){
 				//execute the login
@@ -35,4 +37,6 @@ exports.executeLogout = function(req, res){
 	console.log("logging out now");
 	req.session = null;
 	res.send();
+
+	res.redirect('/');
 }

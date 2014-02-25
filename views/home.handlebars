@@ -2,11 +2,13 @@
 
 <html>
 <head>
-	<title>VirtualBulletin | Home</title>	
+	<title>VirtualGallery | Home</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="../css/defaultCSS.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>      
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	<link href="css/defaultCSS.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>    
 </head>
 
 <body>
@@ -20,13 +22,13 @@
 			<p>What can we do for you today?</p>
 			<br>
 			<!-- <p>This is a placeholder for your account info, including email, phone number, and profile picture.</p>  -->
-			<a href="search"><button class="button">Find me someone awesome.</button></a>
-			<p>
-			<a href="editProfile"><button class="button">Edit My Profile</button></a>
-			<a href="viewGallery"><button id="backBtn" class="button">Edit My Gallery</button></a>
-			<br>
+			<a href="search"><button type="button" class="btn btn-primary btn-block">Find me someone awesome.</button></a>
+			<hr>
+			<a href="editProfile"><button type="button" class="btn btn-default">Edit My Profile</button></a>
+			<a href="viewGallery"><button type="button" id="editGalleryBtn" class="btn btn-default">Edit My Gallery</button></a>
+			<br><br>
 			<!-- logout button should go to index -->
-			<button id="logoutBtn" class="button">Logout</button>
+			<a href="login/executeLogout"><button id="logoutBtn" class="btn btn-danger">Logout</button></a>
 		</div>
 
 		</center>
