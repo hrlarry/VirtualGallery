@@ -63,8 +63,12 @@ exports.editExhibit = function(req, res) {
     newExhibit.id = req.params.id;
     newExhibit.save(afterSaving);
     */
-    
-    userToUpdate['exhibits'][editID-1]['imageURL'] = replacingExhibit['imageURL'];
+    console.log("exhibits: " + userToUpdate['exhibits']);
+    console.log("exhibit to update: " + userToUpdate['exhibits'][editID]);
+
+
+    //subtract one from indices because our id's are 1-indexed and the array of exhibits is 0-indexed    
+    //userToUpdate['exhibits'][editID-1]['imageURL'] = replacingExhibit['imageURL'];  //THIS SEEMS TO BE DELETING IMAGES
     userToUpdate['exhibits'][editID-1]['description'] = replacingExhibit['description'];
     userToUpdate['exhibits'][editID-1]['keywords'] = replacingExhibit['keywords'];
     

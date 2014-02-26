@@ -66,6 +66,8 @@ exports.deleteExhibit = function(req, res) {
                 }
             }
         }
+        console.log("after deleting: ");
+        console.log(userToUpdate.exhibits);
 
         // collection.update(
         //     {_id: users[0]._id }, //is this right?
