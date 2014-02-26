@@ -6,36 +6,33 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="css/bootstrap.css" rel="stylesheet">
-	<link href="css/bootstrap-theme.css" rel="stylesheet">
 	<link href="css/defaultCSS.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>    
 </head>
 
 <body>
-	<div class="container">
-		<center>
-		<h1>VirtualBulletin</h1>	
+	<center>
+	<h1>VirtualGallery</h1>	
 
-		<div class="box">
-			<h2>Welcome home, {{username}}.</h2>
+	<div class="box">
+		<h2>Welcome home, {{username}}.</h2>
 
-			<p>What can we do for you today?</p>
-			<br>
-			<!-- <p>This is a placeholder for your account info, including email, phone number, and profile picture.</p>  -->
-			<a href="search"><button type="button" class="btn btn-primary btn-block">Find me someone awesome.</button></a>
-			<hr>
-			<a href="editProfile"><button type="button" class="btn btn-default">Edit My Profile</button></a>
-			<a href="viewGallery"><button type="button" id="editGalleryBtn" class="btn btn-default">Edit My Gallery</button></a>
-			<br><br>
-			<!-- logout button should go to index -->
-			<a href="login/executeLogout"><button id="logoutBtn" class="btn btn-danger">Logout</button></a>
-		</div>
-
-		</center>
+		<p>What can we do for you today?</p>
+		<br>
+		<!-- <p>This is a placeholder for your account info, including email, phone number, and profile picture.</p>  -->
+		<a href="search" class="btn btn-primary btn-block btn-lg">Find me someone awesome.</a>
+		<hr>
+		<a href="editProfile"><button type="button" class="btn btn-default">Edit My Profile</button></a>
+		<a href="viewGallery"><button type="button" id="editGalleryBtn" class="btn btn-default">Edit My Gallery</button></a>
+		<br><br>
+		<!-- logout button should go to index -->
+		<a href="login/executeLogout"><button id="logoutBtn" class="btn btn-danger">Logout</button></a>
 	</div>
 
-	<script src="../js/jquery-1.11.0.js"></script>
-	<script src="../js/bootstrap.js"></script>
-	<script src="../js/newExhibitControls.js"></script>
+	</center>
+
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/newExhibitControls.js"></script>
 </body>
 </html>

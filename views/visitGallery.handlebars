@@ -2,54 +2,41 @@
 
 <html>
 <head>
-	<title>View Their Gallery</title>	
+	<title>VirtualGallery | Visit Their Gallery</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="../css/bootstrap.css" rel="stylesheet">
-	<link href="../css/bootstrap-theme.css" rel="stylesheet">
 	<link href="../css/defaultCSS.css" rel="stylesheet">
-	
-
-	<script type="text/javascript">
-		// TOUCH-EVENTS SINGLE-FINGER SWIPE-SENSING JAVASCRIPT
-		// Courtesy of PADILICIOUS.COM and MACOSXAUTOMATION.COM
-	
-		var fingerCount = 0;
-		var startX = 0;
-	</script>
-	
 </head>
 
 <body>
-	<div class="container">
-		<center>
-		<h1>VirtualBulletin</h1>
-		</center>
+	<center>
+	<h1>VirtualGallery</h1>
+	</center>
 
-		<center>
-		<div class = "usernameInfo" id="{{username}}"> </div>
-		<div class ="box">
-	    	<div id="backgroundSplash">				
-				<div class="exhibitCanvas" id="exhibitCanvas">
-					<div class="exhibit" id="exhibit1">
-						<img src="{{imageURL}}" id="exhibitImage" class="exhibitImage"></img>
-					</div>
-				</div>
-				<div class ="exhibitCanvas" id="exhibitDescription" data-container="body" data-toggle="popover" data-placement="top" data-content="{{description}}" data-trigger="manual">
-					<img src="../images/descriptionSign.jpg" id="descriptionSign"></img>
-					<!--<span class="glyphicon glyphicon-align-justify"></span>-->
+	<center>
+	<div class = "usernameInfo" id="{{username}}"> </div>
+	<div class ="box">
+    	<div id="backgroundSplash">				
+			<div class="exhibitCanvas" id="exhibitCanvas">
+				<div class="exhibit" id="exhibit1">
+					<img src="{{imageURL}}" id="exhibitImage" class="exhibitImage"></img>
 				</div>
 			</div>
-			<br>
-			<button id="prevBtn" class="button">Prev</button>
-			<button id="nextBtn" class="button">Next</button>
-
-			<hr>
-
-			<a href="../home"><button id="homeBtn" class="button">Home</button></a>
+			<div class ="exhibitCanvas" id="exhibitDescription" data-container="body" data-toggle="popover" data-placement="top" data-content="{{description}}" data-trigger="manual">
+				<img src="../images/descriptionSign.jpg" id="descriptionSign"></img>
+				<!--<span class="glyphicon glyphicon-align-justify"></span>-->
+			</div>
 		</div>
-		</center>
+		<br>
+		<button id="prevBtn" class="btn btn-default">Prev</button>
+		<button id="nextBtn" class="btn btn-default">Next</button>
+
+		<hr>
+		<a href="javascript:history.go(-1)" class="btn btn-primary">Back to Search Results</a>
+		<a href="../home"><button id="homeBtn" class="btn btn-default">Home</button></a>
 	</div>
+	</center>
 
 	<!-- add scripts -->
 	<script src="../js/jquery-1.11.0.js"></script>
