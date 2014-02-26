@@ -62,7 +62,7 @@ function submitExhibit(e){
 
     //make the new exhibit 
     
-        var id = 1; //default
+        var id = 1; //will be changed in newExhibit.add
         var image_url = "http://upload.wikimedia.org/wikipedia/commons/6/63/French_horn_front.png" //placeholder for now
         var description = $('#exhibitDescription').val();
         var keywords = []; //DON'T KNOW HOW TO ACCESS THE KEYWORDS

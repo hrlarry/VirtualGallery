@@ -51,6 +51,13 @@ exports.deleteExhibit = function(req, res) {
             if (userToUpdate.exhibits[i].id == exhibitID){
                 userToUpdate.exhibits[i].remove();
                 userToUpdate.save(afterRemoving);
+
+                //move other exhibits' id numbers down accordingly
+                for (var j = i; j < userToUpdate.exhibits.length; j++){ //all exhibits that came after the deleted one
+                    //move exhibit 1 down
+                    userToUpdate.exhibits[j].id = userToUpdate.exhibits[j].id - 1; //move down the id
+                    userToUpdate.save(afterRemoving);
+                }
                 break;
 
                 function afterRemoving(err){
