@@ -6,10 +6,11 @@ exports.displayPage = function(req, res){
 	var username = req.session.username;
 	var userID = 0; //Currently using 0, change to the id of the person who logs in.
 	models.User
-		.find()
+		.find({"username": username})
 		.exec(renderUsers);
 
 	function renderUsers(err, users){
+		userID = users[0].id;
 		var toReturn = [];
 		var scores = [];
 		console.log(users.length);

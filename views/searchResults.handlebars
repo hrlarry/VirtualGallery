@@ -3,45 +3,45 @@
 <!-- code from index.handlebars of lab 5 -->
 <html>
 <head>
-	<title>Search Results</title>	
- 	<meta charset="utf-8">
+	<title>VirtualGallery | Search Results</title>	
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/defaultCSS.css" rel="stylesheet">
-
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	<link href="css/defaultCSS.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>  
 </head>
 
 <body>
-	<div class="container">
+	<center>
+	<h1>VirtualGallery</h1>
+	</center>
+
+	<div class ="box">
+		<h2>People most similar to you</h2>
+		{{#each users}}
+    	<div>
+    		<a href="visitGallery/{{username}}">
+    			<h3>{{username}}</h3>
+    			<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/800px-Smiley.svg.png" height=200 width=200> </br>
+    			Shared interests: [placeholders] </br>
+	    		Contact information: <br>
+	    		Email: {{email}} <br>
+	    		Phone Number: {{phone}} <br></br>
+	    	</a>
+	    </div>
+	    {{/each}}
+
+		<hr>
+
 		<center>
-		<h1>VirtualBulletin</h1>
+		<a href="search"><button id="backBtn" class="btn btn-default" type="button">Start New Search</button></a>
 		</center>
-
-		<div class ="box">
-			<h2>People most similar to you</h2>
-			{{#each users}}
-	    	<div>
-	    		<a href="visitGallery/{{username}}">
-	    			<h3>{{username}}</h3>
-	    			<img src="{{exhibits.0.imageURL}}" height=200 width=200> </br>
-	    			<!-- Shared interests: [placeholders] </br> -->
-		    		Contact information: <br>
-		    		Email: {{email}} <br>
-		    		Phone Number: {{phone}} <br></br>
-		    	</a>
-		    </div>
-		    {{/each}}
-
-			<hr>
-
-			<center>
-			<a href="search"><button id="backBtn" class="button">Back</button></a>
-			</center>
-		</div>
 	</div>
 
 	<!-- add scripts -->
-	<script src="../js/jquery-1.11.0.js"></script>
-	<script src="../js/bootstrap.js"></script>
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/bootstrap.js"></script>
 
 
 </body>
