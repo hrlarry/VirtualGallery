@@ -22,18 +22,31 @@ function initializePage() {
         	var chosenTagsList = document.getElementsByName("chosenTags")[0];
         	var toMove = $(this);
         	var foundDuplicate = false;
-			console.log(toMove.text());
+			//console.log($(this).parent().attr('label'));
         	for(var i=0; i < chosenTagsList.length; i++){
-        		console.log("test4");
+        		//console.log("test4: "+ chosenTagsList.options[i].text);
         		if(chosenTagsList.options[i].text == toMove.text()){
-        			console.log("test2");
+        			//console.log("test2");
         			foundDuplicate = true;
         			break;
         		}
         	}
+
         	if(foundDuplicate == false){
-        		console.log("test3");
-            	$('#select-to').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+        		//console.log("test3");
+                //console.log($('#select-to')
+                    .find("optgroup"));
+
+                if($('#select-to optgroup[label='+$(this).parent().attr("label")+']').html() == null){
+                    $('#select-to').append('<optgroup label='+$(this).parent().attr("label")+'></optgroup>');
+                    $('#select-to optgroup[label='+$(this).parent().attr("label")+']').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+                } else {
+                    $('#select-to optgroup[label='+$(this).parent().attr("label")+']').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+                }
+
+            }
+            else {
+                console.log("You've already added this tag!");
             }
             //$(this).remove();
         });

@@ -35,13 +35,20 @@
 
 		</br>
 		<h4>Add Exhibit Description</h4>
-		<textarea id="exhibitDescription" class="form-control" rows="3" placeholder="Enter exhibit description here" style="width:auto"></textarea>
+		<textarea id="exhibitDescription" class="form-control" rows="3" placeholder="Enter exhibit description here" style="width:200px"></textarea>
 		</br>
 		<h4>Add Exhibit Keywords</h4>
 		<form>
 				<fieldset>
-				<select name="allTags" id="select-from" multiple size="5" style="width: 100px">
-  					<OPTGROUP label="Music">
+				<select name="allTags" id="select-from" multiple size="5" style="width: 200px">
+  					{{#each data}}
+  						<OPTGROUP label={{Category}}>
+  							{{#each Labels}}
+  								<option value={{@index}}>{{this}}</option>
+  							{{/each}}
+  						</OPTGROUP>
+  					{{/each}}
+  					<!--<OPTGROUP label="Music">
   						<option value="1">Classical</option>
   						<option value="2">Hip-hop</option>
   						<option value="3">Rap</option>
@@ -54,15 +61,17 @@
   						<option value="8">Football</option>
   						<option value="9">Hockey</option>
   						<option value="10">Tennis</option>
-  					</OPTGROUP>
+  					</OPTGROUP>-->
 				</select>
-
-			    <a href="JavaScript:void(0);" id="btn-add">Add &raquo;</a>
-				<a href="JavaScript:void(0);" id="btn-remove">&laquo; Remove</a>
- 
-				<select name="chosenTags" id="select-to" multiple size="5" style="width: 100px">
+				</br>	
+			    <a href="JavaScript:void(0);" id="btn-add">v Add v</a>
+				</br>
+ 				<a href="JavaScript:void(0);" id="btn-remove">^ Remove ^</a>
+ 				</br>
+				<select name="chosenTags" id="select-to" multiple size="5" style="width: 200px">
   					<!--Starts out empty-->
 				</select>
+				
 
 		 	</fieldset>
 		</form>

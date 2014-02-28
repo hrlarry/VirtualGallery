@@ -15,7 +15,16 @@ exports.displayPage = function(req, res) { 
 
     console.log(newFriend);*/
     //initializePage();
-    res.render('newExhibit');
+
+    models.Categories
+        .find()
+        .exec(populateKeywords);
+
+    function populateKeywords(err, categories){
+        if(err) {console.log(err); res.send(500);}
+       
+        res.render('newExhibit', {'data': categories});
+    }
  }
 
 exports.addExhibit = function(req, res) {
