@@ -1,51 +1,51 @@
 [
 		{
 			"Category": "Animals & Pets",
-			"Keywords": ["Cats", "Dogs", "Penguins"]
+			"Labels": ["Cats", "Dogs", "Penguins"]
 		},
 		{
 			"Category": "Autos & Vehicles",
-			"Keywords": []
+			"Labels": []
 		},
 		{
 			"Category": "Education",
-			"Keywords": []
+			"Labels": []
 		},
 		{
 			"Category": "Entertainment",
-			"Keywords": []
+			"Labels": []
 		},
 		{
 			"Category": "Fashion & Style",
-			"Keywords": []
+			"Labels": []
 		},
 		{
 			"Category": "Gaming",
-			"Keywords": []
+			"Labels": []
 		},
 		{
 			"Category": "Music",
-			"Keywords": []
+			"Labels": []
 		},
 		{
 			"Category": "News & Politics",
-			"Keywords": []
+			"Labels": []
 		},
 		{
 			"Category": "People",
-			"Keywords": []
+			"Labels": []
 		},
 		{
 			"Category": "Science & Technology",
-			"Keywords": []
+			"Labels": []
 		},
 		{
 			"Category": "Sports",
-			"Keywords": ["Baseball", "Basketball", "Football", "Golf", "Hockey", "Soccer", "Swimming"]
+			"Labels": ["Baseball", "Basketball", "Football", "Golf", "Hockey", "Soccer", "Swimming"]
 		},
 		{
 			"Category": "Travel",
-			"Keywords": []
+			"Labels": []
 		}
 		
 ]

@@ -27,16 +27,22 @@ console.log("mongoose connected for " + database_uri);
 
 // Step 1: load the JSON data
 var projects_json = require('./fakeDatabase.json');
+var categories_json = require('./categories.json');
 
 // Step 2: Remove all existing documents
 models.User
   .find()
   .remove()
-  .exec(onceClear); // callback to continue at
+  .exec(usersClear); // callback to continue at
+/*
+models.Categories
+  .find()
+  .remove()
+  .exec(categoriesClear);*/
 
 // Step 3: load the data from the JSON file
-function onceClear(err) {
-  console.log("in onceClear");
+function usersClear(err) {
+  console.log("in usersClear");
   console.log(projects_json);
   if(err) console.log(err);
 
@@ -62,4 +68,32 @@ function onceClear(err) {
     });
   }
 }
+/*
+function categoriesClear(err){
+  console.log("in categoriesClear");
+  console.log(categories_json);
+  if(err) console.log(err);
 
+  // loop over the projects, construct and save an object from each one
+  // Note that we don't care what order these saves are happening in...
+  var to_save_count = categories_json.length;
+  console.log("length is " + to_save_count);
+  for(var i=0; i<categories_json.length; i++) {
+    var json = categories_json[i];
+    var proj = new models.Categories(json);
+
+    proj.save(function(err, proj) {
+      if(err) console.log(err);
+
+      to_save_count--;
+      console.log(to_save_count + ' left to save');
+      if(to_save_count <= 0) {
+        console.log('DONE');
+        // The script won't terminate until the 
+        // connection to the database is closed
+        mongoose.connection.close()
+      }
+    });
+  }
+}
+*/

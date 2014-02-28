@@ -29,3 +29,7 @@ exports.User = Mongoose.model('User', UserSchema);
 exports.Exhibit = Mongoose.model('Exhibit', ExhibitSchema);
 exports.Keyword = Mongoose.model('Keyword', KeywordSchema);
 
+
+//Categories schemas
+
+exports.Categories = Mongoose.model('Categories', KeywordSchema);

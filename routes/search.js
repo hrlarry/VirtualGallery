@@ -1,4 +1,5 @@
 var data = require('../categories.json');
+var data = require('../models');
 
 exports.displayPage = function(req, res){
 	console.log(data);
