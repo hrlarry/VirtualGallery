@@ -3,7 +3,6 @@ var models = require('../models');
 var editID;
 
 exports.displayPage = function(req, res) {    
-    // Your code goes here
     //var name = req.query.name;
     /*var description = req.query.description;
     var newFriend = {
