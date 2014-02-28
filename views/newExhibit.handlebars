@@ -38,6 +38,9 @@
 		<textarea id="exhibitDescription" class="form-control" rows="3" placeholder="Enter exhibit description here" style="width:200px"></textarea>
 		</br>
 		<h4>Add Exhibit Keywords</h4>
+		{{#if newVersion}}
+			<input type="text" class="form-control" placeholder="Keywords, separated by commas"></input>
+		{{else}}
 		<form>
 				<fieldset>
 				<select name="allTags" id="select-from" multiple size="5" style="width: 200px">
@@ -76,7 +79,8 @@
 		 	</fieldset>
 		</form>
 
-		<input type="text" class="form-control" placeholder="Keywords not in above lists, separated by commas"></input>
+			<input type="text" class="form-control" placeholder="Keywords not in above lists, separated by commas"></input>
+		{{/if}}
 
 		</br>
 

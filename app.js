@@ -76,6 +76,7 @@ app.get('/viewGallery', viewGallery.displayPage);
 app.get('/visitGallery/:username', visitGallery.displayPage); //to pass username parameter
 app.get('/profile', profile.displayPage);
 app.get('/newExhibit', newExhibit.displayPage);
+app.get('/newExhibitNew', newExhibit.displayPageNew); //FOR OUR ALTERNATE VERSION
 app.get('/visitGallery', visitGallery.displayPage);
 app.get('/displayExhibit/:username/:id', displayExhibit.exhibitInfo);
 app.get('/editExhibit/:id', editExhibit.displayPage);
