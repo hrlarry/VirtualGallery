@@ -18,22 +18,35 @@ function initializePage() {
     $('#newImageThumbnail').hide();
 	$('#btn-add').click(function(){
         $('#select-from option:selected').each( function() {
-        	$('#chosenTags').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
-        	var chosenTagsList = document.getElementsByName("chosenTags")[0];
-        	var toMove = $(this);
-        	var foundDuplicate = false;
-			console.log(toMove.text());
-        	for(var i=0; i < chosenTagsList.length; i++){
-        		console.log("test4");
-        		if(chosenTagsList.options[i].text == toMove.text()){
-        			console.log("test2");
-        			foundDuplicate = true;
-        			break;
-        		}
-        	}
-        	if(foundDuplicate == false){
-        		console.log("test3");
-            	$('#select-to').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+            $('#chosenTags').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+            var chosenTagsList = document.getElementsByName("chosenTags")[0];
+            var toMove = $(this);
+            var foundDuplicate = false;
+            //console.log($(this).parent().attr('label'));
+            for(var i=0; i < chosenTagsList.length; i++){
+                //console.log("test4: "+ chosenTagsList.options[i].text);
+                if(chosenTagsList.options[i].text == toMove.text()){
+                    //console.log("test2");
+                    foundDuplicate = true;
+                    break;
+                }
+            }
+
+            if(foundDuplicate == false){
+                //console.log("test3");
+                //console.log($('#select-to')
+                    //.find("optgroup"));
+
+                if($('#select-to optgroup[label='+$(this).parent().attr("label")+']').html() == null){
+                    $('#select-to').append('<optgroup label='+$(this).parent().attr("label")+'></optgroup>');
+                    $('#select-to optgroup[label='+$(this).parent().attr("label")+']').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+                } else {
+                    $('#select-to optgroup[label='+$(this).parent().attr("label")+']').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+                }
+
+            }
+            else {
+                console.log("You've already added this tag!");
             }
             //$(this).remove();
         });
@@ -41,7 +54,14 @@ function initializePage() {
     $('#btn-remove').click(function(){
         $('#select-to option:selected').each( function() {
             //$('#select-from').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+            var parent = $(this).parent();
             $(this).remove();
+            //var otherOptions = 
+            //console.log($('#select-to optgroup[label='+parent.attr("label")+'] option').html());
+            if($('#select-to optgroup[label='+parent.attr("label")+'] option').html() == null)
+            {
+                parent.remove();
+            }
         });
     });
 

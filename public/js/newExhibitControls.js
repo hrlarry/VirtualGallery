@@ -35,7 +35,7 @@ function initializePage() {
         	if(foundDuplicate == false){
         		//console.log("test3");
                 //console.log($('#select-to')
-                    .find("optgroup"));
+                    //.find("optgroup"));
 
                 if($('#select-to optgroup[label='+$(this).parent().attr("label")+']').html() == null){
                     $('#select-to').append('<optgroup label='+$(this).parent().attr("label")+'></optgroup>');
@@ -54,7 +54,14 @@ function initializePage() {
     $('#btn-remove').click(function(){
         $('#select-to option:selected').each( function() {
             //$('#select-from').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+            var parent = $(this).parent();
             $(this).remove();
+            //var otherOptions = 
+            //console.log($('#select-to optgroup[label='+parent.attr("label")+'] option').html());
+            if($('#select-to optgroup[label='+parent.attr("label")+'] option').html() == null)
+            {
+                parent.remove();
+            }
         });
     });
 
