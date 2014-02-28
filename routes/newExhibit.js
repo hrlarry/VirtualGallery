@@ -16,7 +16,7 @@ exports.displayPage = function(req, res) { 
     console.log(newFriend);*/
     //initializePage();
     res.render('newExhibit');
- }
+}
 
 exports.addExhibit = function(req, res) {
   var form_data = req.body;

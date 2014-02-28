@@ -11,31 +11,28 @@
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<div class="container">
+	<center>
+		<h1>Edit My Profile</h1>
+	</center>
+	<div class="box">
+		<h3>Change your contact information:</h3>
+		<label for="email">Email: currently {{email}}</label>
+		<textarea id="newEmail" class="form-control" rows="3" placeholder="Enter email here"></textarea><br>
+
+		<label for="phone">Phone number: currently {{phone}}</label>
+		<textarea id="newPhone" class="form-control" rows="3" placeholder="Enter phone number here"></textarea><br>
+
+		<h3>Change your password:</h3>
+		<label for="username">New Password:</label>
+      	<input type="password" class="form-control" id="password" placeholder="Password">
+		<hr>
 		<center>
-			<h1>Edit My Profile</h1>
+
+		<!--buttons to go back to the homepage or to the login page -->
+		<a href="home" id="editProfileSaveBtn" class="btn btn-success btn-block">Save and Go to Home</a>
+		<br>
+		<a href="home" class="btn btn-default btn-block">Cancel</a>
 		</center>
-			<div class="box">
-				<h3>Change your contact information:</h3>
-				<label for="email">Email: currently {{email}}</label>
-				<textarea id="newEmail" class="form-control" rows="3" placeholder="Enter email here"></textarea><br>
-
-				<label for="phone">Phone number: currently {{phone}}</label>
-				<textarea id="newPhone" class="form-control" rows="3" placeholder="Enter phone number here"></textarea><br>
-
-				<h3>Change your password:</h3>
-				<label for="username">New Password:</label>
-		      	<input type="password" class="form-control" id="password" placeholder="Password">
-				<hr>
-				<center>
-
-				<!--buttons to go back to the homepage or to the login page -->
-				<a href="home"><button id="editProfileSaveBtn" class="btn btn-success btn-block">Save and Go to Home</button></a>
-				<br>
-				<a href="home"><button class="btn btn-default btn-block">Cancel</button></a>
-				</center>
-			</div>
-		
 	</div>
 
 	<script src="js/jquery-1.11.0.js"></script>
