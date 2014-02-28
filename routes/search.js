@@ -1,5 +1,8 @@
+var data = require('../categories.json');
+
 exports.displayPage = function(req, res){
-	res.render('search');
+	console.log(data);
+	res.render('search', {'data': data});
 }
 
 

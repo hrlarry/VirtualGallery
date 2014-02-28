@@ -71,27 +71,27 @@
 	      				<label for="distance">1: </label>
 	      				<select id="myList" onchange="favBrowser()">
   							<option></option> <!--Should default to current settings-->
-  							<option>Music</option>
-  							<option>Technology</option>  
-  							<option>Visual Art</option>
+  							{{#each data}}
+  								<option>{{Category}}</option>
+  							{{/each}}
 						</select>
 	    			</div>
 	    			<div class="form-group">
 	      				<label for="distance">2: </label>
 	      				<select id="myList" onchange="favBrowser()">
   							<option></option> <!--Should default to current settings-->
-  							<option>Music</option>
-  							<option>Technology</option>  
-  							<option>Visual Art</option>
+  							{{#each data}}
+  								<option>{{Category}}</option>
+  							{{/each}}
 						</select>
 	    			</div>
 	    			<div class="form-group">
 	      				<label for="distance">3: </label>
 	      				<select id="myList" onchange="favBrowser()">
   							<option></option> <!--Should default to current settings-->
-  							<option>Music</option>
-  							<option>Technology</option>  
-  							<option>Visual Art</option>
+  							{{#each data}}
+  								<option>{{Category}}</option>
+  							{{/each}}
 						</select>
 	    			</div>
 				</form>

@@ -1,14 +1,10 @@
 [
 		{
 			"Category": "Animals & Pets",
-			"Keywords": []
+			"Keywords": ["Cats", "Dogs", "Penguins"]
 		},
 		{
 			"Category": "Autos & Vehicles",
-			"Keywords": []
-		},
-		{
-			"Category": "Comedy",
 			"Keywords": []
 		},
 		{
@@ -16,11 +12,11 @@
 			"Keywords": []
 		},
 		{
-			"Category": "Fashion & Style",
+			"Category": "Entertainment",
 			"Keywords": []
 		},
 		{
-			"Category": "Film & Animation",
+			"Category": "Fashion & Style",
 			"Keywords": []
 		},
 		{
