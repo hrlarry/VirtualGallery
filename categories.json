@@ -5,39 +5,39 @@
 		},
 		{
 			"Category": "Autos & Vehicles",
-			"Labels": []
+			"Labels": ["Audi", "BMW", "Chevrolet", "Honda", "Hyundai", "Jaguar", "Jeep", "Kia", "Lexus", "Mazda", "Mercedes-Benz", "Mitsubishi", "Nissan", "Porsche", "Subaru", "Toyota", "Volkswagen", "Volvo"]
 		},
 		{
 			"Category": "Education",
-			"Labels": []
+			"Labels": ["Arts", "English", "History", "Math", "Science", "World Languages"]
 		},
 		{
 			"Category": "Entertainment",
-			"Labels": []
+			"Labels": ["Movies", "TV"]
 		},
 		{
 			"Category": "Fashion & Style",
-			"Labels": []
+			"Labels": ["Headwear", "Shoes"]
 		},
 		{
 			"Category": "Gaming",
-			"Labels": []
+			"Labels": ["Pokemon", "Sonic"]
 		},
 		{
 			"Category": "Music",
-			"Labels": []
+			"Labels": ["A capella", "Classical", "Hip-Hop", "Rap", "R&B"]
 		},
 		{
 			"Category": "News & Politics",
-			"Labels": []
+			"Labels": ["Democrat", "Republican", "World News"]
 		},
 		{
 			"Category": "People",
-			"Labels": []
+			"Labels": ["Celebrities", "Singers"]
 		},
 		{
 			"Category": "Science & Technology",
-			"Labels": []
+			"Labels": ["Robotics", "Software"]
 		},
 		{
 			"Category": "Sports",
@@ -45,7 +45,7 @@
 		},
 		{
 			"Category": "Travel",
-			"Labels": []
+			"Labels": ["Africa", "Asia", "Australia", "Europe", "North America", "Oceania", "South America"]
 		}
 		
 ]

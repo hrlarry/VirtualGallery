@@ -1,4 +1,4 @@
-//this is going to be models.js for VirtualBulletin
+//this is going to be models.js for VirtualGallery
 
 var Mongoose = require('mongoose');
 

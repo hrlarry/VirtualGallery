@@ -15,7 +15,27 @@ exports.displayPage = function(req, res) { 
 
     console.log(newFriend);*/
     //initializePage();
-    res.render('newExhibit');
+    models.Categories
+        .find()
+        .exec(populateKeywords);
+
+    function populateKeywords(err, categories){
+        if(err) {console.log(err); res.send(500);}
+       
+        res.render('newExhibit', {'data': categories, 'newVersion': false});
+    }
+}
+
+exports.displayPageNew = function(req, res){ //this is the one for the new test case
+        models.Categories
+        .find()
+        .exec(populateKeywords);
+
+    function populateKeywords(err, categories){
+        if(err) {console.log(err); res.send(500);}
+       
+        res.render('newExhibit', {'data': categories, 'newVersion': true});
+    }
 }
 
 exports.addExhibit = function(req, res) {
