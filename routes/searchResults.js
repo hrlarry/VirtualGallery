@@ -10,7 +10,8 @@ exports.displayPage = function(req, res){
 		.exec(renderUsers);
 
 	function renderUsers(err, users){
-		userID = users[0].id;
+		//userID = users[0].id;
+		userID = 0; //USERS DON'T HAVE ID FIELDS
 		var toReturn = [];
 		var scores = [];
 		console.log(users.length);
