@@ -1,9 +1,17 @@
-var data = require('../categories.json');
-var data = require('../models');
+//var data = require('../categories.json');
+var models = require('../models');
 
 exports.displayPage = function(req, res){
-	console.log(data);
-	res.render('search', {'data': data});
+	models.Categories
+		.find()
+		.exec(populateCategories);
+
+	function populateCategories(err, categories){
+        if(err) {console.log(err); res.send(500);}
+       
+        res.render('search', {'data': categories});
+    }
+	
 }
 
 

@@ -34,11 +34,6 @@ models.User
   .find()
   .remove()
   .exec(usersClear); // callback to continue at
-/*
-models.Categories
-  .find()
-  .remove()
-  .exec(categoriesClear);*/
 
 // Step 3: load the data from the JSON file
 function usersClear(err) {
@@ -60,15 +55,20 @@ function usersClear(err) {
       to_save_count--;
       console.log(to_save_count + ' left to save');
       if(to_save_count <= 0) {
-        console.log('DONE');
+        console.log('DONE WITH USERS');
         // The script won't terminate until the 
         // connection to the database is closed
-        mongoose.connection.close()
+        //mongoose.connection.close()
       }
     });
   }
-}
-/*
+
+  models.Categories
+  .find()
+  .remove()
+  .exec(categoriesClear);
+
+
 function categoriesClear(err){
   console.log("in categoriesClear");
   console.log(categories_json);
@@ -76,19 +76,19 @@ function categoriesClear(err){
 
   // loop over the projects, construct and save an object from each one
   // Note that we don't care what order these saves are happening in...
-  var to_save_count = categories_json.length;
-  console.log("length is " + to_save_count);
-  for(var i=0; i<categories_json.length; i++) {
-    var json = categories_json[i];
+  var to_save_count_2 = categories_json.length;
+  console.log("length is " + to_save_count_2);
+  for(var j=0; j<categories_json.length; j++) {
+    var json = categories_json[j];
     var proj = new models.Categories(json);
 
     proj.save(function(err, proj) {
       if(err) console.log(err);
 
-      to_save_count--;
-      console.log(to_save_count + ' left to save');
-      if(to_save_count <= 0) {
-        console.log('DONE');
+      to_save_count_2--;
+      console.log(to_save_count_2 + ' left to save');
+      if(to_save_count_2 <= 0) {
+        console.log('DONE WITH CATEGORIES');  
         // The script won't terminate until the 
         // connection to the database is closed
         mongoose.connection.close()
@@ -96,4 +96,4 @@ function categoriesClear(err){
     });
   }
 }
-*/
+}
