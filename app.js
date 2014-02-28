@@ -80,6 +80,7 @@ app.get('/newExhibitNew', newExhibit.displayPageNew); //FOR OUR ALTERNATE VERSIO
 app.get('/visitGallery', visitGallery.displayPage);
 app.get('/displayExhibit/:username/:id', displayExhibit.exhibitInfo);
 app.get('/editExhibit/:id', editExhibit.displayPage);
+app.get('/editExhibitNew/:id', editExhibit.displayPageNew);
 
 //Example for posting
 //app.post('/project/:id/delete', project.deleteProject);

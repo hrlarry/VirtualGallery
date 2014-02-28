@@ -40,6 +40,9 @@
 		<textarea id="exhibitDescription" class="form-control" rows="3" style="width:auto">{{description}}</textarea>
 		</br>
 		<h4>Add Exhibit Keywords</h4>
+		{{#if newVersion}}
+			<input type="text" class="form-control" placeholder="Keywords not in above lists, separated by commas"></input>
+		{{else}}
 		<form>
 				<fieldset>
 
@@ -71,6 +74,7 @@
 		</form>
 
 		<input type="text" class="form-control" placeholder="Keywords not in above lists, separated by commas"></input>
+		{{/if}}
 
 		</br>
 

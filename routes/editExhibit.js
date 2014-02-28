@@ -26,7 +26,28 @@ exports.displayPage = function(req, res) { 
     function populateEditPage(err, users){
         if(err) {console.log(err); res.send(500);}
         console.log(users[0].exhibits[editID-1]);
-        res.render('editExhibit', users[0].exhibits[editID-1]);
+        var toPass = users[0].exhibits[editID-1];
+        toPass.newVersion = 'false';
+        res.render('editExhibit', toPass);
+    }
+
+    
+ }
+
+exports.displayPageNew = function(req, res) {    
+    editID = req.params.id;
+    var username = req.session.username;
+    console.log("Edit ID: " + editID);
+    models.User
+        .find({"username": username})
+        .exec(populateEditPage);
+
+    function populateEditPage(err, users){
+        if(err) {console.log(err); res.send(500);}
+        console.log(users[0].exhibits[editID-1]);
+        var toPass = users[0].exhibits[editID-1];
+        toPass.newVersion = 'true';
+        res.render('editExhibit', toPass);
     }
 
     
