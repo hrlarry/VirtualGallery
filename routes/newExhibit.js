@@ -38,6 +38,24 @@ exports.displayPageNew = function(req, res){ //this is the one for the new test 
     }
 }
 
+exports.getLabels = function(req, res) { 
+  var category = req.params.category;
+  console.log("Category: "+category);
+  // query for the specific project and
+  // call the following callback
+
+  models.Categories
+    .find({"Category":category})
+    .exec(afterQuery);
+
+
+  function afterQuery(err, projects) {
+    if(err) console.log(err);
+    console.log(projects);
+    res.json(projects[0]['Labels']);
+  }
+}
+
 exports.addExhibit = function(req, res) {
   var form_data = req.body;
   var username = req.session.username;

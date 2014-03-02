@@ -15,6 +15,10 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
+    $('.selectpicker').selectpicker();
+
+    //$('#category1').prop('selectedIndex', -1)
+    $(".categorySelector").on("change", populateCategories);
 
 	$('#btn-add').click(function(){
         $('#select-from option:selected').each( function() {
@@ -65,6 +69,8 @@ function initializePage() {
         });
     });
 
+    $('#addCategories').click(addMoreCategories);
+
     $('#submitExhibit').click(submitExhibit);
 
     $('#makeProfileBtn').click(makeNewProfile);
@@ -74,6 +80,67 @@ function initializePage() {
     $('#loginBtn').click(userLogin);
 
     $('#logoutBtn').click(userLogout);
+}
+
+function addMoreCategories(e){
+    e.preventDefault();
+
+    var nextSeriesNum = $('#keywordsDiv').find('.categorySelector').length + 1;
+    //console.log($('#keywordsDiv').html());
+
+    $('#keywordsDiv').append(
+        '</br>'+
+        '<select class="categorySelector" id="category'+nextSeriesNum+'" dir="ltr">'+
+        '<option selected style="display:none;">Pick a category</option>'+
+    /*
+    
+    for(var categories = 0; categories < numCategories; categories++){
+        $('#keywordsDiv').append(
+            '<option>'+$('#category1').options[0].text+'</option>'
+            );
+    }*/
+    
+        '</select>'+
+        '<select multiple style="width:200px" id="labels'+nextSeriesNum+'">'+
+        '</select>'
+        );
+    /*
+    var numCategories = $('#category1').options.length;
+    for(var count=0; count < numCategories; count++){
+        $('#category'+nextSeriesNum).append(
+            '<option>test'+count+'</option>'
+            );
+    }*/
+
+    $("#category1 option").each(function(){
+        console.log($(this).text());
+        if($(this).text()!="Pick a category"){
+            $("#category"+nextSeriesNum).append(
+                '<option>'+$(this).text()+'</option>'
+                );
+        }
+
+    });
+
+    $(".categorySelector").on("change", populateCategories);
+}
+
+function populateCategories(){
+    console.log($(this).find(":selected").text());
+
+    var currID = $(this).attr('id');
+
+    var url_call = '/categories/' + $(this).find(":selected").text();
+
+        function populateLabels(allLabels){
+            console.log(currID.substr("category".length));
+            for(var count = 0; count < allLabels.length; count ++){
+                $("#labels"+currID.substr("category".length)).append('<option value ='+count+'>'+allLabels[count]+'</option>');
+            }
+
+        }
+
+    $.get(url_call, populateLabels);
 }
 
 function submitExhibit(e){

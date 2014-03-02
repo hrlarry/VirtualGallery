@@ -81,6 +81,7 @@ app.get('/visitGallery', visitGallery.displayPage);
 app.get('/displayExhibit/:username/:id', displayExhibit.exhibitInfo);
 app.get('/editExhibit/:id', editExhibit.displayPage);
 app.get('/editExhibitNew/:id', editExhibit.displayPageNew);
+app.get('/categories/:category', newExhibit.getLabels);
 
 //Example for posting
 //app.post('/project/:id/delete', project.deleteProject);

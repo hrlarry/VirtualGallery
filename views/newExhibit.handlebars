@@ -6,6 +6,7 @@
 	<link href="../css/bootstrap.css" rel="stylesheet">
 	<link href="../css/jasny-bootstrap.css" rel="stylesheet">
 	<link href="../css/jasny-bootstrap-responsive.css" rel="stylesheet">
+	<link href="../css/bootstrap-select.css" rel="stylesheet">
 	<link href="../css/defaultCSS.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>      
 </head>
@@ -76,6 +77,21 @@
 				
 
 		 	</fieldset>
+		 </br>
+		 	<!--<select class="selectpicker show-tick categorySelector" id="category1" title="Category" dir="ltr">-->
+		 	<div id="keywordsDiv">
+		 		<select class="categorySelector" id="category1" dir="ltr">
+		 			<option selected style="display:none;">Pick a category</option>
+		 			{{#each data}}
+		 				<option>{{Category}}</option>
+		 			{{/each}}
+		 		</select>
+		 		<!--<select  multiple class="selectpicker show tick labelsSelector" id="labels1" title="None selected" style="widht: 200px">-->
+		 		<select multiple style="width:200px" id="labels1">
+			 		
+		 		</select>
+		 	</div>
+		 	<button class="btn btn-default" id="addCategories">Add more tag categories</button>
 		</form>
 
 			<input type="text" class="form-control" placeholder="Keywords not in above lists, separated by commas"></input>
@@ -94,5 +110,6 @@
 	<script src="../js/bootstrap.js"></script>
 	<script src="../js/jasny-bootstrap.js"></script>
 	<script src="../js/newExhibitControls.js"></script>
+	<script src="../js/bootstrap-select.js"></script>
 </body>
 </html>
