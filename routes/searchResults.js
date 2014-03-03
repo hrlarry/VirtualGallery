@@ -4,10 +4,12 @@ var models = require('../models');
 
 exports.displayPage = function(req, res){
 	var username = req.session.username;
+	console.log(username + " is currently signed in");
 	var userID = 0; //Currently using 0, change to the id of the person who logs in.
 	models.User
-		.find({"username": username})
-		.exec(renderUsers);
+		//.find({"username": username})
+		.find()
+		.exec(renderUsers)
 
 	function renderUsers(err, users){
 		//userID = users[0].id;
@@ -15,14 +17,15 @@ exports.displayPage = function(req, res){
 		var toReturn = [];
 		var scores = [];
 		console.log(users.length);
-		for(var i=0; i < users.length; i++){
-			if(userID != i){ //only execute matching algorithm if 
+		for (var i = 0; i < users.length; i++){
+			//if (userID != i) { 
+			if (username != users[i].username) { //only execute matching algorithm if user != itself
 				console.log("==========="+users[i]);
 				var currScore = calculateMatchScore(users[userID], users[i]);
-				for(var j=0; j < 3; j++){
-					if(scores.length == j || currScore > scores[j]){
-						if(toReturn.length==3 || j==2)
-						{
+				console.log("score with " + users[i].username + " is " + currScore);
+				for (var j=0; j < 3; j++) {
+					if (scores.length == j || currScore > scores[j]) {
+						if (toReturn.length==3 || j==2) {
 							console.log("dropping one elem");
 							toReturn.splice(j, 0, users[i]);
 							scores.splice(j, 0, currScore);
