@@ -131,6 +131,7 @@ function populateCategories(){
     console.log($(this).find(":selected").text());
 
     var currID = $(this).attr('id');
+    console.log("currID is " + currID);
 
     var url_call = '/categories/' + $(this).find(":selected").text();
 
@@ -168,22 +169,33 @@ function submitExhibit(e){
          // console.log(currSelector);
          // console.log("selected is " + currSelector.options);
          // console.log(currValue);
+         var categoryID = "category" + i;
 
-        var e = document.getElementById("category" + i);
+        var e = document.getElementById(categoryID);
         var currValue = e.options[e.selectedIndex].value;
         console.log(currValue);
 
         if (currValue == "Pick a category" || currValue == "none"){
-            console.log("not a keyword");
+            console.log("not a category");
         }
         else{
-            console.log("this is a keyword!");
-            keywords.push(currValue);
-            ga('send', 'event', 'exhibit', 'addKeyword');
+            console.log("this is a category!");
+            var keyword = $("#labels" + i).find(":selected").text();
+            console.log("keyword is " + keyword);
+            if (keyword == ""){
+                console.log("not a valid keyword");
+            } else {
+                console.log("valid keyword!");
+                keywords.push({
+                    "Category": currValue,
+                    "Values": [keyword]
+                });
+                ga('send', 'event', 'exhibit', 'addKeyword');
+            }
         }
     }
 
-    var currValue = currSelector.options[currSelector.selectedIndex].value;
+    //var currValue = currSelector.options[currSelector.selectedIndex].value;
 
     var exhibitJson = {
         'id': id,
