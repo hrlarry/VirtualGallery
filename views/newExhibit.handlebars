@@ -41,6 +41,7 @@
 		{{#if newVersion}}
 			<input type="text" class="form-control" placeholder="Keywords, separated by commas"></input>
 		{{else}}
+		<!--
 		<form>
 				<fieldset>
 				<select name="allTags" id="select-from" multiple size="5" style="width: 200px">
@@ -64,7 +65,7 @@
   						<option value="8">Football</option>
   						<option value="9">Hockey</option>
   						<option value="10">Tennis</option>
-  					</OPTGROUP>-->
+  					</OPTGROUP>--
 				</select>
 				</br>	
 			    <a href="JavaScript:void(0);" id="btn-add">v Add v</a>
@@ -72,12 +73,14 @@
  				<a href="JavaScript:void(0);" id="btn-remove">^ Remove ^</a>
  				</br>
 				<select name="chosenTags" id="select-to" multiple size="5" style="width: 200px">
-  					<!--Starts out empty-->
+  					<!--Starts out empty--
 				</select>
 				
 
 		 	</fieldset>
 		 </br>
+
+		-->
 		 	<!--<select class="selectpicker show-tick categorySelector" id="category1" title="Category" dir="ltr">-->
 		 	<div id="keywordsDiv">
 		 		<select class="categorySelector" id="category1" dir="ltr">
@@ -94,7 +97,7 @@
 		 	<button class="btn btn-default" id="addCategories">Add more tag categories</button>
 		</form>
 
-			<input type="text" class="form-control" placeholder="Keywords not in above lists, separated by commas"></input>
+			<!-- <input type="text" class="form-control" placeholder="Keywords not in above lists, separated by commas"></input> -->
 		{{/if}}
 
 		</br>

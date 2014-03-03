@@ -15,7 +15,7 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-    $('.selectpicker').selectpicker();
+    //$('.selectpicker').selectpicker();
 
     //$('#category1').prop('selectedIndex', -1)
     $(".categorySelector").on("change", populateCategories);
