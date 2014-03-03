@@ -60,6 +60,7 @@ exports.addExhibit = function(req, res) {
   var form_data = req.body;
   var username = req.session.username;
 
+  console.log("current user: " + username);
 
   //get the user to update
   models.User
@@ -68,7 +69,9 @@ exports.addExhibit = function(req, res) {
 
 
   function addExhibitForUser(err, users){
+    console.log(users);
     var userToUpdate = users[0];
+    console.log(userToUpdate);
 
     var newExhibit = new models.Exhibit(form_data);
     newExhibit.id = users[0].exhibits.length + 1;

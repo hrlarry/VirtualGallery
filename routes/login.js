@@ -8,8 +8,7 @@ exports.displayPage = function(req, res){
 exports.executeLogin = function(req, res){
 	//verify the login here
 	var enteredUsername = req.params.username;  //NEED TO CHECK THAT THIS IS ACTUALLY A USERNAME FROM THE DATABASE
-	console.log(req);
-	console.log(res);
+	console.log("enteredUsername = " + enteredUsername);
 
 	models.User
 		.find()
@@ -22,6 +21,7 @@ exports.executeLogin = function(req, res){
 				//execute the login
 				console.log("logging in " + enteredUsername);
 				req.session.username = enteredUsername;
+				console.log(req.session.username);
 				res.redirect('home');
 				return;
 			}
