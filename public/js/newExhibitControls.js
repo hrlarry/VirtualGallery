@@ -15,7 +15,7 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-    $('.selectpicker').selectpicker();
+    //$('.selectpicker').selectpicker();
 
     //$('#category1').prop('selectedIndex', -1)
     $(".categorySelector").on("change", populateCategories);
@@ -73,6 +73,8 @@ function initializePage() {
 
     $('#submitExhibit').click(submitExhibit);
 
+    $('#submitExhibitNew').click(submitExhibitNew);
+
     $('#makeProfileBtn').click(makeNewProfile);
 
     $('#editProfileSaveBtn').click(editProfileInfo);
@@ -129,6 +131,7 @@ function populateCategories(){
     console.log($(this).find(":selected").text());
 
     var currID = $(this).attr('id');
+    console.log("currID is " + currID);
 
     var url_call = '/categories/' + $(this).find(":selected").text();
 
@@ -147,12 +150,53 @@ function submitExhibit(e){
 	e.preventDefault();
 	console.log("Submit Exhibit");
 
+    //tell analytics that someone has made a new exhibit
+    ga('send', 'event', 'exhibit', 'add');
+
     //make the new exhibit 
     
     var id = 1; //will be changed in newExhibit.add
     var image_url = "http://upload.wikimedia.org/wikipedia/commons/6/63/French_horn_front.png" //placeholder for now
     var description = $('#exhibitDescription').val();
-    var keywords = []; //DON'T KNOW HOW TO ACCESS THE KEYWORDS
+
+    //get keywords    
+    var keywords = [];
+    var numKeywords = $('#keywordsDiv').find('.categorySelector').length;
+    console.log("there are " + numKeywords + " keywords");
+    for (var i = 1; i <= numKeywords; i++){
+        //ga('send', 'event', 'exhibit', 'addKeyword');
+         // var currSelector = $("#category" + i);
+         // console.log(currSelector);
+         // console.log("selected is " + currSelector.options);
+         // console.log(currValue);
+         var categoryID = "category" + i;
+
+        var e = document.getElementById(categoryID);
+        var currValue = e.options[e.selectedIndex].value;
+        console.log(currValue);
+
+        if (currValue == "Pick a category" || currValue == "none"){
+            console.log("not a category");
+        }
+        else{
+            console.log("this is a category!");
+            var keyword = $("#labels" + i).find(":selected").text();
+            console.log("keyword is " + keyword);
+            if (keyword == ""){
+                console.log("not a valid keyword");
+            } else {
+                console.log("valid keyword!");
+                keywords.push({
+                    "Category": currValue,
+                    "Values": [keyword]
+                });
+                ga('send', 'event', 'exhibit', 'addKeyword');
+            }
+        }
+    }
+
+    //var currValue = currSelector.options[currSelector.selectedIndex].value;
+
     var exhibitJson = {
         'id': id,
         'imageURL': image_url,
@@ -165,6 +209,51 @@ function submitExhibit(e){
     /*
 	var chosenTagsList = document.getElementsByName("chosenTags")[0];
 	console.log(chosenTagsList.options);*/
+}
+
+function submitExhibitNew(e){
+    e.preventDefault();
+    console.log("Submit Exhibit");
+
+    //tell analytics that someone has made a new exhibit
+    ga('send', 'event', 'exhibit', 'add');
+
+    //make the new exhibit 
+    
+    var id = 1; //will be changed in newExhibit.add
+    var image_url = "http://upload.wikimedia.org/wikipedia/commons/6/63/French_horn_front.png" //placeholder for now
+    var description = $('#exhibitDescription').val();
+    var keywordString = $('#keywordTextField').val(); //get the string from the keywords text field - to be parsed later
+    var keywords = [];
+    console.log("keywordString: " + keywordString);
+
+    //parse the keywordString to find keywords
+    while(true){
+        ga('send', 'event', 'exhibit', 'addKeyword'); //count this iteration's word
+        var i = keywordString.indexOf(',');
+        console.log(i);
+        if (i == -1){
+            keywords.push(keywordString); //add the last keyword
+            break;
+        }
+        keywords.push(keywordString.substr(0,i)); //add the next keyword
+        keywordString = keywordString.substr(i+1); //remove that keyword from the string
+    }
+    var exhibitJson = {
+        'id': id,
+        'imageURL': image_url,
+        'description':  description,
+        'keywords': {
+            'Category': 'Generic',
+            'Labels': keywords
+        }
+    };
+    $.post('/newExhibit/add', exhibitJson, function() {
+        window.location.href = '/viewGallery'; // go to the viewGallery page
+    });
+    /*
+    var chosenTagsList = document.getElementsByName("chosenTags")[0];
+    console.log(chosenTagsList.options);*/
 }
 
 //THIS ACTUALLY GOES WITH CREATEPROFILE, NOT NEWEXHIBIT.
