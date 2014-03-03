@@ -39,7 +39,11 @@
 		</br>
 		<h4>Add Exhibit Keywords</h4>
 		{{#if newVersion}}
-			<input type="text" class="form-control" placeholder="Keywords, separated by commas"></input>
+			<input type="text" id="keywordTextField" class="form-control" placeholder="Keywords, separated by commas"></input>
+
+			</br>
+
+			<a href="viewGallery" id="submitExhibitNew" class="btn btn-success btn-block">Open New Exhibit</a>
 		{{else}}
 		<!--
 		<form>
@@ -98,16 +102,29 @@
 		</form>
 
 			<!-- <input type="text" class="form-control" placeholder="Keywords not in above lists, separated by commas"></input> -->
-		{{/if}}
 
 		</br>
 
 		<a href="viewGallery" id="submitExhibit" class="btn btn-success btn-block">Open New Exhibit</a>
+
+		{{/if}}
 		<br>
 		<a href="viewGallery"><button class="btn btn-default">Cancel and Go to Your Gallery</button></a>
 	</div>
 
 	</center>
+
+	<!-- for google analytics -->
+	<script>
+  	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	ga('create', 'UA-48559881-1', {'cookieDomain': 'none'});
+  	ga('send', 'pageview');
+
+	</script>
 
 	<script src="../js/jquery-1.11.0.js"></script>
 	<script src="../js/bootstrap.js"></script>

@@ -25,7 +25,7 @@ exports.displayPage = function(req, res) {
 
     function renderProjects(err, users) {
         if (err) console.log(err);
-        console.log(users[0]);
+        //console.log(users[0]);
         res.render('viewGallery', users[0]);
     }
 	//res.render('viewGallery', profiles.users[0]);

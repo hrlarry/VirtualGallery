@@ -73,6 +73,8 @@ function initializePage() {
 
     $('#submitExhibit').click(submitExhibit);
 
+    $('#submitExhibitNew').click(submitExhibitNew);
+
     $('#makeProfileBtn').click(makeNewProfile);
 
     $('#editProfileSaveBtn').click(editProfileInfo);
@@ -147,6 +149,9 @@ function submitExhibit(e){
 	e.preventDefault();
 	console.log("Submit Exhibit");
 
+    //tell analytics that someone has made a new exhibit
+    ga('send', 'event', 'exhibit', 'add');
+
     //make the new exhibit 
     
     var id = 1; //will be changed in newExhibit.add
@@ -165,6 +170,51 @@ function submitExhibit(e){
     /*
 	var chosenTagsList = document.getElementsByName("chosenTags")[0];
 	console.log(chosenTagsList.options);*/
+}
+
+function submitExhibitNew(e){
+    e.preventDefault();
+    console.log("Submit Exhibit");
+
+    //tell analytics that someone has made a new exhibit
+    ga('send', 'event', 'exhibit', 'add');
+
+    //make the new exhibit 
+    
+    var id = 1; //will be changed in newExhibit.add
+    var image_url = "http://upload.wikimedia.org/wikipedia/commons/6/63/French_horn_front.png" //placeholder for now
+    var description = $('#exhibitDescription').val();
+    var keywordString = $('#keywordTextField').val(); //get the string from the keywords text field - to be parsed later
+    var keywords = [];
+    console.log("keywordString: " + keywordString);
+
+    //parse the keywordString to find keywords
+    while(true){
+        ga('send', 'event', 'exhibit', 'addKeyword'); //count this iteration's word
+        var i = keywordString.indexOf(',');
+        console.log(i);
+        if (i == -1){
+            keywords.push(keywordString); //add the last keyword
+            break;
+        }
+        keywords.push(keywordString.substr(0,i)); //add the next keyword
+        keywordString = keywordString.substr(i+1); //remove that keyword from the string
+    }
+    var exhibitJson = {
+        'id': id,
+        'imageURL': image_url,
+        'description':  description,
+        'keywords': {
+            'Category': 'Generic',
+            'Labels': keywords
+        }
+    };
+    $.post('/newExhibit/add', exhibitJson, function() {
+        window.location.href = '/viewGallery'; // go to the viewGallery page
+    });
+    /*
+    var chosenTagsList = document.getElementsByName("chosenTags")[0];
+    console.log(chosenTagsList.options);*/
 }
 
 //THIS ACTUALLY GOES WITH CREATEPROFILE, NOT NEWEXHIBIT.

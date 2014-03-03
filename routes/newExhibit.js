@@ -59,7 +59,8 @@ exports.getLabels = function(req, res) { 
 exports.addExhibit = function(req, res) {
   var form_data = req.body;
   var username = req.session.username;
-
+  console.log("adding exhibit; form data is: ");
+  console.log(form_data);
 
   //get the user to update
   models.User
@@ -70,20 +71,28 @@ exports.addExhibit = function(req, res) {
   function addExhibitForUser(err, users){
     var userToUpdate = users[0];
 
-    var newExhibit = new models.Exhibit(form_data);
-    newExhibit.id = users[0].exhibits.length + 1;
+    //var newExhibit = new models.Exhibit(form_data);
+    var newExhibit = new models.Exhibit({
+        "id": users[0].exhibits.length + 1,
+        "imageURL": form_data.imageURL,
+        "description": form_data.description,
+        "keywords": new models.Keyword(form_data.keywords)
+    });
+    //newExhibit.id = users[0].exhibits.length + 1;
     newExhibit.save(afterSaving);
 
     //console.log("here comes the exhibit we're going to create for " + username + ": ");
     //console.log(newExhibit);
     //console.log(users[0].exhibits.length + " vs. " + users[0]['exhibits'].length);
+    console.log("exhibit is:");
+    console.log(newExhibit);
 
     userToUpdate.exhibits.push(newExhibit);
 
     userToUpdate.save(afterSaving);
 
     function afterSaving(err){
-      if (err) {console.log(err); res.send(500);}
+      if (err) {console.log("error in addExhibit afterSaving: " + err); res.send(500);}
       res.send();
     }
   }
