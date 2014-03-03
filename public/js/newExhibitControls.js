@@ -157,7 +157,27 @@ function submitExhibit(e){
     var id = 1; //will be changed in newExhibit.add
     var image_url = "http://upload.wikimedia.org/wikipedia/commons/6/63/French_horn_front.png" //placeholder for now
     var description = $('#exhibitDescription').val();
-    var keywords = []; //DON'T KNOW HOW TO ACCESS THE KEYWORDS
+
+    //get keywords    
+    var keywords = [];
+    var numKeywords = $('#keywordsDiv').find('.categorySelector').length;
+    console.log("there are " + numKeywords + " keywords");
+    for (var i = 1; i <= numKeywords; i++){
+        ga('send', 'event', 'exhibit', 'addKeyword');
+        // var currSelector = $("#category" + i);
+        // console.log("selected is " + currSelector.options);
+        // var currValue = currSelector.options[currSelector.selectedIndex].value;
+        // console.log(currValue);
+        // if (!currValue == "none"){
+        //     console.log("this is a keyword!");
+        //     keywords.push(currValue);
+        //     ga('send', 'event', 'exhibit', 'addKeyword');
+        // }
+        // else{
+        //     console.log("not a keyword");
+        // }
+    }
+
     var exhibitJson = {
         'id': id,
         'imageURL': image_url,

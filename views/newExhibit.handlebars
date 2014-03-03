@@ -45,8 +45,8 @@
 
 			<a href="viewGallery" id="submitExhibitNew" class="btn btn-success btn-block">Open New Exhibit</a>
 		{{else}}
-		<!--
 		<form>
+		<!--
 				<fieldset>
 				<select name="allTags" id="select-from" multiple size="5" style="width: 200px">
   					{{#each data}}
@@ -88,9 +88,9 @@
 		 	<!--<select class="selectpicker show-tick categorySelector" id="category1" title="Category" dir="ltr">-->
 		 	<div id="keywordsDiv">
 		 		<select class="categorySelector" id="category1" dir="ltr">
-		 			<option selected style="display:none;">Pick a category</option>
+		 			<option value="none" selected style="display:none;">Pick a category</option>
 		 			{{#each data}}
-		 				<option>{{Category}}</option>
+		 				<option value="{{Category}}">{{Category}}</option>
 		 			{{/each}}
 		 		</select>
 		 		<!--<select  multiple class="selectpicker show tick labelsSelector" id="labels1" title="None selected" style="widht: 200px">-->

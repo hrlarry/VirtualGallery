@@ -69,6 +69,7 @@ exports.addExhibit = function(req, res) {
 
 
   function addExhibitForUser(err, users){
+    console.log("adding exhibit for " + username);
     var userToUpdate = users[0];
 
     //var newExhibit = new models.Exhibit(form_data);
@@ -76,7 +77,7 @@ exports.addExhibit = function(req, res) {
         "id": users[0].exhibits.length + 1,
         "imageURL": form_data.imageURL,
         "description": form_data.description,
-        "keywords": new models.Keyword(form_data.keywords)
+        //"keywords": new models.Keyword(form_data.keywords)
     });
     //newExhibit.id = users[0].exhibits.length + 1;
     newExhibit.save(afterSaving);
