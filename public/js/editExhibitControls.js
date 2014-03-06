@@ -65,7 +65,7 @@ function initializePage() {
         });
     });
 
-    $('#submitExhibit').click(submitExhibit);
+    //$('#submitExhibit').click(submitExhibit);
 
     $('#makeProfileBtn').click(makeNewProfile);
 
@@ -77,28 +77,31 @@ function initializePage() {
 }
 
 function submitExhibit(e){
+    console.log("starting to submit...");
+    //console.log(req);
+    //console.log(res);
+
 	e.preventDefault();
 	console.log("Submit Exhibit");
 
-    //make the new exhibit 
-    
-        var id = 1; //default
-        if(!$('#newImageThumbnail').is(':visible')){
-            var image_url = $('#currentImageThumbnail').prop('src');
-        } else {
-            var image_url = "http://upload.wikimedia.org/wikipedia/commons/6/63/French_horn_front.png" //placeholder for now
-        }
-        var description = $('#exhibitDescription').val();
-        var keywords = []; //DON'T KNOW HOW TO ACCESS THE KEYWORDS
-        var exhibitJson = {
-            'id': id,
-            'imageURL': image_url,
-            'description':  description,
-            'keywords': keywords
-        };
-        $.post('/editExhibit/edit', exhibitJson, function() {
-            window.location.href = '../viewGallery'; // go to the viewGallery page
-        });
+    //make the new exhibit     
+    var id = 1; //default
+    if(!$('#newImageThumbnail').is(':visible')){
+        var image_url = $('#currentImageThumbnail').prop('src');
+    } else {
+        var image_url = "http://upload.wikimedia.org/wikipedia/commons/6/63/French_horn_front.png" //placeholder for now
+    }
+    var description = $('#exhibitDescription').val();
+    var keywords = []; //DON'T KNOW HOW TO ACCESS THE KEYWORDS
+    var exhibitJson = {
+        'id': id,
+        'imageURL': image_url,
+        'description':  description,
+        'keywords': keywords
+    };
+    $.post('/editExhibit/edit', exhibitJson, function() {
+        window.location.href = '../viewGallery'; // go to the viewGallery page
+    });
     /*
 	var chosenTagsList = document.getElementsByName("chosenTags")[0];
 	console.log(chosenTagsList.options);*/
@@ -168,20 +171,3 @@ function userLogout(e){
         window.location.href = '/'; //go back to index after logging out
     });
 }
-/*
-exports.displayPage = function(req, res) {    
-	// Your code goes here
-	//var name = req.query.name;
-	var description = req.query.description;
-	var newFriend = {
-		"name": name,
-		"description": description,
-		"imageURL": "http://lorempixel.com/400/400/people"			
-	};
-	
-	data["friends"].push(newFriend);
-
-	console.log(newFriend);
-
-	res.render('add', newFriend);
- }*/
