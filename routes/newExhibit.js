@@ -1,20 +1,8 @@
 //var data = require("../categories.json");
 var models = require('../models');
+var fs = require('fs');
 
-exports.displayPage = function(req, res) {    
-    // Your code goes here
-    //var name = req.query.name;
-    /*var description = req.query.description;
-    var newFriend = {
-        "name": name,
-        "description": description,
-        "imageURL": "http://lorempixel.com/400/400/people"          
-    };
-    
-    data["friends"].push(newFriend);
-
-    console.log(newFriend);*/
-    //initializePage();
+exports.displayPage = function(req, res) {
     models.Categories
         .find()
         .exec(populateKeywords);
@@ -27,18 +15,17 @@ exports.displayPage = function(req, res) { 
 }
 
 exports.displayPageNew = function(req, res){ //this is the one for the new test case
-        models.Categories
-        .find()
-        .exec(populateKeywords);
+  models.Categories
+    .find()
+    .exec(populateKeywords);
 
-    function populateKeywords(err, categories){
-        if(err) {console.log(err); res.send(500);}
-       
-        res.render('newExhibit', {'data': categories, 'newVersion': true});
-    }
+  function populateKeywords(err, categories){
+    if(err) {console.log(err); res.send(500);}
+    res.render('newExhibit', {'data': categories, 'newVersion': true});
+  }
 }
 
-exports.getLabels = function(req, res) { 
+exports.getLabels = function(req, res) {
   var category = req.params.category;
   console.log("Category: "+category);
   // query for the specific project and
@@ -57,31 +44,63 @@ exports.getLabels = function(req, res) { 
 }
 
 exports.addExhibit = function(req, res) {
-  var form_data = req.body;
+  var form_text = req.body;
   var username = req.session.username;
 
   console.log("current user: " + username);
-  console.log("adding exhibit; form data is: ");
-  console.log(form_data);
+  console.log("adding exhibit; form_text is: ");
+  console.log(form_text);
+  var form_image = req.files.newImage;
 
   //get the user to update
   models.User
-      .find({"username": username})
-      .exec(addExhibitForUser);
+    .find({"username": username})
+    .exec(addExhibitForUser);
 
-
-  function addExhibitForUser(err, users){
+  function addExhibitForUser(err, users) {
     console.log("adding exhibit for " + username);
     var userToUpdate = users[0];
     console.log(userToUpdate);
 
     //var newExhibit = new models.Exhibit(form_data);
     var newExhibit = new models.Exhibit({
-        "id": users[0].exhibits.length + 1,
-        "imageURL": form_data.imageURL,
-        "description": form_data.description,
-        //"keywords": new models.Keyword(form_data.keywords)
+      "id": users[0].exhibits.length + 1,
+      "description": form_text.newDescription
+      //"keywords": new models.Keyword(form_data.keywords)
     });
+
+    //check if image has changed before carrying out updating of image
+    console.log("bytesWritten = " + form_image.ws.bytesWritten);
+    if (form_image.ws.bytesWritten == 0) {
+        console.log("no new image");
+    } else {    //parsing file name of image
+        var imageName = form_image.name;
+        var imagePath = form_image.path;
+        var n = imagePath.lastIndexOf("/");
+        var fileName = imagePath.substring(n + 1);
+        var image_url = "/uploads/" + fileName;
+
+        newExhibit.imageURL = image_url;
+        console.log("newExhibit's imageURL = " + newExhibit.imageURL);
+
+        fs.readFile(imagePath, function (err, data) {
+            console.log("image name = " + imageName);
+            if (!imageName) {
+                console.log("error: image name invalid in editExhibit.js");
+                res.redirect('/');
+                res.end();
+            } else {
+                newPath = __dirname + "/uploads/" + imageName;
+                console.log(newPath);
+                fs.writeFile(newPath, data, function(err) {
+                    //res.redirect("/uploads/" + imageName);
+                    console.log("image successfully uploaded");
+                });
+            }
+        });
+    }
+
+
     //newExhibit.id = users[0].exhibits.length + 1;
     newExhibit.save(afterSaving);
 
@@ -100,6 +119,8 @@ exports.addExhibit = function(req, res) {
       res.send();
     }
   }
+
+  res.redirect("/viewGallery");
 }
 
 /*
