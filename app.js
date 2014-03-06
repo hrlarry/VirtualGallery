@@ -1,12 +1,13 @@
+
 /**
  * Module dependencies.
  */
+
 var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars');
 var mongoose = require('mongoose');
-var fs = require('fs');
 
 // var index = require('./routes/index');
 // Example route
@@ -35,16 +36,8 @@ var local_database_uri  = 'mongodb://localhost/' + local_database_name
 var database_uri = process.env.MONGOLAB_URI || local_database_uri
 mongoose.connect(database_uri);
 
-var app = express()
 
-//for image upload
-app.configure(function() {
-	app.use(express.methodOverride());
-	app.use(express.bodyParser({
-		keepExtensions:true, 
-		uploadDir: path.join(__dirname,'/uploads/')}
-	));
-});
+var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -89,14 +82,6 @@ app.get('/displayExhibit/:username/:id', displayExhibit.exhibitInfo);
 app.get('/editExhibit/:id', editExhibit.displayPage);
 app.get('/editExhibitNew/:id', editExhibit.displayPageNew);
 app.get('/categories/:category', newExhibit.getLabels);
-//to display uploaded images
-app.get('/uploads/:file', function (req, res) {
-	file = req.params.file;
-	console.log(req.params);
-	var img = fs.readFileSync(__dirname + "/uploads/" + file);
-	res.writeHead(200, {'Content-Type': 'image/png' });
-	res.end(img, 'binary');
-});
 
 //Example for posting
 //app.post('/project/:id/delete', project.deleteProject);

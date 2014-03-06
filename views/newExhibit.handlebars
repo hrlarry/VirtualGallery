@@ -1,21 +1,22 @@
 <html>
 <head>
 	<!-- Google Analytics Content Experiment code -->
-	<script>function utmx_section(){}function utmx(){}(function(){var
-	k='82881215-0',d=document,l=d.location,c=d.cookie;
-	if(l.search.indexOf('utm_expid='+k)>0)return;
-	function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
-	indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
-	length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
-	'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
-	'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
-	'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
-	valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
-	'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
-	</script><script>utmx('url','A/B');</script>
-	<!-- End of Google Analytics Content Experiment code -->
+<script>function utmx_section(){}function utmx(){}(function(){var
+k='82881215-0',d=document,l=d.location,c=d.cookie;
+if(l.search.indexOf('utm_expid='+k)>0)return;
+function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+</script><script>utmx('url','A/B');</script>
+<!-- End of Google Analytics Content Experiment code -->
 
-	<title>VirtualGallery | New Exhibit</title>	
+
+	<title>VirtualBulletin | New Exhibit</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="../css/bootstrap.css" rel="stylesheet">
@@ -36,85 +37,94 @@
 			http://stackoverflow.com/questions/18132896/how-to-use-jasnys-file-upload-with-bootstrap-3
 		-->
 		</br>
-		<form method='post' action='/newExhibit/add' enctype='multipart/form-data'>
-			<h4>Select Exhibit Image</h4>
-			<div class="fileupload fileupload-new" data-provides="fileupload">
-				<div class="fileupload-preview thumbnail" data-trigger="fileupload" style="width: 200px; height: 150px;" id="newImageThumbnail">
+		<h4>Select Exhibit Image</h4>
+		<div class="fileupload fileupload-new" data-provides="fileupload">
+				<div class="fileupload-preview thumbnail" data-trigger="fileupload" style="width: 200px; height: 150px;">
 				</div>
 				<div class="input-group-btn">
-					<span class="btn btn-file"><span class="fileupload-new btn btn-default">Upload New Image</span>
-					<span class="fileupload-exists btn btn-default">Change Image</span>
-					<input type="file" name='newImage'></span>
+					<span class="button btn-file"><span class="fileupload-new">Upload</span>
+					<span class="fileupload-exists">Change</span>
+					<input type="file" name="..."></span>
+					<span href="#" class="button fileupload-exists" data-dismiss="fileupload">Remove</span>
 				</div>
-			</div>
+		</div>
+
+		</br>
+		<h4>Add Exhibit Description</h4>
+		<textarea id="exhibitDescription" class="form-control" rows="3" placeholder="Enter exhibit description here" style="width:200px"></textarea>
+		</br>
+		<h4>Add Exhibit Keywords</h4>
+		{{#if newVersion}}
+			<input type="text" id="keywordTextField" class="form-control" placeholder="Keywords, separated by commas"></input>
+
 			</br>
 
-			<h4>Add Exhibit Description</h4>
-			<textarea rows="3" id="newDescription" name="newDescription" style="width:auto">{{description}}</textarea>
-			<br>
-			<h4>Add Exhibit Keywords</h4>
-			{{#if newVersion}}
-				<input type="text" class="form-control" name="newKeywords" id="newKeywords" placeholder="Keywords, separated by commas"></input>
-			{{else}}
-			<!--
-					<fieldset>
-					<select name="allTags" id="select-from" multiple size="5" style="width: 200px">
-	  					{{#each data}}
-	  						<OPTGROUP label={{Category}}>
-	  							{{#each Labels}}
-	  								<option value={{@index}}>{{this}}</option>
-	  							{{/each}}
-	  						</OPTGROUP>
-	  					{{/each}}
-	  					<!--<OPTGROUP label="Music">
-	  						<option value="1">Classical</option>
-	  						<option value="2">Hip-hop</option>
-	  						<option value="3">Rap</option>
-	  						<option value="4">R&amp;B</option>
-	  						<option value="5">A capella</option>
-	  					</OPTGROUP>
-	  					<OPTGROUP label="Sports">
-	  						<option value="6">Baseball</option>
-	  						<option value="7">Basketball</option>
-	  						<option value="8">Football</option>
-	  						<option value="9">Hockey</option>
-	  						<option value="10">Tennis</option>
-	  					</OPTGROUP>--
-					</select>
-					</br>	
-				    <a href="JavaScript:void(0);" id="btn-add">v Add v</a>
-					</br>
-	 				<a href="JavaScript:void(0);" id="btn-remove">^ Remove ^</a>
-	 				</br>
-					<select name="chosenTags" id="select-to" multiple size="5" style="width: 200px">
-	  					<!--Starts out empty--
-					</select>
-					
+			<a href="viewGallery" id="submitExhibitNew" class="btn btn-success btn-block">Open New Exhibit</a>
+		{{else}}
+		<form>
+		<!--
+				<fieldset>
+				<select name="allTags" id="select-from" multiple size="5" style="width: 200px">
+  					{{#each data}}
+  						<OPTGROUP label={{Category}}>
+  							{{#each Labels}}
+  								<option value={{@index}}>{{this}}</option>
+  							{{/each}}
+  						</OPTGROUP>
+  					{{/each}}
+  					<!--<OPTGROUP label="Music">
+  						<option value="1">Classical</option>
+  						<option value="2">Hip-hop</option>
+  						<option value="3">Rap</option>
+  						<option value="4">R&amp;B</option>
+  						<option value="5">A capella</option>
+  					</OPTGROUP>
+  					<OPTGROUP label="Sports">
+  						<option value="6">Baseball</option>
+  						<option value="7">Basketball</option>
+  						<option value="8">Football</option>
+  						<option value="9">Hockey</option>
+  						<option value="10">Tennis</option>
+  					</OPTGROUP>--
+				</select>
+				</br>	
+			    <a href="JavaScript:void(0);" id="btn-add">v Add v</a>
+				</br>
+ 				<a href="JavaScript:void(0);" id="btn-remove">^ Remove ^</a>
+ 				</br>
+				<select name="chosenTags" id="select-to" multiple size="5" style="width: 200px">
+  					<!--Starts out empty--
+				</select>
+				
 
-			 	</fieldset>
-			 </br>
+		 	</fieldset>
+		 </br>
 
-			-->
+		-->
 		 	<!--<select class="selectpicker show-tick categorySelector" id="category1" title="Category" dir="ltr">-->
-			 	<div id="keywordsDiv">
-			 		<select class="categorySelector" id="category1" dir="ltr">
-			 			<option value="none" selected style="display:none;">Pick a category</option>
-			 			{{#each data}}
-			 				<option value="{{Category}}">{{Category}}</option>
-			 			{{/each}}
-			 		</select>
-			 		<!--<select  multiple class="selectpicker show tick labelsSelector" id="labels1" title="None selected" style="widht: 200px">-->
-			 		<select multiple style="width:200px" id="labels1">
-				 		
-			 		</select>
-			 	</div>
-			 	<button class="btn btn-default" id="addCategories">Add more tag categories</button>
-			 	<br>
-				<!-- <input type="text" class="form-control" placeholder="Keywords not in above lists, separated by commas"></input> -->
-			{{/if}}				
-			<br>
-			<input type='submit' class="btn btn-success btn-block" value="Save Changes" />
+		 	<div id="keywordsDiv">
+		 		<select class="categorySelector" id="category1" dir="ltr">
+		 			<option value="none" selected style="display:none;">Pick a category</option>
+		 			{{#each data}}
+		 				<option value="{{Category}}">{{Category}}</option>
+		 			{{/each}}
+		 		</select>
+		 		<!--<select  multiple class="selectpicker show tick labelsSelector" id="labels1" title="None selected" style="widht: 200px">-->
+		 		<select multiple style="width:200px" id="labels1">
+			 		
+		 		</select>
+		 	</div>
+		 	<button class="btn btn-default" id="addCategories">Add more tag categories</button>
 		</form>
+
+			<!-- <input type="text" class="form-control" placeholder="Keywords not in above lists, separated by commas"></input> -->
+
+		</br>
+
+		<a href="viewGallery" id="submitExhibit" class="btn btn-success btn-block">Open New Exhibit</a>
+
+		{{/if}}
+		<br>
 		<a href="viewGallery"><button class="btn btn-default">Cancel and Go to Your Gallery</button></a>
 	</div>
 

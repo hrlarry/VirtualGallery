@@ -20,58 +20,65 @@
 			http://stackoverflow.com/questions/18132896/how-to-use-jasnys-file-upload-with-bootstrap-3
 		-->
 		</br>
-		<form method='post' action='/editExhibit/edit' enctype='multipart/form-data'>		
-			<h4>Select Exhibit Image</h4>
-			<div class="fileupload fileupload-new" data-provides="fileupload">
-				<div class="thumbnail" style="width: 200px; height: 150px;" id="currentImageThumbnail">
-					<img src="{{imageURL}}">
-				</div>
+		<h4>Select Exhibit Image</h4>
+		<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="thumbnail" style="width: 200px; height: 150px;" id="currentImageThumbnail">
+				<img src="{{imageURL}}">
+			</div>
 				<div class="fileupload-preview thumbnail" data-trigger="fileupload" style="width: 200px; height: 150px;" id="newImageThumbnail">
 				</div>
 				<div class="input-group-btn">
-					<span class="btn btn-file"><span class="fileupload-new btn btn-default">Upload New Image</span>
-					<span class="fileupload-exists btn btn-default">Change Image</span>
-					<input type="file" name='newImage'></span>
+					<span class="button btn-file"><span class="fileupload-new">Upload New</span>
+					<span class="fileupload-exists">Change</span>
+					<input type="file" name="..."></span>
+					<span href="#" class="button fileupload-exists" data-dismiss="fileupload">Remove</span>
 				</div>
-			</div>
-			</br>
+		</div>
 
-			<h4>Add Exhibit Description</h4>
-			<textarea rows="3" id="newDescription" name="newDescription" style="width:auto">{{description}}</textarea>
-			<br>
-			<h4>Add Exhibit Keywords</h4>
-			{{#if newVersion}}
-				<input type="text" class="form-control" name="newKeywords" id="newKeywords" placeholder="Keywords, separated by commas"></input>
-			{{else}}
+		</br>
+		<h4>Add Exhibit Description</h4>
+		<textarea id="exhibitDescription" class="form-control" rows="3" style="width:auto">{{description}}</textarea>
+		</br>
+		<h4>Add Exhibit Keywords</h4>
+		{{#if newVersion}}
+			<input type="text" class="form-control" placeholder="Keywords, separated by commas"></input>
+		{{else}}
+		<form>
 				<fieldset>
-					<select name="allTags" id="select-from" multiple size="5" style="width: 100px">
-	  					<OPTGROUP label="Music">
-	  						<option value="1">Classical</option>
-	  						<option value="2">Hip-hop</option>
-	  						<option value="3">Rap</option>
-	  						<option value="4">R&amp;B</option>
-	  						<option value="5">A capella</option>
-	  					</OPTGROUP>
-	  					<OPTGROUP label="Sports">
-	  						<option value="6">Baseball</option>
-	  						<option value="7">Basketball</option>
-	  						<option value="8">Football</option>
-	  						<option value="9">Hockey</option>
-	  						<option value="10">Tennis</option>
-	  					</OPTGROUP>
-					</select>
 
-				    <a href="JavaScript:void(0);" id="btn-add">Add &raquo;</a>
-					<a href="JavaScript:void(0);" id="btn-remove">&laquo; Remove</a>
-	 
-					<select name="chosenTags" id="select-to" multiple size="5" style="width: 100px">
-	  					<!--Starts out empty-->
-					</select>
-		 		</fieldset>
-			{{/if}}
-			<br>
-			<input type='submit' class="btn btn-success" value="Save Changes" />
+				<select name="allTags" id="select-from" multiple size="5" style="width: 100px">
+  					<OPTGROUP label="Music">
+  						<option value="1">Classical</option>
+  						<option value="2">Hip-hop</option>
+  						<option value="3">Rap</option>
+  						<option value="4">R&amp;B</option>
+  						<option value="5">A capella</option>
+  					</OPTGROUP>
+  					<OPTGROUP label="Sports">
+  						<option value="6">Baseball</option>
+  						<option value="7">Basketball</option>
+  						<option value="8">Football</option>
+  						<option value="9">Hockey</option>
+  						<option value="10">Tennis</option>
+  					</OPTGROUP>
+				</select>
+
+			    <a href="JavaScript:void(0);" id="btn-add">Add &raquo;</a>
+				<a href="JavaScript:void(0);" id="btn-remove">&laquo; Remove</a>
+ 
+				<select name="chosenTags" id="select-to" multiple size="5" style="width: 100px">
+  					<!--Starts out empty-->
+				</select>
+
+		 	</fieldset>
 		</form>
+
+		<input type="text" class="form-control" placeholder="Keywords not in above lists, separated by commas"></input>
+		{{/if}}
+
+		</br>
+
+		<a href="../viewGallery"><button id="submitExhibit" class="btn btn-success">Save Changes</button></a>
 		<a href="../viewGallery"><button class="btn btn-default">Cancel</button></a>
 	</div>
 
