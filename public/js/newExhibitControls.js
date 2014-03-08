@@ -103,8 +103,10 @@ function addMoreCategories(e){
     }*/
     
         '</select>'+
-        '<select multiple style="width:200px" id="labels'+nextSeriesNum+'">'+
-        '</select>'
+        //'<select multiple style="width:200px" id="labels'+nextSeriesNum+'">'+
+        //'</select>'
+        '<input type="text" id="labels'+nextSeriesNum+'"></input>'
+
         );
     /*
     var numCategories = $('#category1').options.length;
@@ -137,6 +139,7 @@ function populateCategories(){
 
         function populateLabels(allLabels){
             console.log(currID.substr("category".length));
+            $("#labels"+currID.substr("category".length)).append('<option value="new">New Label</option>');
             for(var count = 0; count < allLabels.length; count ++){
                 $("#labels"+currID.substr("category".length)).append('<option value ='+count+'>'+allLabels[count]+'</option>');
             }
