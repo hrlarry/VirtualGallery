@@ -1,10 +1,22 @@
 //var data = require("../categories.json");
 var models = require('../models');
-var fs = require('fs');
+//var fs = require('fs');
 var imgData = require("../imageUpload.json");
 var editID;
 
-exports.displayPage = function(req, res) { 
+exports.displayPage = function(req, res) {    
+    //var name = req.query.name;
+    /*var description = req.query.description;
+    var newFriend = {
+        "name": name,
+        "description": description,
+        "imageURL": "http://lorempixel.com/400/400/people"          
+    };
+    
+    data["friends"].push(newFriend);
+
+    console.log(newFriend);*/
+    //initializePage();
     editID = req.params.id;
     var username = req.session.username;
     console.log("Edit ID: " + editID);
@@ -23,9 +35,15 @@ exports.displayPage = function(req, res) {
         //console.log(toPass);
         res.render('editExhibit', toPass);
     }
-}
 
+<<<<<<< HEAD
 /*exports.displayPageNew = function(req, res) {
+=======
+    
+ }
+
+exports.displayPageNew = function(req, res) {    
+>>>>>>> 132db9a8675bb3ccc150640100817b138bac8c19
     editID = req.params.id;
     var username = req.session.username;
     console.log("Edit ID: " + editID);
@@ -43,17 +61,20 @@ exports.displayPage = function(req, res) {
         console.log(toPass);
         res.render('editExhibit', {toPassIn: toPass, imgData2: imgData});
     }
+<<<<<<< HEAD
 }*/
+=======
+>>>>>>> 132db9a8675bb3ccc150640100817b138bac8c19
 
-//this updates the exhibit after user clicks "Save Changes"
+    
+ }
+
 exports.editExhibit = function(req, res) {
-    var form_text = req.body;
-    //console.log(form_data);
-    var form_image = req.files.newImage;
-    console.log(req.files);
-    var username = req.session.username;
-    //console.log("editID = " + editID);
+  var form_data = req.body;
+  var username = req.session.username;
+  
 
+<<<<<<< HEAD
     //update user exhibit
     models.User
         .find({ "username": username })
@@ -111,7 +132,99 @@ exports.editExhibit = function(req, res) {
           if (err) {console.log(err); res.send(500);}
           res.send();
         }
-    }
+=======
+  var replacingExhibit = new models.Exhibit(form_data);
+  replacingExhibit.id = editID;
+  //replacingExhibit.save(afterSaving);
+    console.log("here comes the exhibit we're editing for " + username + ": ");
+    console.log("ID: " + replacingExhibit.id);
+    console.log(replacingExhibit);
 
-    res.redirect("/viewGallery");
+  //get the user to update
+  models.User
+      .find({"username": username})
+      /*.update({
+        "imageURL": replacingExhibit.imageURL,
+        "description": replacingExhibit.description,
+        "keywords": replacingExhibit.schema
+      })*/
+      .exec(updateExhibitForUser);
+
+  function updateExhibitForUser(err, users){
+    var userToUpdate = users[0];
+
+/*
+    var newExhibit = new models.Exhibit(form_data);
+    //newExhibit.id = users[0].exhibits.length + 1;
+    newExhibit.id = req.params.id;
+    newExhibit.save(afterSaving);
+    */
+    console.log("exhibits: " + userToUpdate['exhibits']);
+    console.log("exhibit to update: " + userToUpdate['exhibits'][editID]);
+
+
+    //subtract one from indices because our id's are 1-indexed and the array of exhibits is 0-indexed    
+    //userToUpdate['exhibits'][editID-1]['imageURL'] = replacingExhibit['imageURL'];  //THIS SEEMS TO BE DELETING IMAGES
+    userToUpdate['exhibits'][editID-1]['description'] = replacingExhibit['description'];
+    userToUpdate['exhibits'][editID-1]['keywords'] = replacingExhibit['keywords'];
+    
+    userToUpdate.save(afterSaving);
+
+    //console.log("Current user: " + userToUpdate);
+
+    //userToUpdate.exhibits.push(newExhibit);
+
+    userToUpdate.save(afterSaving);
+
+    function afterSaving(err){
+      if (err) {console.log(err); res.send(500);}
+      res.send();
+>>>>>>> 132db9a8675bb3ccc150640100817b138bac8c19
+    }
+  }
 }
+
+/*
+ * Function that is called when the document is ready.
+ */
+/*function initializePage() {
+
+	$('#btn-add').click(function(){
+        $('#select-from option:selected').each( function() {
+        	$('#chosenTags').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+        	var chosenTagsList = document.getElementsByName("chosenTags")[0];
+        	var toMove = $(this);
+        	var foundDuplicate = false;
+			console.log(toMove.text());
+        	for(var i=0; i < chosenTagsList.length; i++){
+        		console.log("test4");
+        		if(chosenTagsList.options[i].text == toMove.text()){
+        			console.log("test2");
+        			foundDuplicate = true;
+        			break;
+        		}
+        	}
+        	if(foundDuplicate == false){
+        		console.log("test3");
+            	$('#select-to').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+            }
+            //$(this).remove();
+        });
+    });
+    $('#btn-remove').click(function(){
+        $('#select-to option:selected').each( function() {
+            //$('#select-from').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+            $(this).remove();
+        });
+    });
+
+    $('#submitExhibit').click(submitExhibit)
+}
+
+function submitExhibit(e){
+	e.preventDefault();
+	console.log("Submit Exhibit");
+
+	var chosenTagsList = document.getElementsByName("chosenTags")[0];
+	console.log(chosenTagsList.options);
+}*/
