@@ -24,10 +24,11 @@ function initializePage() {
 function editExhibitFn(e) {
     e.preventDefault();
     console.log('edit btn clicked');
+    
     //get the id of the project to remove 
-   var buttonID = $(this).attr('id');
-   var idNumber = buttonID.substr('editExhibit'.length);
-   window.location.href = '/editExhibit/'+idNumber; // reload the page
+    var buttonID = $(this).attr('id');
+    var idNumber = buttonID.substr('editExhibit'.length);
+    window.location.href = '/editExhibit/'+idNumber; // reload the page
 }
 
 function deleteExhibitFn(e) {

@@ -1,7 +1,7 @@
 <html>
 <head>
 	<!-- Google Analytics Content Experiment code -->
-	<script>function utmx_section(){}function utmx(){}(function(){var
+	<!--<script>function utmx_section(){}function utmx(){}(function(){var
 	k='82881215-0',d=document,l=d.location,c=d.cookie;
 	if(l.search.indexOf('utm_expid='+k)>0)return;
 	function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
@@ -12,7 +12,7 @@
 	'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
 	valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 	'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
-	</script><script>utmx('url','A/B');</script>
+	</script><script>utmx('url','A/B');</script>-->
 	<!-- End of Google Analytics Content Experiment code -->
 
 	<title>VirtualGallery | New Exhibit</title>	
@@ -31,88 +31,42 @@
 	<h1>VirtualGallery</h1>
 	<div class="box">
 		<h2>New Exhibit</h2>
-		<!--Image upload script adapted from Jasny's template
-			http://jasny.github.io/bootstrap/javascript/#fileinput
-			http://stackoverflow.com/questions/18132896/how-to-use-jasnys-file-upload-with-bootstrap-3
-		-->
-		</br>
+		<br>
+		
 		<form method='post' action='/newExhibit/add' enctype='multipart/form-data'>
 			<h4>Select Exhibit Image</h4>
-			<div class="fileupload fileupload-new" data-provides="fileupload">
-				<div class="fileupload-preview thumbnail" data-trigger="fileupload" style="width: 200px; height: 150px;" id="newImageThumbnail">
-				</div>
-				<div class="input-group-btn">
-					<span class="btn btn-file"><span class="fileupload-new btn btn-default">Upload New Image</span>
-					<span class="fileupload-exists btn btn-default">Change Image</span>
-					<input type="file" name='newImage'></span>
+			<img src="" id="newImagePreview" height="100" style="border: 1px solid; border-color: #c0c0c0; border-radius: 5px; margin: 0px 0px 10px 0px;">
+			<br>
+
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#newImgModal">Upload New Image</button>		
+			<div class="modal fade" id="newImgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  		<div class="modal-dialog">
+		    		<div class="modal-content">
+		      			<div class="modal-header">
+		        			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        			<h3>Choose an image</h3>
+		      			</div>
+		      			<div class="modal-body" style="line-height: 115px;">
+		      				{{#each images}}
+								<img class="img_upload" src="images/uploads/{{image}}" data-image="{{id}}" data-dismiss="modal" height="100">
+							{{/each}}
+							<input type="hidden" id="newImage" name="newImage" value="">
+		            	</div>
+		      			<div class="modal-footer">
+		        			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      			</div>
+		    		</div>
 				</div>
 			</div>
-			</br>
 
 			<h4>Add Exhibit Description</h4>
 			<textarea rows="3" id="newDescription" name="newDescription" style="width:auto">{{description}}</textarea>
 			<br>
+
 			<h4>Add Exhibit Keywords</h4>
-			{{#if newVersion}}
-				<input type="text" class="form-control" name="newKeywords" id="newKeywords" placeholder="Keywords, separated by commas"></input>
-			{{else}}
-			<!--
-					<fieldset>
-					<select name="allTags" id="select-from" multiple size="5" style="width: 200px">
-	  					{{#each data}}
-	  						<OPTGROUP label={{Category}}>
-	  							{{#each Labels}}
-	  								<option value={{@index}}>{{this}}</option>
-	  							{{/each}}
-	  						</OPTGROUP>
-	  					{{/each}}
-	  					<!--<OPTGROUP label="Music">
-	  						<option value="1">Classical</option>
-	  						<option value="2">Hip-hop</option>
-	  						<option value="3">Rap</option>
-	  						<option value="4">R&amp;B</option>
-	  						<option value="5">A capella</option>
-	  					</OPTGROUP>
-	  					<OPTGROUP label="Sports">
-	  						<option value="6">Baseball</option>
-	  						<option value="7">Basketball</option>
-	  						<option value="8">Football</option>
-	  						<option value="9">Hockey</option>
-	  						<option value="10">Tennis</option>
-	  					</OPTGROUP>--
-					</select>
-					</br>	
-				    <a href="JavaScript:void(0);" id="btn-add">v Add v</a>
-					</br>
-	 				<a href="JavaScript:void(0);" id="btn-remove">^ Remove ^</a>
-	 				</br>
-					<select name="chosenTags" id="select-to" multiple size="5" style="width: 200px">
-	  					<!--Starts out empty--
-					</select>
-					
-
-			 	</fieldset>
-			 </br>
-
-			-->
-		 	<!--<select class="selectpicker show-tick categorySelector" id="category1" title="Category" dir="ltr">-->
-			 	<div id="keywordsDiv">
-			 		<select class="categorySelector" id="category1" dir="ltr">
-			 			<option value="none" selected style="display:none;">Pick a category</option>
-			 			{{#each data}}
-			 				<option value="{{Category}}">{{Category}}</option>
-			 			{{/each}}
-			 		</select>
-			 		<!--<select  multiple class="selectpicker show tick labelsSelector" id="labels1" title="None selected" style="widht: 200px">-->
-			 		<select multiple style="width:200px" id="labels1">
-				 		
-			 		</select>
-			 	</div>
-			 	<button class="btn btn-default" id="addCategories">Add more tag categories</button>
-			 	<br>
-				<!-- <input type="text" class="form-control" placeholder="Keywords not in above lists, separated by commas"></input> -->
-			{{/if}}				
+			<input type="text" class="form-control" name="newKeywords" id="newKeywords" placeholder="Keywords, separated by commas"></input>
 			<br>
+
 			<input type='submit' class="btn btn-success btn-block" value="Save Changes" />
 		</form>
 		<a href="viewGallery"><button class="btn btn-default">Cancel and Go to Your Gallery</button></a>
@@ -121,7 +75,7 @@
 	</center>
 
 	<!-- for google analytics -->
-	<script>
+	<!--<script>
   	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -130,7 +84,7 @@
   	ga('create', 'UA-48559881-1', "virtualgallery.herokuapp.com");
   	ga('send', 'pageview');
 
-	</script>
+	</script>-->
 
 	<script src="../js/jquery-1.11.0.js"></script>
 	<script src="../js/bootstrap.js"></script>

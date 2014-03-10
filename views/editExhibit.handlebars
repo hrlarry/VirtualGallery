@@ -22,57 +22,41 @@
 		</br>
 		<form method='post' action='/editExhibit/edit' enctype='multipart/form-data'>		
 			<h4>Select Exhibit Image</h4>
-			<div class="fileupload fileupload-new" data-provides="fileupload">
-				<div class="thumbnail" style="width: 200px; height: 150px;" id="currentImageThumbnail">
-					<img src="{{imageURL}}">
-				</div>
-				<div class="fileupload-preview thumbnail" data-trigger="fileupload" style="width: 200px; height: 150px;" id="newImageThumbnail">
-				</div>
-				<div class="input-group-btn">
-					<span class="btn btn-file"><span class="fileupload-new btn btn-default">Upload New Image</span>
-					<span class="fileupload-exists btn btn-default">Change Image</span>
-					<input type="file" name='newImage'></span>
+			<img src="{{imageURL}}" id="newImagePreview" height="100" style="border: 1px solid; border-color: #c0c0c0; border-radius: 5px; margin: 0px 0px 10px 0px;">
+			<br>
+
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#newImgModal">Upload New Image</button>		
+			<div class="modal fade" id="newImgModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  		<div class="modal-dialog">
+		    		<div class="modal-content">
+		      			<div class="modal-header">
+		        			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        			<h3>Choose an image</h3>
+		      			</div>
+		      			<div class="modal-body" style="line-height: 105px;">
+		      				{{#each images}}
+								<img class="img_upload" src="../images/uploads/{{image}}" data-image="{{id}}" data-dismiss="modal" height="100">
+							{{/each}}
+							<input type="hidden" id="newImage" name="newImage" value="">
+		            	</div>
+		      			<div class="modal-footer">
+		        			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      			</div>
+		    		</div>
 				</div>
 			</div>
-			</br>
 
 			<h4>Add Exhibit Description</h4>
 			<textarea rows="3" id="newDescription" name="newDescription" style="width:auto">{{description}}</textarea>
 			<br>
-			<h4>Add Exhibit Keywords</h4>
-			{{#if newVersion}}
-				<input type="text" class="form-control" name="newKeywords" id="newKeywords" placeholder="Keywords, separated by commas"></input>
-			{{else}}
-				<fieldset>
-					<select name="allTags" id="select-from" multiple size="5" style="width: 100px">
-	  					<OPTGROUP label="Music">
-	  						<option value="1">Classical</option>
-	  						<option value="2">Hip-hop</option>
-	  						<option value="3">Rap</option>
-	  						<option value="4">R&amp;B</option>
-	  						<option value="5">A capella</option>
-	  					</OPTGROUP>
-	  					<OPTGROUP label="Sports">
-	  						<option value="6">Baseball</option>
-	  						<option value="7">Basketball</option>
-	  						<option value="8">Football</option>
-	  						<option value="9">Hockey</option>
-	  						<option value="10">Tennis</option>
-	  					</OPTGROUP>
-					</select>
 
-				    <a href="JavaScript:void(0);" id="btn-add">Add &raquo;</a>
-					<a href="JavaScript:void(0);" id="btn-remove">&laquo; Remove</a>
-	 
-					<select name="chosenTags" id="select-to" multiple size="5" style="width: 100px">
-	  					<!--Starts out empty-->
-					</select>
-		 		</fieldset>
-			{{/if}}
+			<h4>Add Exhibit Keywords</h4>
+			<input type="text" class="form-control" name="newKeywords" id="newKeywords" placeholder="Keywords, separated by commas"></input>
 			<br>
+
 			<input type='submit' class="btn btn-success" value="Save Changes" />
 		</form>
-		<a href="../viewGallery"><button class="btn btn-default">Cancel</button></a>
+		<a href="../viewGallery" class="btn btn-default">Cancel</a>
 	</div>
 
 	</center>

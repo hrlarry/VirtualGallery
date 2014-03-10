@@ -66,11 +66,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());	
 }
 
-// Add routes here
-// app.get('/', index.view);
-// app.get('/add', add.addFriend);
-// Example route
-// app.get('/users', user.list);
+//routes
 app.get('/', landingPage.load);
 app.get('/searchResults', searchResults.displayPage);
 app.get('/login', login.displayPage);
@@ -87,7 +83,7 @@ app.get('/newExhibitNew', newExhibit.displayPageNew); //FOR OUR ALTERNATE VERSIO
 app.get('/visitGallery', visitGallery.displayPage);
 app.get('/displayExhibit/:username/:id', displayExhibit.exhibitInfo);
 app.get('/editExhibit/:id', editExhibit.displayPage);
-app.get('/editExhibitNew/:id', editExhibit.displayPageNew);
+//app.get('/editExhibitNew/:id', editExhibit.displayPageNew);
 app.get('/categories/:category', newExhibit.getLabels);
 //to display uploaded images
 app.get('/uploads/:file', function (req, res) {
@@ -98,9 +94,7 @@ app.get('/uploads/:file', function (req, res) {
 	res.end(img, 'binary');
 });
 
-//Example for posting
-//app.post('/project/:id/delete', project.deleteProject);
-//app.post('/createProfile/:id/delete', project.deleteProject);
+//posting
 app.post('/viewGallery/:id/delete', viewGallery.deleteExhibit);
 app.post('/newExhibit/add', newExhibit.addExhibit);
 app.post('/editExhibit/edit', editExhibit.editExhibit);

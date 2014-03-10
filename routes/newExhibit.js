@@ -1,6 +1,7 @@
 //var data = require("../categories.json");
 var models = require('../models');
 var fs = require('fs');
+var imgData = require("../imageUpload.json");
 
 exports.displayPage = function(req, res) {
     models.Categories
@@ -21,7 +22,7 @@ exports.displayPageNew = function(req, res){ //this is the one for the new test 
 
   function populateKeywords(err, categories){
     if(err) {console.log(err); res.send(500);}
-    res.render('newExhibit', {'data': categories, 'newVersion': true});
+    res.render('newExhibit', imgData);
   }
 }
 
@@ -50,7 +51,7 @@ exports.addExhibit = function(req, res) {
   console.log("current user: " + username);
   console.log("adding exhibit; form_text is: ");
   console.log(form_text);
-  var form_image = req.files.newImage;
+  //var form_image = req.files.newImage;
 
   //get the user to update
   models.User
@@ -69,36 +70,42 @@ exports.addExhibit = function(req, res) {
       //"keywords": new models.Keyword(form_data.keywords)
     });
 
-    //check if image has changed before carrying out updating of image
-    console.log("bytesWritten = " + form_image.ws.bytesWritten);
-    if (form_image.ws.bytesWritten == 0) {
-        console.log("no new image");
-    } else {    //parsing file name of image
-        var imageName = form_image.name;
-        var imagePath = form_image.path;
-        var n = imagePath.lastIndexOf("/");
-        var fileName = imagePath.substring(n + 1);
-        var image_url = "/uploads/" + fileName;
-
-        newExhibit.imageURL = image_url;
-        console.log("newExhibit's imageURL = " + newExhibit.imageURL);
-
-        fs.readFile(imagePath, function (err, data) {
-            console.log("image name = " + imageName);
-            if (!imageName) {
-                console.log("error: image name invalid in editExhibit.js");
-                res.redirect('/');
-                res.end();
-            } else {
-                newPath = __dirname + "/uploads/" + imageName;
-                console.log(newPath);
-                fs.writeFile(newPath, data, function(err) {
-                    //res.redirect("/uploads/" + imageName);
-                    console.log("image successfully uploaded");
-                });
-            }
-        });
+    if (form_text.newImage) {
+      newExhibit.imageURL = form_text.newImage;
     }
+    //check if image has changed before carrying out updating of image
+    /*console.log("bytesWritten = " + form_image.ws.bytesWritten);
+    if (form_image.ws.bytesWritten == 0) {
+      console.log("no new image");
+    } else {    //parsing file name of image
+      newExhibit.imageURL = "http://lorempixel.com/640/480/cats/";
+
+      // currently doesn't work because images are only temporarily stored :(
+      var imageName = form_image.name;
+      var imagePath = form_image.path;
+      var n = imagePath.lastIndexOf("/");
+      var fileName = imagePath.substring(n + 1);
+      var image_url = "/uploads/" + fileName;
+
+      newExhibit.imageURL = image_url;
+      console.log("newExhibit's imageURL = " + newExhibit.imageURL);
+
+      fs.readFile(imagePath, function (err, data) {
+          console.log("image name = " + imageName);
+          if (!imageName) {
+              console.log("error: image name invalid in editExhibit.js");
+              res.redirect('/');
+              res.end();
+          } else {
+              newPath = __dirname + "/uploads/" + imageName;
+              console.log(newPath);
+              fs.writeFile(newPath, data, function(err) {
+                  //res.redirect("/uploads/" + imageName);
+                  console.log("image successfully uploaded");
+              });
+          }
+      });
+    }*/
 
 
     //newExhibit.id = users[0].exhibits.length + 1;

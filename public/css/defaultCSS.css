@@ -32,6 +32,13 @@ textarea {
      /*border-radius: 15px;*/
 }
 
+.img_upload {
+     border: 1px solid;
+     border-color: #c0c0c0;
+     cursor: pointer;
+     border-radius: 5px;
+}
+
 .modal {
     overflow-y: auto;    /*removes scrollbar from appearing when unnecessary*/
 }

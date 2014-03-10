@@ -15,6 +15,19 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
+    //this allows for the mock up of image upload
+    $(".img_upload").click(function() {
+        var currImage = $(this);
+        var newImageURL = "/images/uploads/" + currImage.data("image");
+        //alert("you clicked on " + newImageURL);
+        $("#newImage").val(newImageURL);
+        $("#newImagePreview").attr("src", newImageURL);
+
+        console.log($("#newDescription").val());
+        console.log($("#newImage").val());
+    });
+
+
     //$('.selectpicker').selectpicker();
 
     //$('#category1').prop('selectedIndex', -1)
@@ -151,7 +164,7 @@ function submitExhibit(e){
 	console.log("Submit Exhibit");
 
     //tell analytics that someone has made a new exhibit
-    ga('send', 'event', 'exhibit', 'add');
+    //ga('send', 'event', 'exhibit', 'add');
 
     //make the new exhibit 
     
@@ -239,6 +252,7 @@ function submitExhibitNew(e){
         keywords.push(keywordString.substr(0,i)); //add the next keyword
         keywordString = keywordString.substr(i+1); //remove that keyword from the string
     }
+
     var exhibitJson = {
         'id': id,
         'imageURL': image_url,
@@ -248,6 +262,11 @@ function submitExhibitNew(e){
             'Labels': keywords
         }
     };
+
+    console.log($("#newDescription").val());
+    console.log($("#newImage").val());
+
+
     $.post('/newExhibit/add', exhibitJson, function() {
         window.location.href = '/viewGallery'; // go to the viewGallery page
     });

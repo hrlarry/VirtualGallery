@@ -15,7 +15,18 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-    $('#newImageThumbnail').hide();
+    //this allows for the mock up of image upload
+    $(".img_upload").click(function() {
+        var currImage = $(this);
+        var newImageURL = "/images/uploads/" + currImage.data("image");
+        //alert("you clicked on " + newImageURL);
+        $("#newImage").val(newImageURL);
+        $("#newImagePreview").attr("src", newImageURL);
+
+        console.log($("#newDescription").val());
+        console.log($("#newImage").val());
+    });
+
 	$('#btn-add').click(function(){
         $('#select-from option:selected').each( function() {
             $('#chosenTags').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
