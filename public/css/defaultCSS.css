@@ -16,7 +16,6 @@ body {
      background-size: auto 100%;
      background-repeat: no-repeat;
      background-attachment: fixed;
-     height: 100%;
 }
 
 /* to ensure the textarea in /editExhibit fills the page */
@@ -26,11 +25,13 @@ textarea {
      box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
+input {
+     width: 100%;
+}
+
 .box {
      background-color:rgba(255,255,255,.8);
      padding: 10px 10px 10px 10px;
-     width: 100%px;
-     /*border-radius: 15px;*/
 }
 
 .img_upload {
@@ -59,8 +60,8 @@ textarea {
 }
 
 #exhibitDescription{
-     width:50px;
-     height:50px;
+     width: 50px;
+     height: 50px;
 }
 
 .exhibitImage{
@@ -95,8 +96,8 @@ textarea {
      width:200px;
 }
 
-#navigationWrapper{
-     position:fixed;
+#navigationWrapper {
+     position: fixed;
      background-color: transparent;
      margin: 0 auto;
 }

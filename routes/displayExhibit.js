@@ -6,17 +6,7 @@ exports.exhibitInfo = function(req, res) {
 	var exhibitID = req.params.id;
 	var username = req.params.username;
 	console.log(exhibitID);
-/*
-	if (exhibitID == "random") {
-		exhibitID = Math.floor(Math.random() * profiles[0].exhibits.length) + 1;
-	} else {
-		exhibitID = parseInt(exhibitID);
-	}
 
-	//console.log("from displayExhibit: "+users[0]);
-  	var exhibitToShow = profiles[0].exhibits[exhibitID-1]; // of by one, our first project has index 0
-  	res.json(exhibitToShow);
-*/
 	//get exhibits for the current user - right now, user 0
 	models.User
 		.find()
@@ -41,18 +31,5 @@ exports.exhibitInfo = function(req, res) {
 				
 			}
 		}
-
-		//console.log("from displayExhibit: "+users[0]);
 	}
-
-
-	// if (exhibitID == "random") {
-	// 	exhibitID = Math.floor(Math.random() * profiles.users[0].exhibits.length) + 1;
-	// } else {
-	// 	exhibitID = parseInt(exhibitID);
-	// }
-
-	// //console.log("from displayExhibit: "+users[0]);
- //  	var exhibitToShow = profiles.users[0].exhibits[exhibitID-1]; // of by one, our first project has index 0
- //  	res.json(exhibitToShow);
 }

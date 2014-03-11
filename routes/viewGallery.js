@@ -14,7 +14,6 @@ exports.displayPage = function(req, res) {
         //console.log(users[0]);
         res.render('viewGallery', users[0]);
     }
-	//res.render('viewGallery', profiles.users[0]);
 }
 
 //delete an exhibit
@@ -56,18 +55,3 @@ exports.deleteExhibit = function(req, res) {
         res.redirect("/viewGallery");
     }
 }
-
-
-
-//   // find the project and remove it
-//   // YOU MUST send an OK response w/ res.send();
-//     models.Project
-//       .find({ "_id": projectID})
-//       .remove()
-//       .exec(afterRemoving)
-
-//     function afterRemoving(err){
-//       if(err) {console.log(err); res.send(500); }
-//       res.send();
-//     }
-// }

@@ -9,6 +9,8 @@
 	<link href="css/defaultCSS.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>  
 
+	<script src="http://maps.google.com/maps/api/js?key=AIzaSyCTYfKZ4VV-CaL8xfUOCY48joa5x4huSZE&sensor=false"></script>
+
 	<script>
 		function getLocation() {
 			if (navigator.geolocation){
@@ -27,7 +29,25 @@
 			var lat = position.coords.latitude;
 			var lon = position.coords.longitude;
 			console.log("lat is " + lat + " and long is " + lon);
-			$("#searchForm .form-group p").text("Your current location is: (" + lat + ", " + lon + ").");
+			//using Google Maps API to reverse geocode to the actual address
+  			geocoder = new google.maps.Geocoder();
+  			var latlng = new google.maps.LatLng(lat,lon);
+  			var address;
+
+  			geocoder.geocode({'latLng': latlng}, function(results, status) {
+    			if (status == google.maps.GeocoderStatus.OK) {
+      				if (results[1]) {
+        				address = results[1].formatted_address;
+        				$("#searchForm .form-group p").text("Your current location is: " + address);
+      				} else {
+        				console.log('No results found for lat/long combo');
+        				$("#searchForm .form-group p").text("Your current location is: not found");
+      				}
+    			} else {
+      				console.log('Geocoder failed due to: ' + status);
+      				$("#searchForm .form-group p").text("Your current location is: not found");
+    			}
+  			});
 		}
 	</script>
 </head>

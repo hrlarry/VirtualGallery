@@ -73,42 +73,7 @@ exports.addExhibit = function(req, res) {
     if (form_text.newImage) {
       newExhibit.imageURL = form_text.newImage;
     }
-    //check if image has changed before carrying out updating of image
-    /*console.log("bytesWritten = " + form_image.ws.bytesWritten);
-    if (form_image.ws.bytesWritten == 0) {
-      console.log("no new image");
-    } else {    //parsing file name of image
-      newExhibit.imageURL = "http://lorempixel.com/640/480/cats/";
 
-      // currently doesn't work because images are only temporarily stored :(
-      var imageName = form_image.name;
-      var imagePath = form_image.path;
-      var n = imagePath.lastIndexOf("/");
-      var fileName = imagePath.substring(n + 1);
-      var image_url = "/uploads/" + fileName;
-
-      newExhibit.imageURL = image_url;
-      console.log("newExhibit's imageURL = " + newExhibit.imageURL);
-
-      fs.readFile(imagePath, function (err, data) {
-          console.log("image name = " + imageName);
-          if (!imageName) {
-              console.log("error: image name invalid in editExhibit.js");
-              res.redirect('/');
-              res.end();
-          } else {
-              newPath = __dirname + "/uploads/" + imageName;
-              console.log(newPath);
-              fs.writeFile(newPath, data, function(err) {
-                  //res.redirect("/uploads/" + imageName);
-                  console.log("image successfully uploaded");
-              });
-          }
-      });
-    }*/
-
-
-    //newExhibit.id = users[0].exhibits.length + 1;
     newExhibit.save(afterSaving);
 
     //console.log("here comes the exhibit we're going to create for " + username + ": ");
@@ -126,51 +91,5 @@ exports.addExhibit = function(req, res) {
       res.send();
     }
   }
-
   res.redirect("/viewGallery");
 }
-
-/*
- * Function that is called when the document is ready.
- */
-/*function initializePage() {
-
-	$('#btn-add').click(function(){
-        $('#select-from option:selected').each( function() {
-        	$('#chosenTags').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
-        	var chosenTagsList = document.getElementsByName("chosenTags")[0];
-        	var toMove = $(this);
-        	var foundDuplicate = false;
-			console.log(toMove.text());
-        	for(var i=0; i < chosenTagsList.length; i++){
-        		console.log("test4");
-        		if(chosenTagsList.options[i].text == toMove.text()){
-        			console.log("test2");
-        			foundDuplicate = true;
-        			break;
-        		}
-        	}
-        	if(foundDuplicate == false){
-        		console.log("test3");
-            	$('#select-to').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
-            }
-            //$(this).remove();
-        });
-    });
-    $('#btn-remove').click(function(){
-        $('#select-to option:selected').each( function() {
-            //$('#select-from').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
-            $(this).remove();
-        });
-    });
-
-    $('#submitExhibit').click(submitExhibit)
-}
-
-function submitExhibit(e){
-	e.preventDefault();
-	console.log("Submit Exhibit");
-
-	var chosenTagsList = document.getElementsByName("chosenTags")[0];
-	console.log(chosenTagsList.options);
-}*/

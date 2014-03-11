@@ -14,27 +14,27 @@ exports.displayPage = function(req, res){
 }
 
 exports.updateProfileInfo = function(req, res){
-	var enteredValues = req.body;
-	console.log("the entered values are: " + req.body);
+	var form_data = req.body;
+	var username = req.session.username;
+	console.log(form_data);
 
 	models.User
-		.find() //this will eventually find the current user
+		.find({"username": username}) //this will eventually find the current user
 		.exec(updateValues);
 
 	function updateValues(err, users){
 		var userToUpdate = users[0];
 		console.log("before update: " + userToUpdate);
-		if (enteredValues.email != "") userToUpdate.email = enteredValues.email;
-		if (enteredValues.phone != "") userToUpdate.phone = enteredValues.phone;
+		if (form_data.newEmail) userToUpdate.email = form_data.newEmail;
+		if (form_data.newPhone) userToUpdate.phone = form_data.newPhone;
 
-		
+		console.log(userToUpdate);
 		userToUpdate.save(afterSaving);
 
   		function afterSaving(err){
       		if (err) {console.log(err); res.send(500);}
       		console.log("after update: " + userToUpdate);
-      		res.send();
+      		res.redirect("/home");
   		}
 	}
-
 }
