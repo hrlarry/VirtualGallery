@@ -10,29 +10,34 @@
 	<link href="css/defaultCSS.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
 	<center>
 		<h1>Edit My Profile</h1>
 	</center>
 	<div class="box">
-		<h3>Change your contact information:</h3>
-		<label for="email">Email: currently {{email}}</label>
-		<textarea id="newEmail" class="form-control" rows="3" placeholder="Enter email here"></textarea><br>
+		<h3 style="line-height: 25%;">Change contact info:</h3>
+		<form method='post' action='/editProfile/updateProfileInfo' enctype='multipart/form-data'>
+			<label for="email">Email:</label><br>
+			<input type="text" name="newEmail" class="form-control" id="newEmail" placeholder="Enter new email here..." value="{{email}}"></input>
+			<br>
 
-		<label for="phone">Phone number: currently {{phone}}</label>
-		<textarea id="newPhone" class="form-control" rows="3" placeholder="Enter phone number here"></textarea><br>
+			<label for="phone">Phone number:</label><br>
+			<input type="text" name="newPhone" class="form-control" id="newPhone" placeholder="Enter new phone number here..." value="{{phone}}"></input>
 
-		<h3>Change your password:</h3>
-		<label for="username">New Password:</label>
-      	<input type="password" class="form-control" id="password" placeholder="Password">
-		<hr>
-		<center>
 
-		<!--buttons to go back to the homepage or to the login page -->
-		<a href="home" id="editProfileSaveBtn" class="btn btn-success btn-block">Save and Go to Home</a>
+			<h3 style="line-height: 25%;">Change your password:</h3>
+			<label for="username">New Password:</label><br>
+	      	<input type="password" class="form-control" id="password" placeholder="Password" />
+	      	<p>&nbsp;</p>
+			<input type="submit" class="btn btn-success btn-block" value="Save Changes" />
+		</form>
+
+	<!--buttons to go back to the homepage or to the login page -->
+	<center>
 		<br>
 		<a href="home" class="btn btn-default btn-block">Cancel</a>
-		</center>
+	</center>
 	</div>
 
 	<script src="js/jquery-1.11.0.js"></script>

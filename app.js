@@ -8,11 +8,7 @@ var handlebars = require('express3-handlebars');
 var mongoose = require('mongoose');
 var fs = require('fs');
 
-// var index = require('./routes/index');
-// Example route
-// var user = require('./routes/user');
-// var add = require('./routes/add');
-//var newExhibit = require('./routes/newExhibit');
+// Routes
 var searchResults = require('./routes/searchResults');
 var landingPage = require('./routes/landingPage');
 var login = require('./routes/login');
@@ -29,7 +25,6 @@ var displayExhibit = require('./routes/displayExhibit');
 var editExhibit = require('./routes/editExhibit');
 
 // Connect to the Mongo database, whether locally or on Heroku
-// MAKE SURE TO CHANGE THE NAME FROM 'lab7' TO ... IN OTHER PROJECTS
 var local_database_name = 'virtualgallery';
 var local_database_uri  = 'mongodb://localhost/' + local_database_name
 var database_uri = process.env.MONGOLAB_URI || local_database_uri
