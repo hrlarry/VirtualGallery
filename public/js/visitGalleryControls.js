@@ -43,9 +43,11 @@ function drawExhibit() {
 		//top: position.top + 55,
 		//left: position.left + backgroundSplashImage.clientWidth/4,
 		maxWidth: windowWidth * 3/4,
-		maxHeight: windowHeight * 3/5,
+		maxHeight: windowHeight - 194,
 		//height: backgroundSplashImage.clientHeight/2,
 	});
+
+	console.log(0-$("#logo").height() - 60 - $("#exhibitDescription").height());
 
 	var exhibitImage = document.getElementById("exhibitImage");
 
@@ -54,14 +56,14 @@ function drawExhibit() {
 		left: windowWidth * 1/8 - 10,
 		width: exhibitImage.clientWidth + 20,
 		height: exhibitImage.clientHeight + 20,
-		maxHeight: windowHeight * 3/5 + 10,
+		maxHeight: windowHeight - 174,
 		maxWidth: windowWidth * 3/4 + 20
 	});
 
 	var canvasRegion = document.getElementById("exhibitCanvas");
 
 	$("#exhibitDescription").css({
-		top: position.top + exhibitImage.clientHeight + 50,
+		top: position.top + exhibitImage.clientHeight + 45,
 		left: windowWidth * 1/2 - 25
 	});
 
