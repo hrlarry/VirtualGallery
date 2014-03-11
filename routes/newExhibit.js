@@ -135,24 +135,24 @@ exports.addExhibit = function(req, res) {
  */
 /*function initializePage() {
 
-  $('#btn-add').click(function(){
+	$('#btn-add').click(function(){
         $('#select-from option:selected').each( function() {
-          $('#chosenTags').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
-          var chosenTagsList = document.getElementsByName("chosenTags")[0];
-          var toMove = $(this);
-          var foundDuplicate = false;
-      console.log(toMove.text());
-          for(var i=0; i < chosenTagsList.length; i++){
-            console.log("test4");
-            if(chosenTagsList.options[i].text == toMove.text()){
-              console.log("test2");
-              foundDuplicate = true;
-              break;
-            }
-          }
-          if(foundDuplicate == false){
-            console.log("test3");
-              $('#select-to').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+        	$('#chosenTags').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
+        	var chosenTagsList = document.getElementsByName("chosenTags")[0];
+        	var toMove = $(this);
+        	var foundDuplicate = false;
+			console.log(toMove.text());
+        	for(var i=0; i < chosenTagsList.length; i++){
+        		console.log("test4");
+        		if(chosenTagsList.options[i].text == toMove.text()){
+        			console.log("test2");
+        			foundDuplicate = true;
+        			break;
+        		}
+        	}
+        	if(foundDuplicate == false){
+        		console.log("test3");
+            	$('#select-to').append("<option value='"+$(this).val()+"'>"+$(this).text()+"</option>");
             }
             //$(this).remove();
         });
@@ -168,9 +168,9 @@ exports.addExhibit = function(req, res) {
 }
 
 function submitExhibit(e){
-  e.preventDefault();
-  console.log("Submit Exhibit");
+	e.preventDefault();
+	console.log("Submit Exhibit");
 
-  var chosenTagsList = document.getElementsByName("chosenTags")[0];
-  console.log(chosenTagsList.options);
+	var chosenTagsList = document.getElementsByName("chosenTags")[0];
+	console.log(chosenTagsList.options);
 }*/
