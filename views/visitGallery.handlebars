@@ -18,12 +18,12 @@
 	<div class = "usernameInfo" id="{{username}}"> </div>
 	<!--<div class ="box">-->
     	<div id="backgroundSplash">
-			<div class="exhibitCanvas" id="exhibitCanvas">
-				<div class="exhibit" id="exhibit1">
-					<img src="{{imageURL}}" id="exhibitImage" class="exhibitImage"></img>
-				</div>
+			<!--<div class="exhibitCanvas" id="exhibitCanvas">-->
+			<div class="exhibit" id="exhibit1">
+				<img src="{{imageURL}}" id="exhibitImage" class="exhibitImage"></img>
 			</div>
-			<div class ="exhibitCanvas" id="exhibitDescription" data-container="body" data-toggle="popover" data-placement="top" data-content="{{description}}" data-trigger="manual">
+			
+			<div class="exhibitCanvas" id="exhibitDescription" data-container="body" data-toggle="popover" data-placement="top" data-content="{{description}}" data-trigger="manual">
 				<img src="../images/descriptionSign.jpg" id="descriptionSign"></img>
 				<!--<span class="glyphicon glyphicon-align-justify"></span>-->
 			</div>
@@ -31,7 +31,7 @@
 
 		<div id="navigationWrapper">
 
-			<button id="prevBtn" class="btn btn-default">Prev</button>
+			<button id="prevBtn" class="btn btn-default" disabled="true">Prev</button>
 			<button id="nextBtn" class="btn btn-default">Next</button>
 
 			</p>

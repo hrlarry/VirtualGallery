@@ -43,74 +43,18 @@ function drawExhibit() {
 		//top: position.top + 55,
 		//left: position.left + backgroundSplashImage.clientWidth/4,
 		maxWidth: windowWidth * 3/4,
-		maxHeight: windowHeight - 194,
+		maxHeight: windowHeight - 250,
 		//height: backgroundSplashImage.clientHeight/2,
 	});
 
-	console.log(0-$("#logo").height() - 60 - $("#exhibitDescription").height());
-
 	var exhibitImage = document.getElementById("exhibitImage");
 
-	$("#exhibitCanvas").css({
+	$(".exhibit").css({
 		top: position.top + 10,
-		left: windowWidth * 1/8 - 10,
-		width: exhibitImage.clientWidth + 20,
-		height: exhibitImage.clientHeight + 20,
-		maxHeight: windowHeight - 174,
-		maxWidth: windowWidth * 3/4 + 20
+		left: windowWidth/2 - exhibitImage.clientWidth/2
 	});
-
-	var canvasRegion = document.getElementById("exhibitCanvas");
-
-	$("#exhibitDescription").css({
-		top: position.top + exhibitImage.clientHeight + 45,
-		left: windowWidth * 1/2 - 25
-	});
-
-	console.log(exhibitImage.clientHeight + 10);
-	//console.log(backgroundSplashImage.clientHeight*3/5);
-	console.log(exhibitImage.clientHeight + 10);
 
 }
-
-
-/*
-function drawExhibit() {
-	var backgroundSplashImage = document.getElementById("backgroundSplash");
-	var position = $("#backgroundSplash").offset();
-	
-	$("#exhibitImage").css({
-		//top: position.top + 55,
-		//left: position.left + backgroundSplashImage.clientWidth/4,
-		maxWidth: backgroundSplashImage.clientWidth/2,
-		maxHeight: backgroundSplashImage.clientHeight*3/5,
-		//height: backgroundSplashImage.clientHeight/2,
-	});
-
-	var exhibitImage = document.getElementById("exhibitImage");
-
-	$("#exhibitCanvas").css({
-		top: position.top + 50,
-		left: position.left + backgroundSplashImage.clientWidth/2 - exhibitImage.clientWidth/2 - 10,
-		width: exhibitImage.clientWidth + 20,
-		height: exhibitImage.clientHeight + 20,
-		maxHeight: backgroundSplashImage.clientHeight*3/5 + 10,
-		maxWidth: backgroundSplashImage.clientWidth/2 + 20
-	});
-
-	var canvasRegion = document.getElementById("exhibitCanvas");
-
-	$("#exhibitDescription").css({
-		top: position.top + 50 + canvasRegion.clientHeight - 100,
-		left: position.left + backgroundSplashImage.clientWidth/2 - exhibitImage.clientWidth/2 + canvasRegion.clientWidth + 50
-	});
-
-	console.log(exhibitImage.clientHeight + 10);
-	console.log(backgroundSplashImage.clientHeight*3/5);
-	console.log(exhibitImage.clientHeight + 10);
-
-}*/
-
 
 /*
  * Make an AJAX call to retrieve project details and add it in
@@ -147,11 +91,15 @@ function changeToNext(result) {
 }
 
 function displayNewExhibit(oldID, result) {
+	if(result.id==1){
+		$('#prevBtn').attr('disabled', true);
+	} else {
+		$('#prevBtn').attr('disabled', false);
+	}
 	$("#exhibit" + oldID).attr('id', "exhibit" + result.id);
 	$("#exhibit" + result.id).html('<img src="'+result['imageURL']+'" id="exhibitImage" class="exhibitImage"></img>');
 	$('#exhibitDescription').popover('hide');
 	$("#exhibitDescription").attr('data-content', result['description']);
-	
-	window.setTimeout(drawExhibit,5);
+	drawExhibit();
 	//console.log("URL: "+$("#exhibit"+result.id));
 }

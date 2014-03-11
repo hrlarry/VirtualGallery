@@ -52,7 +52,10 @@ textarea {
 .exhibitCanvas{
      background-color: #ffffff;
      box-shadow: 2px 2px 10px #888888;
-     position: absolute;
+     position: relative;
+     top: 30px;
+     margin-left: auto;
+     margin-right: auto;
 }
 
 #exhibitDescription{
@@ -63,16 +66,19 @@ textarea {
 .exhibitImage{
      background-color: #ffffff;
      display: block;
-     position:absolute;
-     top: 0;
+     position:relative;
+     margin-left: auto;
+     margin-right: auto;
+     top: 15px;
      bottom: 0;
      left: 0;
      right: 0;
-     margin: auto;
      max-width: 90%;
      max-height: 90%;
      height: auto;
      width: auto;
+     border:5px solid #ffffff;
+     box-shadow: 2px 2px 10px #888888;
 }
 
 .gallerythumbnail {
@@ -85,7 +91,7 @@ textarea {
 
 #logo {
      position:relative;
-     top: 5px;
+     top: 10px;
      width:200px;
 }
 
