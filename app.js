@@ -32,7 +32,7 @@ mongoose.connect(database_uri);
 
 var app = express()
 
-//for image upload
+// to parse forms for image upload, edit profile
 app.configure(function() {
 	app.use(express.methodOverride());
 	app.use(express.bodyParser({
@@ -97,6 +97,10 @@ app.post('/createProfile/addProfile', createProfile.addProfile);
 app.post('/editProfile/updateProfileInfo', editProfile.updateProfileInfo);
 app.post('/login/executeLogin/:username', login.executeLogin);
 app.post('/login/executeLogout', login.executeLogout);
+
+app.use(function(req, res, next){
+    res.status(404).render('404');
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

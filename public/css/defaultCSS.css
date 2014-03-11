@@ -16,7 +16,6 @@ body {
      background-size: auto 100%;
      background-repeat: no-repeat;
      background-attachment: fixed;
-     height: 100%;
 }
 
 /* to ensure the textarea in /editExhibit fills the page */
@@ -33,8 +32,6 @@ input {
 .box {
      background-color:rgba(255,255,255,.8);
      padding: 10px 10px 10px 10px;
-     width: 100%px;
-     /*border-radius: 15px;*/
 }
 
 .img_upload {
@@ -90,11 +87,11 @@ input {
 #logo {
      position:relative;
      top: 5px;
-     width:200px;
+     width: 200px;
 }
 
-#navigationWrapper{
-     position:fixed;
+#navigationWrapper {
+     position: fixed;
      background-color: transparent;
      margin: 0 auto;
 }

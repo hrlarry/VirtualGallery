@@ -25,8 +25,7 @@ exports.displayPage = function(req, res){
 				break;
 			}
 		}
-		//THIS SHOULD IDEALLY GO TO AN ERROR PAGE - DIDN'T FIND THE USER IN QUESTION
 		console.log("didn't find user " + username);
+		res.redirect('404');
 	}
-  //res.render('visitGallery', profiles.users[0].exhibits[0]);
 }
