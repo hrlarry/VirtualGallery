@@ -9,8 +9,6 @@ exports.addProfile = function(req, res){
   console.log("here comes the user we're going to create: ");
   console.log(form_data);
 
-  // make a new Project and save it to the DB
-  // YOU MUST send an OK response w/ res.send();
 
   var newUser = new models.User(form_data);
 
@@ -24,6 +22,5 @@ exports.addProfile = function(req, res){
   //log in the newly created user
   console.log("logging in " + form_data.username);
   req.session.username = form_data.username;
-  res.redirect('home'); //go to homepage.  this way, we can redirect back to the login page if the username wasn't found.
-  //NOTE: that last piece wasn't really working right
+  res.redirect('home'); //go to homepage.
 }

@@ -16,8 +16,6 @@ exports.displayPage = function(req, res) {
         if(err) {console.log(err); res.send(500);}
         console.log(users[0].exhibits[editID-1]);
         var toPass = users[0].exhibits[editID-1];
-        //toPass.newVersion = 'false';
-        //console.log(toPass.newVersion);
         toPass.images = imgData.images;
         //console.log(imgData.images);
         //console.log(toPass);
@@ -25,25 +23,6 @@ exports.displayPage = function(req, res) {
     }
 }
 
-/*exports.displayPageNew = function(req, res) {
-    editID = req.params.id;
-    var username = req.session.username;
-    console.log("Edit ID: " + editID);
-    models.User
-        .find({"username": username})
-        .exec(populateEditPage);
-
-    function populateEditPage(err, users){
-        if(err) {console.log(err); res.send(500);}
-        console.log(users[0].exhibits[editID-1]);
-        var toPass = users[0].exhibits[editID-1];
-        toPass.newVersion = 'true';
-
-        console.log(imgData.images);
-        console.log(toPass);
-        res.render('editExhibit', {toPassIn: toPass, imgData2: imgData});
-    }
-}*/
 
 //this updates the exhibit after user clicks "Save Changes"
 exports.editExhibit = function(req, res) {
@@ -68,37 +47,6 @@ exports.editExhibit = function(req, res) {
             userToUpdate['exhibits'][editID - 1]['imageURL'] = form_text.newImage;
         }
 
-        //check if image has changed before carrying out updating of image
-        /*console.log("bytesWritten = " + form_image.ws.bytesWritten);
-        if (form_image.ws.bytesWritten == 0) {
-            console.log("no new image");
-        } else {    //parsing file name of image
-            userToUpdate['exhibits'][editID - 1]['imageURL'] = "http://lorempixel.com/640/480/cats/";
-            // currently doesn't work because images are stored only termporarily :(
-            var imageName = form_image.name;
-            var imagePath = form_image.path;
-            var n = imagePath.lastIndexOf("/");
-            var fileName = imagePath.substring(n + 1);
-            var image_url = "/uploads/" + fileName;
-
-            userToUpdate['exhibits'][editID - 1]['imageURL'] = image_url;
-
-            fs.readFile(imagePath, function (err, data) {
-                console.log("image name = " + imageName);
-                if (!imageName) {
-                    console.log("error: image name invalid in editExhibit.js");
-                    res.redirect('/');
-                    res.end();
-                } else {
-                    newPath = __dirname + "/uploads/" + imageName;
-                    console.log(newPath);
-                    fs.writeFile(newPath, data, function(err) {
-                        //res.redirect("/uploads/" + imageName);
-                        console.log("image successfully uploaded");
-                    });
-                }
-            });
-        }*/
 
         userToUpdate['exhibits'][editID - 1]['description'] = form_text.newDescription;
         //userToUpdate['exhibits'][editID - 1]['keywords'] = form_text.newKeywords;

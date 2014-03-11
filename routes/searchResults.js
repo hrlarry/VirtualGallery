@@ -5,20 +5,17 @@ var models = require('../models');
 exports.displayPage = function(req, res){
 	var username = req.session.username;
 	console.log(username + " is currently signed in");
-	var userID = 0; //Currently using 0, change to the id of the person who logs in.
+	var userID = 0;
 	models.User
-		//.find({"username": username})
 		.find()
 		.exec(renderUsers)
 
 	function renderUsers(err, users){
-		//userID = users[0].id;
-		userID = 0; //USERS DON'T HAVE ID FIELDS
+		userID = 0;
 		var toReturn = [];
 		var scores = [];
 		console.log(users.length);
 		for (var i = 0; i < users.length; i++){
-			//if (userID != i) { 
 			if (username != users[i].username) { //only execute matching algorithm if user != itself
 				console.log("==========="+users[i]);
 				var currScore = calculateMatchScore(users[userID], users[i]);
@@ -42,7 +39,6 @@ exports.displayPage = function(req, res){
 		}
 		res.render('searchResults', {'users': toReturn });
 	}
-	//res.render('searchResults', userData);
 } 
 
 function calculateMatchScore(user, comparison){
@@ -87,30 +83,3 @@ function consolidateInterests(exhibits){
 	}
 	return consolidated;
 }
-
-/*
- * GET home page.
- */
-
-// exports.view = function(req, res){
-
-// 	models.Project
-// 		.find()
-// 		.sort('date')
-// 		.exec(renderProjects);
-
-// 	function renderProjects(err, projects) {
-// 		res.render('index', { 'projects': projects });
-// 	}
-
-// };
-// $(document).ready(function() {
-// 	initializePage();
-// })
-
-
-//  * Function that is called when the document is ready.
- 
-// function initializePage() {
-// 	//initialize here
-// }
