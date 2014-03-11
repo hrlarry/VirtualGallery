@@ -16,6 +16,7 @@ body {
      background-size: auto 100%;
      background-repeat: no-repeat;
      background-attachment: fixed;
+     height: 100%;
 }
 
 /* to ensure the textarea in /editExhibit fills the page */
@@ -49,12 +50,7 @@ input {
 
 
 #backgroundSplash {
-     width: auto;
-     height: 300px;      /*needs to be modified to fit viewport size*/
-     background-color: #000000;
-     background-image: url('../images/gallerybg.jpg');
-     background-size: auto 100%;
-     background-origin: content-box;
+     
 }
 
 .exhibitCanvas{
@@ -89,4 +85,16 @@ input {
      height:auto;
      max-height:60px;
      margin-bottom:0px;
+}
+
+#logo {
+     position:relative;
+     top: 5px;
+     width:200px;
+}
+
+#navigationWrapper{
+     position:fixed;
+     background-color: transparent;
+     margin: 0 auto;
 }

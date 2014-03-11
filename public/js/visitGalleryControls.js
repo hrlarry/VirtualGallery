@@ -15,6 +15,12 @@ function initializePage() {
         verticalAlign: "center"
     });
 
+    $('#navigationWrapper').css({
+    	top: window.innerHeight-$('#navigationWrapper').height() -7,
+    	left: window.innerWidth/2 - $('#navigationWrapper').width()/2
+    });
+
+    console.log($('#navigationWrapper').width()/2);
     $('#nextBtn').click(changeExhibit);
     $('#prevBtn').click(changeExhibit);
     $('#exhibitDescription').click(descriptionClicked);
@@ -26,6 +32,49 @@ function descriptionClicked() {
 	$('#exhibitDescription').popover('toggle');
 }
 
+function drawExhibit() {
+	var windowWidth = window.innerWidth;
+	var windowHeight = window.innerHeight;
+	//var position = $("#backgroundSplash").offset();
+	//var position = {"top": 0, "left": 0};
+	var position = $("#backgroundSplash").offset();
+	
+	$("#exhibitImage").css({
+		//top: position.top + 55,
+		//left: position.left + backgroundSplashImage.clientWidth/4,
+		maxWidth: windowWidth * 3/4,
+		maxHeight: windowHeight - 194,
+		//height: backgroundSplashImage.clientHeight/2,
+	});
+
+	console.log(0-$("#logo").height() - 60 - $("#exhibitDescription").height());
+
+	var exhibitImage = document.getElementById("exhibitImage");
+
+	$("#exhibitCanvas").css({
+		top: position.top + 10,
+		left: windowWidth * 1/8 - 10,
+		width: exhibitImage.clientWidth + 20,
+		height: exhibitImage.clientHeight + 20,
+		maxHeight: windowHeight - 174,
+		maxWidth: windowWidth * 3/4 + 20
+	});
+
+	var canvasRegion = document.getElementById("exhibitCanvas");
+
+	$("#exhibitDescription").css({
+		top: position.top + exhibitImage.clientHeight + 45,
+		left: windowWidth * 1/2 - 25
+	});
+
+	console.log(exhibitImage.clientHeight + 10);
+	//console.log(backgroundSplashImage.clientHeight*3/5);
+	console.log(exhibitImage.clientHeight + 10);
+
+}
+
+
+/*
 function drawExhibit() {
 	var backgroundSplashImage = document.getElementById("backgroundSplash");
 	var position = $("#backgroundSplash").offset();
@@ -60,7 +109,7 @@ function drawExhibit() {
 	console.log(backgroundSplashImage.clientHeight*3/5);
 	console.log(exhibitImage.clientHeight + 10);
 
-}
+}*/
 
 
 /*
