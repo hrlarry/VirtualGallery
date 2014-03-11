@@ -12,6 +12,10 @@ body {
      font-size: 14px;
      color: #000000;
      background-color: rgba(212,228,239,1);
+     background-image: url('../images/gallerybg.jpg'); 
+     background-size: auto 100%;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
 }
 
 /*a {
@@ -142,4 +146,10 @@ body {
      height:auto;
      max-height:60px;
      margin-bottom:0px;
+}
+
+#navigationWrapper{
+     position:fixed;
+     background-color: transparent;
+     margin: 0 auto;
 }
