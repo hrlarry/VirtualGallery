@@ -11,13 +11,13 @@
 
 <body>
 	<center>
-	<h1>VirtualGallery</h1>
+	<img id="logo" src="../images/VirtualGallery Logo with Transparency.png"></img>
 	</center>
 
 	<center>
 	<div class = "usernameInfo" id="{{username}}"> </div>
-	<div class ="box">
-    	<div id="backgroundSplash">				
+	<!--<div class ="box">-->
+    	<div id="backgroundSplash">
 			<div class="exhibitCanvas" id="exhibitCanvas">
 				<div class="exhibit" id="exhibit1">
 					<img src="{{imageURL}}" id="exhibitImage" class="exhibitImage"></img>
@@ -28,14 +28,18 @@
 				<!--<span class="glyphicon glyphicon-align-justify"></span>-->
 			</div>
 		</div>
-		<br>
-		<button id="prevBtn" class="btn btn-default">Prev</button>
-		<button id="nextBtn" class="btn btn-default">Next</button>
 
-		<hr>
-		<a href="javascript:history.go(-1)" class="btn btn-primary">Back to Search Results</a>
-		<a href="../home"><button id="homeBtn" class="btn btn-default">Home</button></a>
-	</div>
+		<div id="navigationWrapper">
+
+			<button id="prevBtn" class="btn btn-default">Prev</button>
+			<button id="nextBtn" class="btn btn-default">Next</button>
+
+			</p>
+
+			<a href="javascript:history.go(-1)" class="btn btn-primary">Back to Search Results</a>
+			<a href="../home"><button id="homeBtn" class="btn btn-default">Home</button></a>
+		</div>
+	<!--</div>-->
 	</center>
 
 	<!-- add scripts -->
