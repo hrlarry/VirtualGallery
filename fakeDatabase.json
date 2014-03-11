@@ -47,6 +47,17 @@
 							"Labels": ["R&B"]
 						}
 						]
+				},
+				{
+					"id": 5,
+					"imageURL": "http://i.imgur.com/RWNGDa8.jpg",
+					"description": "Developed by:\nLarry Liu\nStephanie Palocz\nSophie Ye",
+					"keywords": [
+						{
+							"Category": "Science & Technology",
+							"Labels": ["Startup"]
+						}
+					]
 				}
 			],
 			"priorities": {

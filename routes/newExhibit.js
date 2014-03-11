@@ -33,18 +33,18 @@ exports.displayPageNew = function(req, res){ //this is the one for the new test 
         .find()
         .exec(populateKeywords);
 
-<<<<<<< HEAD
   function populateKeywords(err, categories){
     if(err) {console.log(err); res.send(500);}
     res.render('newExhibit', imgData);
   }
-=======
+
+  /*
     function populateKeywords(err, categories){
         if(err) {console.log(err); res.send(500);}
        
         res.render('newExhibit', {'data': categories, 'newVersion': true});
     }
->>>>>>> 132db9a8675bb3ccc150640100817b138bac8c19
+    */
 }
 
 exports.getLabels = function(req, res) { 
@@ -70,15 +70,15 @@ exports.addExhibit = function(req, res) {
   var username = req.session.username;
 
   console.log("current user: " + username);
-<<<<<<< HEAD
+
   console.log("adding exhibit; form_text is: ");
   console.log(form_text);
   //var form_image = req.files.newImage;
-=======
+/*
   console.log("adding exhibit; form data is: ");
   console.log(form_data);
->>>>>>> 132db9a8675bb3ccc150640100817b138bac8c19
 
+*/
   //get the user to update
   models.User
       .find({"username": username})
@@ -97,7 +97,7 @@ exports.addExhibit = function(req, res) {
         "description": form_data.description,
         //"keywords": new models.Keyword(form_data.keywords)
     });
-<<<<<<< HEAD
+
 
     if (form_text.newImage) {
       newExhibit.imageURL = form_text.newImage;
@@ -137,8 +137,7 @@ exports.addExhibit = function(req, res) {
     }*/
 
 
-=======
->>>>>>> 132db9a8675bb3ccc150640100817b138bac8c19
+
     //newExhibit.id = users[0].exhibits.length + 1;
     newExhibit.save(afterSaving);
 

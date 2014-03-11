@@ -36,7 +36,6 @@ exports.displayPage = function(req, res) { 
         res.render('editExhibit', toPass);
     }
 
-<<<<<<< HEAD
 /*exports.displayPageNew = function(req, res) {
 =======
     
@@ -63,8 +62,7 @@ exports.displayPageNew = function(req, res) { 
     }
 <<<<<<< HEAD
 }*/
-=======
->>>>>>> 132db9a8675bb3ccc150640100817b138bac8c19
+
 
     
  }
@@ -74,7 +72,6 @@ exports.editExhibit = function(req, res) {
   var username = req.session.username;
   
 
-<<<<<<< HEAD
     //update user exhibit
     models.User
         .find({ "username": username })
@@ -132,7 +129,7 @@ exports.editExhibit = function(req, res) {
           if (err) {console.log(err); res.send(500);}
           res.send();
         }
-=======
+/*
   var replacingExhibit = new models.Exhibit(form_data);
   replacingExhibit.id = editID;
   //replacingExhibit.save(afterSaving);
@@ -142,23 +139,23 @@ exports.editExhibit = function(req, res) {
 
   //get the user to update
   models.User
-      .find({"username": username})
+      .find({"username": username})*/
       /*.update({
         "imageURL": replacingExhibit.imageURL,
         "description": replacingExhibit.description,
         "keywords": replacingExhibit.schema
       })*/
-      .exec(updateExhibitForUser);
-
+      //.exec(updateExhibitForUser);
+/*
   function updateExhibitForUser(err, users){
     var userToUpdate = users[0];
-
+*/
 /*
     var newExhibit = new models.Exhibit(form_data);
     //newExhibit.id = users[0].exhibits.length + 1;
     newExhibit.id = req.params.id;
-    newExhibit.save(afterSaving);
-    */
+    newExhibit.save(afterSaving);*/
+/*   
     console.log("exhibits: " + userToUpdate['exhibits']);
     console.log("exhibit to update: " + userToUpdate['exhibits'][editID]);
 
@@ -179,8 +176,8 @@ exports.editExhibit = function(req, res) {
     function afterSaving(err){
       if (err) {console.log(err); res.send(500);}
       res.send();
->>>>>>> 132db9a8675bb3ccc150640100817b138bac8c19
-    }
+
+    }*/
   }
 }
 
