@@ -53,7 +53,7 @@ function drawExhibit() {
 
 	$("#exhibitDescription").css({
 		top: position.top + 50 + canvasRegion.clientHeight - 100,
-		left: position.left + backgroundSplashImage.clientWidth/2 - exhibitImage.clientWidth/2 + canvasRegion.clientWidth + 10
+		left: position.left + backgroundSplashImage.clientWidth/2 - exhibitImage.clientWidth/2 + canvasRegion.clientWidth + 50
 	});
 
 	console.log(exhibitImage.clientHeight + 10);
