@@ -17,7 +17,7 @@ exports.updateProfileInfo = function(req, res){
 	var form_data = req.body;
 	var username = req.session.username;
 	console.log(form_data);
-	//res.redirect("/home");
+
 	models.User
 		.find({"username": username}) //this will eventually find the current user
 		.exec(updateValues);
