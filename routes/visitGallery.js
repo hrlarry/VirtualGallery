@@ -5,7 +5,6 @@ exports.displayPage = function(req, res){
 	//want to display a specific user's gallery
 	var username = req.params.username;
 
-  //res.render('visitGallery', profiles[0].exhibits[0]);
 	models.User
 		.find()
 		.exec(renderProjects)
@@ -25,7 +24,5 @@ exports.displayPage = function(req, res){
 				break;
 			}
 		}
-		console.log("didn't find user " + username);
-		res.redirect('404');
 	}
 }
