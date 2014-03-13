@@ -62,7 +62,6 @@ if ('development' == app.get('env')) {
 }
 
 //routes
-app.get('/allUsers', search.displayUsers); //just to be able to look at the database
 app.get('/', landingPage.load);
 app.get('/searchResults', searchResults.displayPage);
 app.get('/login', login.displayPage);
