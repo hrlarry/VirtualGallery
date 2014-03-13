@@ -14,6 +14,22 @@ exports.displayPage = function(req, res){
 	
 }
 
+exports.displayUsers = function(req, res){
+	models.User
+		.find()
+		.exec(displayAllUsers);
+
+	function displayAllUsers(err, users){
+		if (err) {console.log(err); res.send(500);}
+
+		for (var i = 0; i < users.length; i++){
+			console.log(users[i]);
+		}
+
+		res.render('displayAllUsers', {'users': users});
+	}
+}
+
 
 
 // navigator.geolocation.getCurrentPosition(function(position){
