@@ -16,15 +16,19 @@
 	</center>
 
 	<div class ="box">
-		<h2>People most similar to you</h2>
+		<center>
+			<h2>Check them out!</h2>
+		</center>
 		{{#each users}}
-    	<div>
-    		<a href="visitGallery/{{username}}">
-    			<h3>{{username}}</h3>
-    			<img src="{{exhibits.0.imageURL}}" height=200 width=200> </br>
+	    <div>
+	    	<h3>{{username}}</h3>
+    		<img src="{{exhibits.0.imageURL}}" class="photo">
+	    	<div id="details">
+	    		<a href="visitGallery/{{username}}">Click Here to View My Gallery</a><br>
 	    		Contact information: <br>
-	    		Email: {{email}} <br>
-	    		Phone Number: {{phone}} <br></br>
+		   		Email: <a href="{{email}}">{{email}}</a><br>
+		   		Phone Number: <a href="tel:{{phone}}">{{phone}}</a><br>
+		    	</div>
 	    	</a>
 	    </div>
 	    {{/each}}
