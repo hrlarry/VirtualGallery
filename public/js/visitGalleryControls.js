@@ -96,6 +96,15 @@ function displayNewExhibit(oldID, result) {
 	} else {
 		$('#prevBtn').attr('disabled', false);
 	}
+
+	console.log("@@@@@@@@"+result['last']);
+
+	if(result['last']=="true"){
+		$('#nextBtn').attr('disabled', true);
+	} else {
+		$('#nextBtn').attr('disabled', false);
+	}
+
 	$("#exhibit" + oldID).attr('id', "exhibit" + result.id);
 	$("#exhibit" + result.id).html('<img src="'+result['imageURL']+'" id="exhibitImage" class="exhibitImage"></img>');
 	$('#exhibitDescription').popover('hide');

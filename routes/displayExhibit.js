@@ -26,7 +26,19 @@ exports.exhibitInfo = function(req, res) {
 			if (users[i].username == username){
 				console.log("found appropriate user");
 				//display this user's exhibit
-				res.json(users[i].exhibits[exhibitID-1]);
+				var exhibitToShow = users[i].exhibits[exhibitID-1].toObject();
+				
+				if(users[i].exhibits.length == exhibitID){
+					//exhibitToShow.set('last', 'true');
+					exhibitToShow['last'] = "true";
+					console.log(exhibitToShow);
+				} else {
+					//exhibitToShow.set('last', 'false');
+					exhibitToShow['last'] = "false";
+				}
+				console.log(exhibitToShow);
+				//res.json(users[i].exhibits[exhibitID-1]);
+				res.json(exhibitToShow);
 				break;
 				
 			}
